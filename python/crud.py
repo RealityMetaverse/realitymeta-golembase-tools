@@ -71,4 +71,6 @@ async def crud_example():
     )])
     print(f"Receipt: {receipt}")
 
+    await golem_base_client.disconnect()
+
 asyncio.run(crud_example())
