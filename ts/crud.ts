@@ -4,11 +4,16 @@ import { randomUUID } from 'crypto'
 const key: AccountData = new Tagged(
     "privatekey", 
     Buffer.from('<YOUR_PRIVATE_KEY>', 'hex')
-)
-const chainId = 60138453025
-const rpcUrl = "https://kaolin.holesky.golemdb.io/rpc"
-const wsUrl = "wss://kaolin.holesky.golemdb.io/rpc/ws"
+)  // TODO: replace with your private key, this variable will be used in the mutations operations
+const chainId = 60138453025  // ID of the chain of our public testnet - Kaolin
+const rpcUrl = "https://kaolin.holesky.golemdb.io/rpc"  // RPC URL of the chain
+const wsUrl = "wss://kaolin.holesky.golemdb.io/rpc/ws"  // WebSocket URL of the chain
 
+// TextEncoder and TextDecoder are used to encode and decode data from text into bytes and vice versa
+const encoder = new TextEncoder()
+const decoder = new TextDecoder()
+
+// Create a client to interact with the GolemDB API
 const client = await createClient(
     chainId,
     key,
@@ -16,6 +21,7 @@ const client = await createClient(
     wsUrl,
 );
 
+// Watch for logs on the chain
 const unsubscribe = client.watchLogs({
     fromBlock: BigInt(await client.getRawClient().httpClient.getBlockNumber()),
     onCreated: (args) => {
@@ -37,10 +43,7 @@ const unsubscribe = client.watchLogs({
     transport: "websocket",
 })
 
-const encoder = new TextEncoder()
-const decoder = new TextDecoder()
-
-// create a new entity with annotations
+// Create a new entity with annotations
 const id = randomUUID()
 const creates = [
     {
@@ -53,7 +56,7 @@ const creates = [
 const createReceipt = await client.createEntities(creates);
 console.log('Receipt', createReceipt)
 
-// query the entity by annotations
+// Query the entity by annotations
 let entities = await client.queryEntities(`id = "${id}" && version = 1`)
 let entityKey: `0x${string}` | null = null
 for (const entity of entities) {
@@ -61,7 +64,7 @@ for (const entity of entities) {
     entityKey = entity.entityKey
 }
 
-// update the entity
+// Update the entity
 const updateReceipt = await client.updateEntities([{
     entityKey: createReceipt[0].entityKey,
     data: encoder.encode("Updated entity"),
@@ -71,11 +74,11 @@ const updateReceipt = await client.updateEntities([{
 } as GolemBaseUpdate])
 console.log('Update', updateReceipt)
 
-// query the entity by annotations
+// Query the entity by annotations
 entities = await client.queryEntities(`id = "${id}" && version = 2`)
 console.log('Entities', entities)
 
-// delete the entity
+// Delete the entity
 const deleteReceipt = await client.deleteEntities([entityKey as `0x${string}`])
 console.log('Delete', deleteReceipt)
 

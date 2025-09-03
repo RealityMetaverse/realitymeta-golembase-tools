@@ -8,6 +8,7 @@ GOLEM_DB_WSS = "wss://kaolin.holesky.golemdb.io/rpc/ws"
 PRIVATE_KEY = "<YOUR_PRIVATE_KEY>"
 
 async def crud_example():
+    # Create a client to interact with the GolemDB API
     golem_base_client = await GolemBaseClient.create(
         rpc_url=GOLEM_DB_RPC,
         ws_url=GOLEM_DB_WSS,
@@ -23,7 +24,7 @@ async def crud_example():
         extend_callback=lambda extend: print(f"WATCH-> Extend: {extend}"),
     )
 
-    # create a new entity with annotations
+    # Create a new entity with annotations
     id = str(uuid.uuid4())
     receipt = await golem_base_client.create_entities([GolemBaseCreate(
         b'Test entity',
@@ -38,12 +39,12 @@ async def crud_example():
     )])
     print(f"Receipt: {receipt}")
 
-    # query the entity by annotations
+    # Query the entity by annotations
     entities = await golem_base_client.query_entities(f'id = "{id}" && version = 1')
     for entity in entities:
         print(f"Entity: {entity}")
     
-    # update the entity
+    # Update the entity
     receipt = await golem_base_client.update_entities([GolemBaseUpdate(
         receipt[0].entity_key,
         b'Updated entity',
@@ -57,7 +58,7 @@ async def crud_example():
     )])
     print(f"Receipt: {receipt}")
 
-    # query updated entity by annotations
+    # Query updated entity by annotations
     entity_key = None
     entities = await golem_base_client.query_entities(f'id = "{id}" && version = 2')
     for entity in entities:
@@ -65,7 +66,7 @@ async def crud_example():
         # we can also obtain the entity key from the entity object
         entity_key = entity.entity_key
 
-    # remove the entity
+    # Remove the entity
     receipt = await golem_base_client.delete_entities([GolemBaseDelete(
         GenericBytes.from_hex_string(entity_key),
     )])
