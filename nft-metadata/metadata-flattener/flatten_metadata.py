@@ -99,12 +99,6 @@ def extract_filename_from_url(url: str) -> str:
     """
     Extract filename from URL by taking the part after the last '/' 
     and removing the file extension.
-    
-    Args:
-        url: The URL string to extract filename from
-        
-    Returns:
-        Filename without extension, or empty string if invalid
     """
     if not isinstance(url, str) or not url.strip():
         return ""
@@ -124,11 +118,6 @@ def check_media_url_match(url: str, metadata_name: str, field_name: str) -> None
     """
     Check if the filename extracted from URL matches the metadata name.
     If it doesn't match, the NFT is using a default/generic media file.
-    
-    Args:
-        url: The media URL to check
-        metadata_name: The metadata filename (with .json extension)
-        field_name: Name of the field being checked ('image', 'animation_url', or 'external_url')
     """
     global default_image_count, default_animation_url_count, default_external_url_count
     global default_image_nfts, default_animation_url_nfts, default_external_url_nfts
@@ -151,12 +140,6 @@ def generate_content_hash(data: Dict[str, Any]) -> str:
     """
     Generate a SHA-256 hash from the keys and values of the data dictionary.
     This creates a deterministic hash that can be used to detect data changes.
-    
-    Args:
-        data: Dictionary containing the flattened metadata (values are int or str only)
-        
-    Returns:
-        Hexadecimal string representation of the SHA-256 hash
     """
     # Sort keys for deterministic hashing
     sorted_items = sorted(data.items())
@@ -308,7 +291,7 @@ def write_json(path: Path, data: Dict[str, Any]) -> None:
 def main():
     ap = argparse.ArgumentParser(description="Flatten metadata JSON files.")
     ap.add_argument("--in", dest="in_dir", default="metadatas", help="Input directory with *.json (default: metadatas)")
-    ap.add_argument("--out", dest="out_dir", default="metadatas_flattened", help="Output directory (default: metadatas_flattened)")
+    ap.add_argument("--out", dest="out_dir", default="metadatas-flattened", help="Output directory (default: metadatas-flattened)")
     ap.add_argument("--attr-prefix", default="attr_", help="Prefix for attribute fields (default: attr_)")
     ap.add_argument("--clean-out-dir", "-cod", action="store_true", help="Clean output directory before processing")
     args = ap.parse_args()

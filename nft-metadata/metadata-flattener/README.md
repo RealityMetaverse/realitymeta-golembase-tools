@@ -13,7 +13,7 @@ Flatten NFT metadata files by converting nested attributes to flat fields.
 ## Usage
 
 ```bash
-# Uses default directories: metadatas -> metadatas_flattened
+# Uses default directories: metadatas -> metadatas-flattened
 python flatten_metadata.py
 
 # Custom directories

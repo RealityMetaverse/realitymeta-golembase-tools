@@ -1,1 +1,0 @@
-# golemdb-sdk-demos
