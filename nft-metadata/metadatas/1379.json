@@ -1,0 +1,49 @@
+{
+    "name": "New Delhi Railway Station",
+    "description": "New Delhi Railway Station",
+    "image": "https://assets.r5y.io/lgo-live/images/1379.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1379.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1379",
+    "shares": 1150,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1379"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "28.642028"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "77.22"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IN"
+        },
+        {
+            "trait_type": "street",
+            "value": "Paharganj-Ajmeri Gate"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "New Delhi"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "India"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

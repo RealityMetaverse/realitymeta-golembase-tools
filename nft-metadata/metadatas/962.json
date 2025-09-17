@@ -1,0 +1,45 @@
+{
+    "name": "Kansas City",
+    "description": "Kansas City",
+    "image": "https://assets.r5y.io/lgo-live/images/962.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/962.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/962",
+    "shares": 2800,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "962"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "39.100105"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-94.5781416"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "US"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Kansas City"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United States"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

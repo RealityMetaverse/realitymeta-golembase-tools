@@ -1,0 +1,49 @@
+{
+    "name": "Sumela Monastery",
+    "description": "Sumela Monastery",
+    "image": "https://assets.r5y.io/lgo-live/images/1903.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1903.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1903",
+    "shares": 875,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1903"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "40.69014"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "39.6584"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "TR"
+        },
+        {
+            "trait_type": "street",
+            "value": "Altındere Milli Parkı"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Maçka"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Turkey"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

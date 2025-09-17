@@ -1,0 +1,45 @@
+{
+    "name": "Athens",
+    "description": "Athens",
+    "image": "https://assets.r5y.io/lgo-live/images/128.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/128.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/128",
+    "shares": 2500,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "128"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "37.99085805"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "23.741474247371166"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "GR"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Athens"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Greece"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

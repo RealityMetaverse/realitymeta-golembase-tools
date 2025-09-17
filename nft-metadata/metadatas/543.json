@@ -1,0 +1,49 @@
+{
+    "name": "De Haar Castle",
+    "description": "De Haar Castle",
+    "image": "https://assets.r5y.io/lgo-live/images/543.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/543.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/543",
+    "shares": 1200,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "543"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "52.121403"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "4.98626"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "NL"
+        },
+        {
+            "trait_type": "street",
+            "value": "Kasteellaan 1"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Haarzuilens"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Netherlands"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

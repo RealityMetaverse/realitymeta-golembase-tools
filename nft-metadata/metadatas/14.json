@@ -1,0 +1,45 @@
+{
+    "name": "Abu Dhabi",
+    "description": "Abu Dhabi",
+    "image": "https://assets.r5y.io/lgo-live/images/14.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/14.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/14",
+    "shares": 1375,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "14"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "24.4538352"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "54.3774014"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "AE"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Abu Dhabi"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United Arab Emirates"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

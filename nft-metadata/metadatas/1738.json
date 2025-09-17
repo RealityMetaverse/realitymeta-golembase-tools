@@ -1,0 +1,45 @@
+{
+    "name": "Santiago",
+    "description": "Santiago",
+    "image": "https://assets.r5y.io/lgo-live/images/1738.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1738.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1738",
+    "shares": 900,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1738"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-33.3622604"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-70.5019105931411"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "CL"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Santiago"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Chile"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

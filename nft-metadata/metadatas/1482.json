@@ -1,0 +1,49 @@
+{
+    "name": "Palace of the Nation",
+    "description": "Palace of the Nation",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_parliament.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1482",
+    "shares": 1200,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1482"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "50.84689"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "4.36484"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "parliament"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "BE"
+        },
+        {
+            "trait_type": "street",
+            "value": "Natieplein 1 Place de la Nation"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Brussels"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Belgium"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

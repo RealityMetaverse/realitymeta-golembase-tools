@@ -1,0 +1,45 @@
+{
+    "name": "Ho Chi Minh City",
+    "description": "Ho Chi Minh City",
+    "image": "https://assets.r5y.io/lgo-live/images/838.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/838.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/838",
+    "shares": 850,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "838"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "10.7763897"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "106.7011391"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "VN"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Ho Chi Minh City"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Vietnam"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

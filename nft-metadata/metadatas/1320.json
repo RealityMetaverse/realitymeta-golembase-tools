@@ -1,0 +1,49 @@
+{
+    "name": "Mystetskyi Arsenal",
+    "description": "Mystetskyi Arsenal",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1320",
+    "shares": 525,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1320"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "50.4342"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "30.55355"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "UA"
+        },
+        {
+            "trait_type": "street",
+            "value": "вул. Лаврська, 10-12"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Kiev"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Ukraine"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Hagia Sophia",
+    "description": "Hagia Sophia",
+    "image": "https://assets.r5y.io/lgo-live/images/793.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/793.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/793",
+    "shares": 1375,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "793"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "41.0085"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "28.98"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "TR"
+        },
+        {
+            "trait_type": "street",
+            "value": "Ayasofya Meydanı, Sultanahmet"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Fatih"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Turkey"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

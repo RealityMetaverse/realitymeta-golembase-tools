@@ -1,0 +1,49 @@
+{
+    "name": "Albion Bank",
+    "description": "Albion Bank",
+    "image": "https://assets.r5y.io/lgo-live/images/185.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/185.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_hq.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/185",
+    "shares": 4200,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "185"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "51.51428"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-0.08843"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "hq"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "GB"
+        },
+        {
+            "trait_type": "street",
+            "value": "Threadneedle St"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "London"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United Kingdom"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

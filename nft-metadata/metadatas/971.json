@@ -1,0 +1,41 @@
+{
+    "name": "Kazakhstan",
+    "description": "Kazakhstan",
+    "image": "https://assets.r5y.io/lgo-live/images/971.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/971.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/971",
+    "shares": 975,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "971"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "48.1012954"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "66.7780818"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "KZ"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Kazakhstan"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

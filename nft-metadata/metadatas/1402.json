@@ -1,0 +1,49 @@
+{
+    "name": "Nine Arches Bridge",
+    "description": "Nine Arches Bridge",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1402",
+    "shares": 550,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1402"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "6.8769"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "81.06083"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "LK"
+        },
+        {
+            "trait_type": "street",
+            "value": "Badulla - Colombo Railway"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Demodara"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Sri Lanka"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

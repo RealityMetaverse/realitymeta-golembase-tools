@@ -1,0 +1,41 @@
+{
+    "name": "Yemen",
+    "description": "Yemen",
+    "image": "https://assets.r5y.io/lgo-live/images/2281.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2281.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2281",
+    "shares": 625,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2281"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "16.3471243"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "47.8915271"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "YE"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Yemen"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

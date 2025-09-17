@@ -1,0 +1,41 @@
+{
+    "name": "São Tomé and Príncipe",
+    "description": "São Tomé and Príncipe",
+    "image": "https://assets.r5y.io/lgo-live/images/1747.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1747.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1747",
+    "shares": 2000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1747"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": 0.2394428724826282
+        },
+        {
+            "trait_type": "location_lon",
+            "value": 6.578571656947493
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "ST"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "São Tomé and Príncipe"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Palace of Fine Arts",
+    "description": "Palace of Fine Arts",
+    "image": "https://assets.r5y.io/lgo-live/images/1480.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1480.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1480",
+    "shares": 875,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1480"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "19.4355"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-99.14125"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "MX"
+        },
+        {
+            "trait_type": "street",
+            "value": "Av. Juárez s/n"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Mexico City"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Mexico"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Castillo de San Marcos",
+    "description": "Castillo de San Marcos",
+    "image": "https://assets.r5y.io/lgo-live/images/375.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/375.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/375",
+    "shares": 1275,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "375"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "29.89783"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-81.31151"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "US"
+        },
+        {
+            "trait_type": "street",
+            "value": "1 S Castillo Dr"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "St. Augustine"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United States"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

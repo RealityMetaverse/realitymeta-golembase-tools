@@ -1,0 +1,45 @@
+{
+    "name": "Tel Aviv",
+    "description": "Tel Aviv",
+    "image": "https://assets.r5y.io/lgo-live/images/1971.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1971.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1971",
+    "shares": 1150,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1971"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "32.0852997"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "34.7818064"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IL"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Tel Aviv"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Israel"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Armenia",
+    "description": "Armenia",
+    "image": "https://assets.r5y.io/lgo-live/images/111.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/111.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/111",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "111"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "40.7696272"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "44.6736646"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "AM"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Armenia"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

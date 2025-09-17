@@ -1,0 +1,42 @@
+{
+  "name": "Statue of Liberty",
+  "description": "Statue of Liberty",
+  "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+  "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+  "markerUrl": "https://assets.r5y.io/lgo-live/icons/markers/default.png",
+  "external_url": "https://realitymeta.io/home/offers/preview/1886",
+  "decimals": 0,
+  "shares": 25504,
+  "nftValue": 71000,
+  "attributes": [
+    {
+      "trait_type": "_id",
+      "value": "1886"
+    },
+    {
+      "trait_type": "location_lat",
+      "value": "40.68926"
+    },
+    {
+      "trait_type": "location_lon",
+      "value": "-74.04453"
+    },
+    {
+      "trait_type": "type",
+      "value": "building"
+    },
+    {
+      "trait_type": "category",
+      "value": "tourist attraction"
+    },
+    {
+      "trait_type": "tier",
+      "value": 1
+    },
+    {
+      "trait_type": "country_code",
+      "value": "US"
+    }
+  ],
+  "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

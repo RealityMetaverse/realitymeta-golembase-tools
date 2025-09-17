@@ -1,0 +1,41 @@
+{
+  "name": "Cooperation Sea",
+  "description": "Cooperation Sea",
+  "image": "https://assets.r5y.io/lgo-live/images/4761.jpg",
+  "animation_url": "https://assets.r5y.io/lgo-live/animations/4761.mp4",
+  "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_sea.png",
+  "external_url": "https://realitymeta.io/home/trades/preview/4761",
+  "shares": 2900,
+  "nftValue": 1,
+  "attributes": [
+    {
+      "trait_type": "_id",
+      "value": "4761"
+    },
+    {
+      "trait_type": "location_lat",
+      "value": "-63.07788045175114"
+    },
+    {
+      "trait_type": "location_lon",
+      "value": "71.09529217144322"
+    },
+    {
+      "trait_type": "type",
+      "value": "sea"
+    },
+    {
+      "trait_type": "category",
+      "value": "sea"
+    },
+    {
+      "trait_type": "country_code",
+      "value": "WW"
+    },
+    {
+      "trait_type": "country_name",
+      "value": "World"
+    }
+  ],
+  "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Riiser-Larsen Sea",
+  "description": "Riiser-Larsen Sea",
+  "image": "https://assets.r5y.io/lgo-live/images/4721.jpg",
+  "animation_url": "https://assets.r5y.io/lgo-live/animations/4721.mp4",
+  "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_sea.png",
+  "external_url": "https://realitymeta.io/home/trades/preview/4721",
+  "shares": 3500,
+  "nftValue": 1,
+  "attributes": [
+    {
+      "trait_type": "_id",
+      "value": "4721"
+    },
+    {
+      "trait_type": "location_lat",
+      "value": "-62.619167225156424"
+    },
+    {
+      "trait_type": "location_lon",
+      "value": "26.666099667139378"
+    },
+    {
+      "trait_type": "type",
+      "value": "sea"
+    },
+    {
+      "trait_type": "category",
+      "value": "sea"
+    },
+    {
+      "trait_type": "country_code",
+      "value": "WW"
+    },
+    {
+      "trait_type": "country_name",
+      "value": "World"
+    }
+  ],
+  "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

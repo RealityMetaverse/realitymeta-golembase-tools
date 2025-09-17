@@ -1,0 +1,41 @@
+{
+    "name": "Liechtenstein",
+    "description": "Liechtenstein",
+    "image": "https://assets.r5y.io/lgo-live/images/656.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/656.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/656",
+    "shares": 950,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "656"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "47.1416307"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "9.5531527"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "LI"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Liechtenstein"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

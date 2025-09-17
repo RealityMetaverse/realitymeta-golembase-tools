@@ -1,0 +1,49 @@
+{
+    "name": "Carcassonne Citadel",
+    "description": "Carcassonne Citadel",
+    "image": "https://assets.r5y.io/lgo-live/images/362.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/362.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/362",
+    "shares": 2750,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "362"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "43.20658"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "2.364"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FR"
+        },
+        {
+            "trait_type": "street",
+            "value": "Cité médiévale de Carcassonne"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Carcassonne"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "France"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

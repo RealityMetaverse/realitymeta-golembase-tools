@@ -1,0 +1,49 @@
+{
+    "name": "Grand Palais",
+    "description": "Grand Palais",
+    "image": "https://assets.r5y.io/lgo-live/images/763.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/images/763.jpg",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/763",
+    "shares": 2800,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "763"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "48.86626433944173"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "2.3124973134551245"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "building"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FR"
+        },
+        {
+            "trait_type": "street",
+            "value": "75008 Paris"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Paris"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "France"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Trinidad and Tobago",
+    "description": "Trinidad and Tobago",
+    "image": "https://assets.r5y.io/lgo-live/images/2101.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2101.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2101",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2101"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "10.7466905"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-61.0840075"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "TT"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Trinidad and Tobago"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

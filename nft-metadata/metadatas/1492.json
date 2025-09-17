@@ -1,0 +1,49 @@
+{
+    "name": "Panthéon",
+    "description": "Panthéon",
+    "image": "https://assets.r5y.io/lgo-live/images/1492.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1492.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1492",
+    "shares": 2250,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1492"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "48.84622"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "2.34605"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FR"
+        },
+        {
+            "trait_type": "street",
+            "value": "Place du Panthéon"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Paris"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "France"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

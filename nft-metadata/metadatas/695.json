@@ -1,0 +1,49 @@
+{
+    "name": "Frederiksborg Palace",
+    "description": "Frederiksborg Palace",
+    "image": "https://assets.r5y.io/lgo-live/images/695.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/695.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/695",
+    "shares": 1125,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "695"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "55.93494"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "12.301179"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "DK"
+        },
+        {
+            "trait_type": "street",
+            "value": "Møntportvejen 10"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Hillerod"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Denmark"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

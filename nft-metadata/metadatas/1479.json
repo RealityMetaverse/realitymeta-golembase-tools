@@ -1,0 +1,49 @@
+{
+    "name": "Palace of Culture and Science",
+    "description": "Palace of Culture and Science",
+    "image": "https://assets.r5y.io/lgo-live/images/1479.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1479.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_building.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1479",
+    "shares": 1425,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1479"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "52.23176"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "21.00617"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "building"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PL"
+        },
+        {
+            "trait_type": "street",
+            "value": "Pl. Defilad 1"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Warsaw"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Poland"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

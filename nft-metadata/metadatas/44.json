@@ -1,0 +1,49 @@
+{
+    "name": "Ales Stenar",
+    "description": "Ales Stenar",
+    "image": "https://assets.r5y.io/lgo-live/images/44.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/44.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/44",
+    "shares": 1325,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "44"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "55.382658"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "14.054394"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "SE"
+        },
+        {
+            "trait_type": "street",
+            "value": "Kåseberga, Sweden"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Kaseberga"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Sweden"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

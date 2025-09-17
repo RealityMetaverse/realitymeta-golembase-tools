@@ -1,0 +1,49 @@
+{
+    "name": "Heidelberg Palace",
+    "description": "Heidelberg Palace",
+    "image": "https://assets.r5y.io/lgo-live/images/819.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/819.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/819",
+    "shares": 1300,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "819"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "49.410603"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "8.71509"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "DE"
+        },
+        {
+            "trait_type": "street",
+            "value": "Schlosshof 1"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Heidelberg"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Germany"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

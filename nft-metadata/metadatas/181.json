@@ -1,0 +1,49 @@
+{
+    "name": "SEC",
+    "description": "SEC",
+    "image": "https://assets.r5y.io/lgo-live/images/181.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/181.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_famous_building.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/181",
+    "shares": 15000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "181"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "38.89847"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-77.0042"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "famous building"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "US"
+        },
+        {
+            "trait_type": "street",
+            "value": "100 N Tryon St"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Charlotte"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United States"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

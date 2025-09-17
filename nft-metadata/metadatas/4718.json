@@ -1,0 +1,41 @@
+{
+  "name": "Greenland Sea",
+  "description": "Greenland Sea",
+  "image": "https://assets.r5y.io/lgo-live/images/4718.jpg",
+  "animation_url": "https://assets.r5y.io/lgo-live/animations/4718.mp4",
+  "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_sea.png",
+  "external_url": "https://realitymeta.io/home/trades/preview/4718",
+  "shares": 5600,
+  "nftValue": 1,
+  "attributes": [
+    {
+      "trait_type": "_id",
+      "value": "4718"
+    },
+    {
+      "trait_type": "location_lat",
+      "value": "74.23534822784328"
+    },
+    {
+      "trait_type": "location_lon",
+      "value": "-6.990087958624218"
+    },
+    {
+      "trait_type": "type",
+      "value": "sea"
+    },
+    {
+      "trait_type": "category",
+      "value": "sea"
+    },
+    {
+      "trait_type": "country_code",
+      "value": "WW"
+    },
+    {
+      "trait_type": "country_name",
+      "value": "World"
+    }
+  ],
+  "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

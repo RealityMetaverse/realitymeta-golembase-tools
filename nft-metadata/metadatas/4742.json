@@ -1,0 +1,41 @@
+{
+  "name": "North Sea",
+  "description": "North Sea",
+  "image": "https://assets.r5y.io/lgo-live/images/4742.jpg",
+  "animation_url": "https://assets.r5y.io/lgo-live/animations/4742.mp4",
+  "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_sea.png",
+  "external_url": "https://realitymeta.io/home/trades/preview/4742",
+  "shares": 9700,
+  "nftValue": 1,
+  "attributes": [
+    {
+      "trait_type": "_id",
+      "value": "4742"
+    },
+    {
+      "trait_type": "location_lat",
+      "value": "56.33483227953881"
+    },
+    {
+      "trait_type": "location_lon",
+      "value": "2.7871274713263308"
+    },
+    {
+      "trait_type": "type",
+      "value": "sea"
+    },
+    {
+      "trait_type": "category",
+      "value": "sea"
+    },
+    {
+      "trait_type": "country_code",
+      "value": "WW"
+    },
+    {
+      "trait_type": "country_name",
+      "value": "World"
+    }
+  ],
+  "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

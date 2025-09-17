@@ -1,0 +1,49 @@
+{
+    "name": "Alcatraz Island",
+    "description": "Alcatraz Island",
+    "image": "https://assets.r5y.io/lgo-live/images/43.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/43.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/43",
+    "shares": 2000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "43"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "37.82661"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-122.4228"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "US"
+        },
+        {
+            "trait_type": "street",
+            "value": "Golden Gate National Recreation Area"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "San Francisco"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United States"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

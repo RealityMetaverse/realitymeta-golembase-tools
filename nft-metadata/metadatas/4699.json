@@ -1,0 +1,41 @@
+{
+  "name": "Coral Sea",
+  "description": "Coral Sea",
+  "image": "https://assets.r5y.io/lgo-live/images/4699.jpg",
+  "animation_url": "https://assets.r5y.io/lgo-live/animations/4699.mp4",
+  "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_sea.png",
+  "external_url": "https://realitymeta.io/home/trades/preview/4699",
+  "shares": 8000,
+  "nftValue": 1,
+  "attributes": [
+    {
+      "trait_type": "_id",
+      "value": "4699"
+    },
+    {
+      "trait_type": "location_lat",
+      "value": "-22.86886624188099"
+    },
+    {
+      "trait_type": "location_lon",
+      "value": "159.5666638894675"
+    },
+    {
+      "trait_type": "type",
+      "value": "sea"
+    },
+    {
+      "trait_type": "category",
+      "value": "sea"
+    },
+    {
+      "trait_type": "country_code",
+      "value": "WW"
+    },
+    {
+      "trait_type": "country_name",
+      "value": "World"
+    }
+  ],
+  "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

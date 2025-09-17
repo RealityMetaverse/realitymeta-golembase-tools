@@ -1,0 +1,45 @@
+{
+    "name": "Rio De Janeiro",
+    "description": "Rio De Janeiro",
+    "image": "https://assets.r5y.io/lgo-live/images/1652.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1652.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1652",
+    "shares": 2050,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1652"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-22.9110137"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-43.2093727"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "BR"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Rio De Janeiro"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Brazil"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

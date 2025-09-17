@@ -1,0 +1,49 @@
+{
+    "name": "Wrocław Main Railway Station",
+    "description": "Wrocław Main Railway Station",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2267",
+    "shares": 700,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2267"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "51.09816"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "17.03768"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PL"
+        },
+        {
+            "trait_type": "street",
+            "value": "Piłsudskiego 105"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Wrocław"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Poland"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

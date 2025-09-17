@@ -1,0 +1,41 @@
+{
+    "name": "Venezuela",
+    "description": "Venezuela",
+    "image": "https://assets.r5y.io/lgo-live/images/2174.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2174.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2174",
+    "shares": 975,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2174"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "8.0018709"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-66.1109318"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "VE"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Venezuela"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

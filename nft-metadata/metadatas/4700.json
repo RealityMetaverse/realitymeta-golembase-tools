@@ -1,0 +1,41 @@
+{
+  "name": "American Mediterranean Sea",
+  "description": "American Mediterranean Sea",
+  "image": "https://assets.r5y.io/lgo-live/images/4700.jpg",
+  "animation_url": "https://assets.r5y.io/lgo-live/animations/4700.mp4",
+  "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_sea.png",
+  "external_url": "https://realitymeta.io/home/trades/preview/4700",
+  "shares": 5800,
+  "nftValue": 1,
+  "attributes": [
+    {
+      "trait_type": "_id",
+      "value": "4700"
+    },
+    {
+      "trait_type": "location_lat",
+      "value": "19.067649947982268"
+    },
+    {
+      "trait_type": "location_lon",
+      "value": "-81.12552722432713"
+    },
+    {
+      "trait_type": "type",
+      "value": "sea"
+    },
+    {
+      "trait_type": "category",
+      "value": "sea"
+    },
+    {
+      "trait_type": "country_code",
+      "value": "WW"
+    },
+    {
+      "trait_type": "country_name",
+      "value": "World"
+    }
+  ],
+  "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

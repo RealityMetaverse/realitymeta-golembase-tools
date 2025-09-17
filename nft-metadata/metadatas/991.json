@@ -1,0 +1,49 @@
+{
+    "name": "Kilkenny Castle",
+    "description": "Kilkenny Castle",
+    "image": "https://assets.r5y.io/lgo-live/images/991.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/991.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/991",
+    "shares": 825,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "991"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "52.650359"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-7.24908"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IE"
+        },
+        {
+            "trait_type": "street",
+            "value": "Caisleán Chill Chainnigh"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Kilkenny"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Ireland"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

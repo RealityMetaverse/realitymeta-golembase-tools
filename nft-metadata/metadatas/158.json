@@ -1,0 +1,49 @@
+{
+    "name": "Baha'i Gardens",
+    "description": "Baha'i Gardens",
+    "image": "https://assets.r5y.io/lgo-live/images/158.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/158.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/158",
+    "shares": 1250,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "158"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "32.81453"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "34.98715"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IL"
+        },
+        {
+            "trait_type": "street",
+            "value": "45 Yefe Nof St."
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Haifa"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Israel"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

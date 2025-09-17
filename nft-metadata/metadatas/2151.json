@@ -1,0 +1,41 @@
+{
+    "name": "Uruguay",
+    "description": "Uruguay",
+    "image": "https://assets.r5y.io/lgo-live/images/2151.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2151.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2151",
+    "shares": 750,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2151"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-32.8755548"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-56.0201525"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "UY"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Uruguay"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

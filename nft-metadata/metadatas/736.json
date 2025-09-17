@@ -1,0 +1,41 @@
+{
+    "name": "Germany",
+    "description": "Germany",
+    "image": "https://assets.r5y.io/lgo-live/images/736.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/736.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/736",
+    "shares": 7500,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "736"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "51.1638175"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "10.4478313"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "DE"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Germany"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

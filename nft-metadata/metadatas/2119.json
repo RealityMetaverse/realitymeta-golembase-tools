@@ -1,0 +1,41 @@
+{
+    "name": "Tuvalu",
+    "description": "Tuvalu",
+    "image": "https://assets.r5y.io/lgo-live/images/2119.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2119.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2119",
+    "shares": 2000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2119"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": -8.529163613600703
+        },
+        {
+            "trait_type": "location_lon",
+            "value": 179.24944619422791
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "TV"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Tuvalu"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

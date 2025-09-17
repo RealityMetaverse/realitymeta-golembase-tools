@@ -1,0 +1,42 @@
+{
+  "name": "Mt. Fuji",
+  "description": "Mt. Fuji",
+  "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+  "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+  "markerUrl": "https://assets.r5y.io/lgo-live/icons/markers/default.png",
+  "external_url": "https://realitymeta.io/home/offers/preview/1296",
+  "decimals": 0,
+  "shares": 2109,
+  "nftValue": 71000,
+  "attributes": [
+    {
+      "trait_type": "_id",
+      "value": "1296"
+    },
+    {
+      "trait_type": "location_lat",
+      "value": "35.362231"
+    },
+    {
+      "trait_type": "location_lon",
+      "value": "138.730337"
+    },
+    {
+      "trait_type": "type",
+      "value": "building"
+    },
+    {
+      "trait_type": "category",
+      "value": "tourist attraction"
+    },
+    {
+      "trait_type": "tier",
+      "value": 1
+    },
+    {
+      "trait_type": "country_code",
+      "value": "JP"
+    }
+  ],
+  "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

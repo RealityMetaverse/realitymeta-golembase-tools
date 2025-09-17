@@ -1,0 +1,45 @@
+{
+    "name": "Belgrade",
+    "description": "Belgrade",
+    "image": "https://assets.r5y.io/lgo-live/images/234.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/234.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/234",
+    "shares": 725,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "234"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "44.81533175"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "20.44565876787006"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "RS"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Belgrade"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Serbia"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

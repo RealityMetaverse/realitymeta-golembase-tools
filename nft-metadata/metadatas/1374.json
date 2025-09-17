@@ -1,0 +1,49 @@
+{
+    "name": "Neuschwanstein Castle",
+    "description": "Neuschwanstein Castle",
+    "image": "https://assets.r5y.io/lgo-live/images/1374.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1374.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1374",
+    "shares": 2950,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1374"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "47.55747"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "10.74934"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "DE"
+        },
+        {
+            "trait_type": "street",
+            "value": "Neuschwansteinstr. 20"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Hohenschwangau"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Germany"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Prague Main Railway Station",
+    "description": "Prague Main Railway Station",
+    "image": "https://assets.r5y.io/lgo-live/images/1595.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1595.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1595",
+    "shares": 725,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1595"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "50.08309"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "14.43585"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "CZ"
+        },
+        {
+            "trait_type": "street",
+            "value": "Wilsonova 300/8"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Prague"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Czech Republic"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

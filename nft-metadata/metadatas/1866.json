@@ -1,0 +1,49 @@
+{
+    "name": "St. Benedict Railway Station",
+    "description": "St. Benedict Railway Station",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1866",
+    "shares": 850,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1866"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "41.14544"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-8.6093"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PT"
+        },
+        {
+            "trait_type": "street",
+            "value": "Pç. Almeida Garrett"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Porto"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Portugal"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

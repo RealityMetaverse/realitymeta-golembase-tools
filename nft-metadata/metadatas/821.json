@@ -1,0 +1,45 @@
+{
+    "name": "Helsinki",
+    "description": "Helsinki",
+    "image": "https://assets.r5y.io/lgo-live/images/821.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/821.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/821",
+    "shares": 1425,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "821"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "60.1674881"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "24.9427473"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FI"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Helsinki"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Finland"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

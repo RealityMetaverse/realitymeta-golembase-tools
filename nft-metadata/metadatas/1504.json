@@ -1,0 +1,49 @@
+{
+    "name": "Paris Nord Railway Station",
+    "description": "Paris Nord Railway Station",
+    "image": "https://assets.r5y.io/lgo-live/images/1504.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1504.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1504",
+    "shares": 2600,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1504"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "48.8801"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "2.3549"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FR"
+        },
+        {
+            "trait_type": "street",
+            "value": "18 Rue de Dunkerque"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Paris"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "France"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

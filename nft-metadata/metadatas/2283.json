@@ -1,0 +1,45 @@
+{
+    "name": "Yerevan",
+    "description": "Yerevan",
+    "image": "https://assets.r5y.io/lgo-live/images/2283.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2283.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2283",
+    "shares": 600,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2283"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "40.1777112"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "44.5126233"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "AM"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Yerevan"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Armenia"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

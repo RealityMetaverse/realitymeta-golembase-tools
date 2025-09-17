@@ -1,0 +1,49 @@
+{
+    "name": "Ford's Theatre",
+    "description": "Ford's Theatre",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/674",
+    "shares": 1250,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "674"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "38.89668"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-77.02563"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "US"
+        },
+        {
+            "trait_type": "street",
+            "value": "511 10th St NW"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Washington"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United States"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

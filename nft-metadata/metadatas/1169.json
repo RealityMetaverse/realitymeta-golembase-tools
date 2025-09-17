@@ -1,0 +1,49 @@
+{
+    "name": "Magellan's Cross",
+    "description": "Magellan's Cross",
+    "image": "https://assets.r5y.io/lgo-live/images/1169.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1169.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1169",
+    "shares": 550,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1169"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "10.293553"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "123.901931"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PH"
+        },
+        {
+            "trait_type": "street",
+            "value": "City Hall Lane"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Cebu City"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Philippines"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

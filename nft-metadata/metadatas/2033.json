@@ -1,0 +1,49 @@
+{
+    "name": "Parliament House",
+    "description": "Parliament House",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_parliament.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2033",
+    "shares": 900,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2033"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "60.17257"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "24.93289"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "parliament"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FI"
+        },
+        {
+            "trait_type": "street",
+            "value": "Mannerheimintie 30"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Helsinki"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Finland"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Romanian Athenaeum",
+    "description": "Romanian Athenaeum",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_famous_building.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1669",
+    "shares": 575,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1669"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "44.44131"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "26.097275"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "famous building"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "RO"
+        },
+        {
+            "trait_type": "street",
+            "value": "Str. Benjamin Franklin nr. 1-3"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Bucharest"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Romania"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

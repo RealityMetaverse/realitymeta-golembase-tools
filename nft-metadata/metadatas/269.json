@@ -1,0 +1,45 @@
+{
+    "name": "Bogota",
+    "description": "Bogota",
+    "image": "https://assets.r5y.io/lgo-live/images/269.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/269.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/269",
+    "shares": 1125,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "269"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "4.6529539"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-74.0835643"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "CO"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Bogota"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Colombia"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

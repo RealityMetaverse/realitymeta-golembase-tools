@@ -1,0 +1,49 @@
+{
+    "name": "Newgrange Monument",
+    "description": "Newgrange Monument",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1389",
+    "shares": 675,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1389"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "53.694675"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-6.4756"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IE"
+        },
+        {
+            "trait_type": "street",
+            "value": "Newgrange"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "County Meath"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Ireland"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

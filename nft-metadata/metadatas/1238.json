@@ -1,0 +1,45 @@
+{
+    "name": "Milan",
+    "description": "Milan",
+    "image": "https://assets.r5y.io/lgo-live/images/1238.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1238.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1238",
+    "shares": 2450,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1238"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "45.4641943"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "9.1896346"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IT"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Milan"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Italy"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Chicago Union Station",
+    "description": "Chicago Union Station",
+    "image": "https://assets.r5y.io/lgo-live/images/412.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/412.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/412",
+    "shares": 1225,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "412"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "41.87857"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-87.6404"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "US"
+        },
+        {
+            "trait_type": "street",
+            "value": "225 S Canal St"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Chicago"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United States"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

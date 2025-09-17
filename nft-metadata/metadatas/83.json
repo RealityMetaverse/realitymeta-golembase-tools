@@ -1,0 +1,41 @@
+{
+    "name": "Angola",
+    "description": "Angola",
+    "image": "https://assets.r5y.io/lgo-live/images/83.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/83.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/83",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "83"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-11.8775768"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "17.5691241"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "AO"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Angola"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

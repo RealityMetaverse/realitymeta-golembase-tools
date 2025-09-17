@@ -1,0 +1,49 @@
+{
+    "name": "Basilica of Esztergom",
+    "description": "Basilica of Esztergom",
+    "image": "https://assets.r5y.io/lgo-live/images/208.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/208.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/208",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "208"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "47.79908"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "18.73645"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "HU"
+        },
+        {
+            "trait_type": "street",
+            "value": "Pazár sétány 1."
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Miskolc"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Hungary"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

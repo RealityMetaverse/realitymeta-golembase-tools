@@ -1,0 +1,49 @@
+{
+    "name": "Basilica of Santa Maria del Mar",
+    "description": "Basilica of Santa Maria del Mar",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_famous_building.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2314",
+    "shares": 1850,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2314"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "41.38375"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "2.182"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "famous building"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "ES"
+        },
+        {
+            "trait_type": "street",
+            "value": "Pl. de Santa Maria del Mar"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Barcelona"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Spain"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

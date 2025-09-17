@@ -1,0 +1,41 @@
+{
+    "name": "Georgia",
+    "description": "Georgia",
+    "image": "https://assets.r5y.io/lgo-live/images/734.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/734.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/734",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "734"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "41.6809707"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "44.0287382"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "GE"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Georgia"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

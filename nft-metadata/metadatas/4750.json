@@ -1,0 +1,41 @@
+{
+  "name": "Caspian Sea",
+  "description": "Caspian Sea",
+  "image": "https://assets.r5y.io/lgo-live/images/4750.jpg",
+  "animation_url": "https://assets.r5y.io/lgo-live/animations/4750.mp4",
+  "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_sea.png",
+  "external_url": "https://realitymeta.io/home/trades/preview/4750",
+  "shares": 5300,
+  "nftValue": 1,
+  "attributes": [
+    {
+      "trait_type": "_id",
+      "value": "4750"
+    },
+    {
+      "trait_type": "location_lat",
+      "value": "41.642430625334576"
+    },
+    {
+      "trait_type": "location_lon",
+      "value": "50.85182775684023"
+    },
+    {
+      "trait_type": "type",
+      "value": "sea"
+    },
+    {
+      "trait_type": "category",
+      "value": "sea"
+    },
+    {
+      "trait_type": "country_code",
+      "value": "WW"
+    },
+    {
+      "trait_type": "country_name",
+      "value": "World"
+    }
+  ],
+  "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

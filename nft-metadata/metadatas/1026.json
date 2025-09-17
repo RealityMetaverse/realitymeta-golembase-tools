@@ -1,0 +1,49 @@
+{
+    "name": "Kronborg Castle",
+    "description": "Kronborg Castle",
+    "image": "https://assets.r5y.io/lgo-live/images/1026.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1026.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1026",
+    "shares": 2000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1026"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "56.039"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "12.621737"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "DK"
+        },
+        {
+            "trait_type": "street",
+            "value": "Kronborg 2C"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Helsingor"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Denmark"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

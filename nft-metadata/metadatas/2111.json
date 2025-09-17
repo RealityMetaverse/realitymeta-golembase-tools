@@ -1,0 +1,45 @@
+{
+    "name": "Tunis",
+    "description": "Tunis",
+    "image": "https://assets.r5y.io/lgo-live/images/2111.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2111.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2111",
+    "shares": 600,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2111"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "36.8002068"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "10.1857757"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "TN"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Tunis"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Tunisia"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

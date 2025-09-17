@@ -1,0 +1,49 @@
+{
+    "name": "Temple of the Sun",
+    "description": "Temple of the Sun",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1982",
+    "shares": 625,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1982"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-13.164082"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-72.5447"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PE"
+        },
+        {
+            "trait_type": "street",
+            "value": "Machu Picchu"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Machu Picchu"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Peru"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,45 @@
+{
+    "name": "Detroit",
+    "description": "Detroit",
+    "image": "https://assets.r5y.io/lgo-live/images/554.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/554.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/554",
+    "shares": 3450,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "554"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "42.3315509"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-83.0466403"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "US"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Detroit"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United States"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

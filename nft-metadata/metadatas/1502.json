@@ -1,0 +1,49 @@
+{
+    "name": "Paris Est Railway Station",
+    "description": "Paris Est Railway Station",
+    "image": "https://assets.r5y.io/lgo-live/images/1502.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1502.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1502",
+    "shares": 1900,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1502"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "48.877"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "2.35975"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FR"
+        },
+        {
+            "trait_type": "street",
+            "value": "Place du 11 Novembre 1918"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Paris"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "France"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

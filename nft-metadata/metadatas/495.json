@@ -1,0 +1,49 @@
+{
+    "name": "Copan Ruins",
+    "description": "Copan Ruins",
+    "image": "https://assets.r5y.io/lgo-live/images/495.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/495.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/495",
+    "shares": 425,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "495"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "14.8389"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-89.14211"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "HN"
+        },
+        {
+            "trait_type": "street",
+            "value": "Calle 18 conejo"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Copan Ruinas"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Honduras"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

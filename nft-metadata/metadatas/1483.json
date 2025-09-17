@@ -1,0 +1,49 @@
+{
+    "name": "King's Palace",
+    "description": "King's Palace",
+    "image": "https://assets.r5y.io/lgo-live/images/1483.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1483.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1483",
+    "shares": 2900,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1483"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "48.80468"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "2.12069"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FR"
+        },
+        {
+            "trait_type": "street",
+            "value": "Place d'Armes"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Versailles"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "France"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

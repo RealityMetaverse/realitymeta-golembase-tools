@@ -1,0 +1,41 @@
+{
+    "name": "Serbia",
+    "description": "Serbia",
+    "image": "https://assets.r5y.io/lgo-live/images/1777.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1777.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1777",
+    "shares": 775,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1777"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "44.1534121"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "20.55144"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "RS"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Serbia"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Azerbaijan",
+    "description": "Azerbaijan",
+    "image": "https://assets.r5y.io/lgo-live/images/155.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/155.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/155",
+    "shares": 700,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "155"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "40.3936294"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "47.7872508"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "AZ"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Azerbaijan"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

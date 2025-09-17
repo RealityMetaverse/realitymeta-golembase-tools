@@ -1,0 +1,45 @@
+{
+    "name": "Taipei",
+    "description": "Taipei",
+    "image": "https://assets.r5y.io/lgo-live/images/1935.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1935.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1935",
+    "shares": 1525,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1935"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "25.0375198"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "121.5636796"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "TW"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Taipei"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Taiwan"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

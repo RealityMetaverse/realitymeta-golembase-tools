@@ -1,0 +1,45 @@
+{
+    "name": "Lisbon",
+    "description": "Lisbon",
+    "image": "https://assets.r5y.io/lgo-live/images/1107.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1107.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1107",
+    "shares": 1500,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1107"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "38.7077507"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-9.1365919"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PT"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Lisbon"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Portugal"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

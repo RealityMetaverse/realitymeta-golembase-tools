@@ -1,0 +1,41 @@
+{
+    "name": "United Kingdom",
+    "description": "United Kingdom",
+    "image": "https://assets.r5y.io/lgo-live/images/2141.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2141.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2141",
+    "shares": 6800,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2141"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "54.7023545"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-3.2765753"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "GB"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United Kingdom"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

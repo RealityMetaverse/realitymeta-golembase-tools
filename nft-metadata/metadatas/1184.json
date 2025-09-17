@@ -1,0 +1,41 @@
+{
+    "name": "Malta",
+    "description": "Malta",
+    "image": "https://assets.r5y.io/lgo-live/images/1184.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1184.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1184",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1184"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "35.8885993"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "14.4476911"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "MT"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Malta"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Kiribati",
+    "description": "Kiribati",
+    "image": "https://assets.r5y.io/lgo-live/images/1001.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1001.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1001",
+    "shares": 2000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1001"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": 1.1070251303080372
+        },
+        {
+            "trait_type": "location_lon",
+            "value": 172.8923568935302
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "KI"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Kiribati"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

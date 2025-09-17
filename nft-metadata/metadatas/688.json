@@ -1,0 +1,41 @@
+{
+    "name": "France",
+    "description": "France",
+    "image": "https://assets.r5y.io/lgo-live/images/688.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/688.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/688",
+    "shares": 6700,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "688"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "46.603354"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "1.8883335"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FR"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "France"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

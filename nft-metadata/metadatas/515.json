@@ -1,0 +1,41 @@
+{
+    "name": "Cuba",
+    "description": "Cuba",
+    "image": "https://assets.r5y.io/lgo-live/images/515.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/515.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/515",
+    "shares": 750,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "515"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "23.0131338"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-80.8328748"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "CU"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Cuba"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

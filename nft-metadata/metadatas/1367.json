@@ -1,0 +1,41 @@
+{
+    "name": "Nauru",
+    "description": "Nauru",
+    "image": "https://assets.r5y.io/lgo-live/images/1367.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1367.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1367",
+    "shares": 2000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1367"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": -0.5166813627627178
+        },
+        {
+            "trait_type": "location_lon",
+            "value": 166.9262793310413
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "NR"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Nauru"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

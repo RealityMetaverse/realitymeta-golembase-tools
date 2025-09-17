@@ -1,0 +1,45 @@
+{
+    "name": "Munich",
+    "description": "Munich",
+    "image": "https://assets.r5y.io/lgo-live/images/1302.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1302.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1302",
+    "shares": 2300,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1302"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "48.1371079"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "11.5753822"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "DE"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Munich"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Germany"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

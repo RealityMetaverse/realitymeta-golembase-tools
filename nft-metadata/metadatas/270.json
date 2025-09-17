@@ -1,0 +1,41 @@
+{
+    "name": "Bolivia",
+    "description": "Bolivia",
+    "image": "https://assets.r5y.io/lgo-live/images/270.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/270.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/270",
+    "shares": 700,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "270"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-17.0568696"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-64.9912286"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "BO"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Bolivia"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

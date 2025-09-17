@@ -1,0 +1,49 @@
+{
+    "name": "Hofburg",
+    "description": "Hofburg",
+    "image": "https://assets.r5y.io/lgo-live/images/2019.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2019.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2019",
+    "shares": 1225,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2019"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "48.2054"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "16.36495"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "AT"
+        },
+        {
+            "trait_type": "street",
+            "value": "Heldenplatz"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Vienna"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Austria"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

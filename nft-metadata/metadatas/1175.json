@@ -1,0 +1,41 @@
+{
+    "name": "Malawi",
+    "description": "Malawi",
+    "image": "https://assets.r5y.io/lgo-live/images/1175.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1175.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1175",
+    "shares": 625,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1175"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-13.2687204"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "33.9301963"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "MW"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Malawi"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

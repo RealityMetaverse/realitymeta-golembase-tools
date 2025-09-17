@@ -1,0 +1,49 @@
+{
+    "name": "Liechtenstein Museum",
+    "description": "Liechtenstein Museum",
+    "image": "https://assets.r5y.io/lgo-live/images/1099.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1099.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1099",
+    "shares": 450,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1099"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "47.139501"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "9.522074"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "LI"
+        },
+        {
+            "trait_type": "street",
+            "value": "Städtle 32"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Vaduz"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Liechtenstein"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

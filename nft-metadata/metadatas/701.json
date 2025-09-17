@@ -1,0 +1,38 @@
+{
+    "name": "Fresno",
+    "description": "Fresno",
+    "image": "https://assets.r5y.io/lgo-live/images/701.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/701.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/markers/default.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/701",
+    "decimals": 0,
+    "shares": 88,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "701"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "36.7295295"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-119.70886126075588"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "tier",
+            "value": 1
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

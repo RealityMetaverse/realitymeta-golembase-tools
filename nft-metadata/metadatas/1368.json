@@ -1,0 +1,41 @@
+{
+    "name": "Nepal",
+    "description": "Nepal",
+    "image": "https://assets.r5y.io/lgo-live/images/1368.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1368.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1368",
+    "shares": 675,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1368"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "28.1083929"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "84.0917139"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "NP"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Nepal"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Iceland",
+    "description": "Iceland",
+    "image": "https://assets.r5y.io/lgo-live/images/877.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/877.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/877",
+    "shares": 725,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "877"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "64.9841821"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-18.1059013"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IS"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Iceland"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

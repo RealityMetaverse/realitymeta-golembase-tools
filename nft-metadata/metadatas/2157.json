@@ -1,0 +1,41 @@
+{
+    "name": "Uzbekistan",
+    "description": "Uzbekistan",
+    "image": "https://assets.r5y.io/lgo-live/images/2157.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2157.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2157",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2157"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "41.32373"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "63.9528098"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "UZ"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Uzbekistan"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

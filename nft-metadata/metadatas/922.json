@@ -1,0 +1,49 @@
+{
+    "name": "Jaffa Clock Tower",
+    "description": "Jaffa Clock Tower",
+    "image": "https://assets.r5y.io/lgo-live/images/922.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/922.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/922",
+    "shares": 750,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "922"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "32.055065"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "34.756282"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IL"
+        },
+        {
+            "trait_type": "street",
+            "value": "Yefet St 14"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Jaffa"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Israel"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

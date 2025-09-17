@@ -1,0 +1,49 @@
+{
+    "name": "Jesuíticas de Santísima Trinidad",
+    "description": "Jesuíticas de Santísima Trinidad",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/934",
+    "shares": 400,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "934"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-27.13195"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-55.70264"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PY"
+        },
+        {
+            "trait_type": "street",
+            "value": "Ruta VI"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Trinidad"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Paraguay"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

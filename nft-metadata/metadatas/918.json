@@ -1,0 +1,41 @@
+{
+    "name": "Ivory Coast",
+    "description": "Ivory Coast",
+    "image": "https://assets.r5y.io/lgo-live/images/918.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/918.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/918",
+    "shares": 675,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "918"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "7.9897371"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-5.5679458"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "CI"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Ivory Coast"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

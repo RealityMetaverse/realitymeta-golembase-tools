@@ -1,0 +1,41 @@
+{
+    "name": "Bahrain",
+    "description": "Bahrain",
+    "image": "https://assets.r5y.io/lgo-live/images/161.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/161.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/161",
+    "shares": 725,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "161"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "26.1551249"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "50.5344606"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "BH"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Bahrain"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

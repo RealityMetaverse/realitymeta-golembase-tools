@@ -1,0 +1,41 @@
+{
+    "name": "Senegal",
+    "description": "Senegal",
+    "image": "https://assets.r5y.io/lgo-live/images/1770.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1770.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1770",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1770"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "14.4750607"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-14.4529612"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "SN"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Senegal"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

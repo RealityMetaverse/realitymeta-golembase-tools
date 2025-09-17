@@ -1,0 +1,45 @@
+{
+    "name": "Mumbai",
+    "description": "Mumbai",
+    "image": "https://assets.r5y.io/lgo-live/images/1301.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1301.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1301",
+    "shares": 2600,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1301"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "19.08157715"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "72.88662753964906"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IN"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Mumbai"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "India"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

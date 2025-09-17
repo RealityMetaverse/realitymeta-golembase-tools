@@ -1,0 +1,41 @@
+{
+    "name": "Moldova",
+    "description": "Moldova",
+    "image": "https://assets.r5y.io/lgo-live/images/1261.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1261.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1261",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1261"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "47.2879608"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "28.5670941"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "MD"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Moldova"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "United Arab Emirates",
+    "description": "United Arab Emirates",
+    "image": "https://assets.r5y.io/lgo-live/images/2140.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2140.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2140",
+    "shares": 1850,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2140"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "24.0002488"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "53.9994829"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "AE"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United Arab Emirates"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

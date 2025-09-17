@@ -1,0 +1,49 @@
+{
+    "name": "Flinders Street Station",
+    "description": "Flinders Street Station",
+    "image": "https://assets.r5y.io/lgo-live/images/669.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/669.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/669",
+    "shares": 2000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "669"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-37.81849"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "144.96606"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "AU"
+        },
+        {
+            "trait_type": "street",
+            "value": "Flinders St"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Melbourne"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Australia"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Southern Ocean",
+    "description": "Southern Ocean",
+    "image": "https://assets.r5y.io/lgo-live/images/3011.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/3011.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_ocean.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/3011",
+    "shares": 50000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "3011"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-68.04170967"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-26.66182146"
+        },
+        {
+            "trait_type": "type",
+            "value": "ocean"
+        },
+        {
+            "trait_type": "category",
+            "value": "ocean"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "WW"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "World"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

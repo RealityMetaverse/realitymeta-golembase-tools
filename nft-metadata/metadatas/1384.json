@@ -1,0 +1,41 @@
+{
+    "name": "New Zealand",
+    "description": "New Zealand",
+    "image": "https://assets.r5y.io/lgo-live/images/1384.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1384.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1384",
+    "shares": 1900,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1384"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-41.5000831"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "172.8344077"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "NZ"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "New Zealand"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Sweden",
+    "description": "Sweden",
+    "image": "https://assets.r5y.io/lgo-live/images/1923.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1923.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1923",
+    "shares": 2950,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1923"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "59.6749712"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "14.5208584"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "SE"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Sweden"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

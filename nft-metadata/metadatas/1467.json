@@ -1,0 +1,45 @@
+{
+    "name": "Oslo",
+    "description": "Oslo",
+    "image": "https://assets.r5y.io/lgo-live/images/1467.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1467.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1467",
+    "shares": 1150,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1467"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "59.9133301"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "10.7389701"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "NO"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Oslo"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Norway"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

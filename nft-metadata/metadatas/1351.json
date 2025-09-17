@@ -1,0 +1,49 @@
+{
+    "name": "National Maritime Museum",
+    "description": "National Maritime Museum",
+    "image": "https://assets.r5y.io/lgo-live/images/1351.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1351.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1351",
+    "shares": 2750,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1351"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "51.480928"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-0.00526"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "GB"
+        },
+        {
+            "trait_type": "street",
+            "value": "Park Row"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Greenwich"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United Kingdom"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

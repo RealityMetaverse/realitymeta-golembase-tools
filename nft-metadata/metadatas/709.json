@@ -1,0 +1,41 @@
+{
+    "name": "Gabon",
+    "description": "Gabon",
+    "image": "https://assets.r5y.io/lgo-live/images/709.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/709.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/709",
+    "shares": 625,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "709"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-0.8999695"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "11.6899699"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "GA"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Gabon"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

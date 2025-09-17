@@ -1,0 +1,49 @@
+{
+    "name": "Wawel Royal Castle",
+    "description": "Wawel Royal Castle",
+    "image": "https://assets.r5y.io/lgo-live/images/2238.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2238.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_historic_site.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2238",
+    "shares": 1025,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2238"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "50.0547"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "19.93555"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "historic site"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PL"
+        },
+        {
+            "trait_type": "street",
+            "value": "Wawel 5"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Krakow"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Poland"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

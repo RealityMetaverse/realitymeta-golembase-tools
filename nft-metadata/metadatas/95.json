@@ -1,0 +1,49 @@
+{
+    "name": "Antwerp-Central Railway Station",
+    "description": "Antwerp-Central Railway Station",
+    "image": "https://assets.r5y.io/lgo-live/images/95.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/95.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/95",
+    "shares": 1275,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "95"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "51.21713"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "4.42112"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "BE"
+        },
+        {
+            "trait_type": "street",
+            "value": "Koningin Astridplein 27"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Antwerp"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Belgium"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

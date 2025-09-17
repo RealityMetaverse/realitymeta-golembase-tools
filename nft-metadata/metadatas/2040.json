@@ -1,0 +1,49 @@
+{
+    "name": "Round Tower",
+    "description": "Round Tower",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2040",
+    "shares": 1200,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2040"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "55.68155"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "12.57609"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "DK"
+        },
+        {
+            "trait_type": "street",
+            "value": "Købmagergade 52 A"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Copenhagen"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Denmark"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

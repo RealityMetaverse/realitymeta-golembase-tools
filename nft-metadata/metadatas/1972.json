@@ -1,0 +1,49 @@
+{
+    "name": "Tel Aviv HaShalom Railway Station",
+    "description": "Tel Aviv HaShalom Railway Station",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_train_station.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1972",
+    "shares": 675,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1972"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "32.0727"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "34.7939"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "train station"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "IL"
+        },
+        {
+            "trait_type": "street",
+            "value": "תל אביב השלום תחנת הרכבת"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Tel Aviv-Yafo"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Israel"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

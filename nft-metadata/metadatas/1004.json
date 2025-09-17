@@ -1,0 +1,49 @@
+{
+    "name": "Copenhagen Airport",
+    "description": "Copenhagen Airport",
+    "image": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "animation_url": "https://assets.r5y.io/lgo-live/icons/card_sml_default_2.png",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_airport.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1004",
+    "shares": 2500,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1004"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "55.628347"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "12.649017"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "airport"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "DK"
+        },
+        {
+            "trait_type": "street",
+            "value": "Lufthavnsboulevarden 6"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Kastrup"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Denmark"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,45 @@
+{
+    "name": "Johannesburg",
+    "description": "Johannesburg",
+    "image": "https://assets.r5y.io/lgo-live/images/938.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/938.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/938",
+    "shares": 1000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "938"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-26.214795000000002"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "27.919477916666665"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "ZA"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Johannesburg"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "South Africa"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

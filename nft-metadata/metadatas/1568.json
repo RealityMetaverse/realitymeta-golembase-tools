@@ -1,0 +1,41 @@
+{
+    "name": "Poland",
+    "description": "Poland",
+    "image": "https://assets.r5y.io/lgo-live/images/1568.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1568.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1568",
+    "shares": 4000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1568"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "52.215933"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "19.134422"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PL"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Poland"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Parthenon",
+    "description": "Parthenon",
+    "image": "https://assets.r5y.io/lgo-live/images/1518.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1518.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1518",
+    "shares": 8500,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1518"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "37.9715327"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "23.7241417"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "GR"
+        },
+        {
+            "trait_type": "street",
+            "value": "Athens 105 58"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Thessaloniki"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Greece"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

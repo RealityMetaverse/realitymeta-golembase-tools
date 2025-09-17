@@ -1,0 +1,41 @@
+{
+    "name": "Paraguay",
+    "description": "Paraguay",
+    "image": "https://assets.r5y.io/lgo-live/images/1496.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1496.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1496",
+    "shares": 650,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1496"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "-23.3165935"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-58.1693445"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PY"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Paraguay"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

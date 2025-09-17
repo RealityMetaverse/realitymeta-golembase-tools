@@ -1,0 +1,45 @@
+{
+    "name": "Cologne",
+    "description": "Cologne",
+    "image": "https://assets.r5y.io/lgo-live/images/474.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/474.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/474",
+    "shares": 1625,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "474"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "50.938361"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "6.959974"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "DE"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Cologne"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Germany"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

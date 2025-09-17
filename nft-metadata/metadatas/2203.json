@@ -1,0 +1,45 @@
+{
+    "name": "Vilnius",
+    "description": "Vilnius",
+    "image": "https://assets.r5y.io/lgo-live/images/2203.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/2203.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_city.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/2203",
+    "shares": 725,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "2203"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "54.6870458"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "25.2829111"
+        },
+        {
+            "trait_type": "type",
+            "value": "city"
+        },
+        {
+            "trait_type": "category",
+            "value": "city"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "LT"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Vilnius"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Lithuania"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

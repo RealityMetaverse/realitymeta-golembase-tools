@@ -1,0 +1,41 @@
+{
+    "name": "Palau",
+    "description": "Palau",
+    "image": "https://assets.r5y.io/lgo-live/images/1485.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1485.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1485",
+    "shares": 2000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1485"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": 7.518180072807509
+        },
+        {
+            "trait_type": "location_lon",
+            "value": 134.58973961101373
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "PW"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Palau"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

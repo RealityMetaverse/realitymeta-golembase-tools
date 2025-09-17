@@ -1,0 +1,41 @@
+{
+    "name": "Qatar",
+    "description": "Qatar",
+    "image": "https://assets.r5y.io/lgo-live/images/1621.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1621.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_country.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1621",
+    "shares": 925,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1621"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "25.3336984"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "51.2295295"
+        },
+        {
+            "trait_type": "type",
+            "value": "country"
+        },
+        {
+            "trait_type": "category",
+            "value": "country"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "QA"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "Qatar"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

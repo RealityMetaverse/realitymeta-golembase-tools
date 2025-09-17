@@ -1,0 +1,49 @@
+{
+    "name": "San Francisco Bridge",
+    "description": "San Francisco Bridge",
+    "image": "https://assets.r5y.io/lgo-live/images/746.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/746.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_tourist_attraction.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/746",
+    "shares": 3500,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "746"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "37.81838"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "-122.47847"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "tourist attraction"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "US"
+        },
+        {
+            "trait_type": "street",
+            "value": "Golden Gate Bridge South"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "San Francisco"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "United States"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Notre-Dame",
+    "description": "Notre-Dame",
+    "image": "https://assets.r5y.io/lgo-live/images/1425.jpg",
+    "animation_url": "https://assets.r5y.io/lgo-live/animations/1425.mp4",
+    "markerUrl": "https://assets.r5y.io/lgo-live/icons/category_building.png",
+    "external_url": "https://realitymeta.io/home/trades/preview/1425",
+    "shares": 3000,
+    "nftValue": 1,
+    "attributes": [
+        {
+            "trait_type": "_id",
+            "value": "1425"
+        },
+        {
+            "trait_type": "location_lat",
+            "value": "48.85297"
+        },
+        {
+            "trait_type": "location_lon",
+            "value": "2.35002"
+        },
+        {
+            "trait_type": "type",
+            "value": "building"
+        },
+        {
+            "trait_type": "category",
+            "value": "building"
+        },
+        {
+            "trait_type": "country_code",
+            "value": "FR"
+        },
+        {
+            "trait_type": "street",
+            "value": "6 Parvis Notre-Dame"
+        },
+        {
+            "trait_type": "settlement",
+            "value": "Paris"
+        },
+        {
+            "trait_type": "country_name",
+            "value": "France"
+        }
+    ],
+    "license": "https://realitymeta.io/legal/TERMS%20OF%20LIMITED%20LICENSE.pdf"
+}
