@@ -1,2 +1,0 @@
-golem-base-sdk
-python-dotenv

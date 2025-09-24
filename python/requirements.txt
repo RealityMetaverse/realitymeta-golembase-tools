@@ -1,0 +1,7 @@
+golem-base-sdk
+python-dotenv
+inquirer
+Pillow>=10.0.0
+mutagen>=1.47.0
+python-magic-bin>=0.4.14
+ffmpeg-python>=0.2.0
