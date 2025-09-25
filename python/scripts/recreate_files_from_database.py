@@ -6,9 +6,34 @@ import sys
 from pathlib import Path
 from typing import List
 
-from golem_base_sdk import GolemBaseClient
+from golem_base_sdk import GolemBaseClient, GenericBytes
 from ..common.globals import logger, reset_globals
-from ..dataclasses.reality_meta_golem_base_entity import RealityMetaGolemBaseEntity
+from ..dataclasses.reality_meta_golem_base_entity import (
+    RealityMetaGolemBaseEntity,
+)
+from ..dataclasses.reality_meta_golem_base_entity_audio import (
+    RealityMetaGolemBaseEntityAudio,
+)
+from ..dataclasses.reality_meta_golem_base_entity_image import (
+    RealityMetaGolemBaseEntityImage,
+)
+from ..dataclasses.reality_meta_golem_base_entity_audio import (
+    RealityMetaGolemBaseEntityAudio,
+)
+from ..dataclasses.reality_meta_golem_base_entity_image import (
+    RealityMetaGolemBaseEntityImage,
+)
+from ..dataclasses.reality_meta_golem_base_entity_video import (
+    RealityMetaGolemBaseEntityVideo,
+)
+from ..dataclasses.reality_meta_golem_base_entity_text import (
+    RealityMetaGolemBaseEntityText,
+)
+from ..dataclasses.reality_meta_golem_base_entity_json import (
+    RealityMetaGolemBaseEntityJson,
+)
+
+
 from ..utils.golem_base_utils import create_golem_base_client
 
 
@@ -49,7 +74,7 @@ async def recreate_files_from_entities(
     entities = await query_entities_by_version(golem_base_client, version)
 
     if not entities:
-        logger.warning(f"No entities found with version {version}")
+        logger.warn(f"No entities found with version {version}")
         return
 
     logger.info(f"Processing {len(entities)} entities...")
@@ -59,8 +84,45 @@ async def recreate_files_from_entities(
 
     for i, entity in enumerate(entities, 1):
         try:
-            # Create RealityMetaGolemBaseEntity from Golem Base entity
-            rmgb_entity = RealityMetaGolemBaseEntity.from_golem_base_entity(entity)
+            # Get entity metadata - convert entity key to proper format
+            entity_key_bytes = GenericBytes.from_hex_string(entity.entity_key)
+            entity_metadata = await golem_base_client.get_entity_metadata(
+                entity_key_bytes
+            )
+
+            # Determine the correct entity class based on file type
+            file_type = None
+            for annotation in entity_metadata.string_annotations:
+                if annotation.key == "_sys_file_type":
+                    file_type = annotation.value
+                    break
+
+            # Import the appropriate entity class
+            if file_type == "image":
+                rmgb_entity = RealityMetaGolemBaseEntityImage.from_golem_base_entity(
+                    entity_metadata
+                )
+            elif file_type == "audio":
+                rmgb_entity = RealityMetaGolemBaseEntityAudio.from_golem_base_entity(
+                    entity_metadata
+                )
+            elif file_type == "video":
+                rmgb_entity = RealityMetaGolemBaseEntityVideo.from_golem_base_entity(
+                    entity_metadata
+                )
+            elif file_type == "text":
+                rmgb_entity = RealityMetaGolemBaseEntityText.from_golem_base_entity(
+                    entity_metadata
+                )
+            elif file_type == "json":
+                rmgb_entity = RealityMetaGolemBaseEntityJson.from_golem_base_entity(
+                    entity_metadata
+                )
+            else:
+                # Fallback to base entity
+                rmgb_entity = RealityMetaGolemBaseEntity.from_golem_base_entity(
+                    entity_metadata
+                )
 
             # Recreate the file
             output_file_path = rmgb_entity.recreate_file(
@@ -78,7 +140,7 @@ async def recreate_files_from_entities(
     logger.info(f"File recreation completed!")
     logger.info(f"Successfully recreated: {successful_recreations} files")
     if failed_recreations > 0:
-        logger.warning(f"Failed to recreate: {failed_recreations} files")
+        logger.warn(f"Failed to recreate: {failed_recreations} files")
 
 
 async def main():
@@ -143,7 +205,6 @@ async def main():
     # Create output directory if it doesn't exist
     output_dir.mkdir(parents=True, exist_ok=True)
     logger.info(f"Output directory: {output_dir.absolute()}")
-    logger.info(f"Organize by category: {args.organize_by_category}")
 
     # Create a client to interact with the GolemDB API
     logger.info("Initializing Golem DB client...")

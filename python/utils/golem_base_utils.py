@@ -12,11 +12,17 @@ def _get_logger():
 
 
 async def create_golem_base_client(
-    rpc_url: str = GOLEM_DB_RPC,
-    ws_url: str = GOLEM_DB_WSS,
-    private_key: str = PRIVATE_KEY,
+    rpc_url: str = None,
+    ws_url: str = None,
+    private_key: str = None,
 ):
     """Create and configure a GolemBaseClient instance."""
+    if not rpc_url:
+        rpc_url = GOLEM_DB_RPC
+    if not ws_url:
+        ws_url = GOLEM_DB_WSS
+    if not private_key:
+        private_key = PRIVATE_KEY
 
     # Create a client to interact with the GolemDB API
     golem_base_client = await GolemBaseClient.create(

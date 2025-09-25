@@ -38,7 +38,7 @@ from ..utils.golem_base_utils import create_golem_base_client
 DEFAULT_IN_DIR = "./database"
 
 
-async def check_entities_batch(
+async def check_entities_individual(
     golem_base_client: GolemBaseClient,
     entities: List[
         RealityMetaGolemBaseEntity
@@ -50,109 +50,77 @@ async def check_entities_batch(
     ],
 ) -> dict:
     """
-    Check existence of multiple entities at once.
+    Check existence of entities individually.
     Returns dict with results for each entity.
     """
     results = {}
 
-    try:
-        # Collect all entity checksums, file names, and categories for batch queries
-        entity_checksums = []
-        file_names = []
-        categories = []
+    logger.info(f"Checking {len(entities)} entities individually...")
 
-        for entity in entities:
+    for entity in entities:
+        try:
             entity_checksum = entity._sys_entity_checksum
             file_name = entity._sys_file_name
             category = entity._sys_category
 
-            entity_checksums.append(entity_checksum)
-            file_names.append(file_name)
-            categories.append(category)
-
-        # Batch query for entity checksums
-        entity_checksum_entities = {}
-        if entity_checksums:
-            entity_checksum_query = " || ".join(
-                [f'_sys_entity_checksum = "{ec}"' for ec in entity_checksums]
+            # First, try to find by entity checksum (exact match - skip)
+            entity_checksum_query = f'_sys_entity_checksum = "{entity_checksum}"'
+            queried_entities = await golem_base_client.query_entities(
+                entity_checksum_query
             )
-            entities = await golem_base_client.query_entities(entity_checksum_query)
-            for entity in entities:
-                # Extract entity checksum from entity annotations
-                for annotation in entity.string_annotations + entity.number_annotations:
-                    if annotation.name == "_sys_entity_checksum":
-                        entity_checksum_entities[annotation.value] = entity.entity_key
-                        break
 
-        # Batch query for file names and categories
-        file_category_entities = {}
-        if file_names and categories:
-            # Create queries for file_name + category combinations
-            file_category_queries = []
-            for file_name, category in zip(file_names, categories):
-                file_category_queries.append(
-                    f'_sys_file_name = "{file_name}" && _sys_category = "{category}"'
-                )
-
-            file_category_query = " || ".join(file_category_queries)
-            entities = await golem_base_client.query_entities(file_category_query)
-            for entity in entities:
-                # Extract file_name and category from entity annotations
-                entity_file_name = None
-                entity_category = None
-                for annotation in entity.string_annotations + entity.number_annotations:
-                    if annotation.name == "_sys_file_name":
-                        entity_file_name = annotation.value
-                    elif annotation.name == "_sys_category":
-                        entity_category = annotation.value
-
-                if entity_file_name and entity_category:
-                    key = f"{entity_file_name}|{entity_category}"
-                    file_category_entities[key] = entity.entity_key
-
-        # Process results for each entity
-        for entity in entities:
-            entity_checksum = entity._sys_entity_checksum
-            file_name = entity._sys_file_name
-            category = entity._sys_category
-            file_category_key = f"{file_name}|{category}"
-
-            # Check entity checksum first (exact match - skip)
-            if entity_checksum in entity_checksum_entities:
-                results[entity] = {
+            if queried_entities:
+                # Found exact match by entity checksum - skip
+                results[entity_checksum] = {
                     "action": "skip",
                     "reason": "entity_checksum_exists",
-                    "entity_key": entity_checksum_entities[entity_checksum],
+                    "entity_key": queried_entities[0].entity_key,
                 }
-            # Then check file_name + category (update)
-            elif file_category_key in file_category_entities:
-                results[entity] = {
+                logger.info(
+                    f"Found exact match for {file_name} by entity checksum - skipping"
+                )
+                continue
+
+            # If no exact match, try to find by file_name + category (update)
+            file_category_query = (
+                f'_sys_file_name = "{file_name}" && _sys_category = "{category}"'
+            )
+            queried_entities = await golem_base_client.query_entities(
+                file_category_query
+            )
+
+            if queried_entities:
+                # Found match by file_name + category - update
+                results[entity_checksum] = {
                     "action": "update",
                     "reason": "file_name_category_exists",
-                    "entity_key": file_category_entities[file_category_key],
+                    "entity_key": queried_entities[0].entity_key,
                 }
-            # Default to create
+                logger.info(
+                    f"Found match for {file_name} by file_name+category - will update"
+                )
             else:
-                results[entity] = {
+                # No match found - create
+                results[entity_checksum] = {
                     "action": "create",
                     "reason": "not_found",
                     "entity_key": None,
                 }
+                logger.info(f"No match found for {file_name} - will create")
 
-        return results
-
-    # TODO: think better way to handle this
-    except Exception as e:
-        logger.error(f"Error in batch entity check: {e}")
-        # Fallback: skip all if batch query fails
-        return {
-            entity: {
+        except Exception as e:
+            logger.error(
+                f"Error checking entity {getattr(entity, '_sys_file_name', 'unknown')}: {e}"
+            )
+            # Fallback to skip for this entity
+            entity_checksum = getattr(entity, "_sys_entity_checksum", "unknown")
+            results[entity_checksum] = {
                 "action": "skip",
-                "reason": "query_error",
+                "reason": "processing_error",
                 "entity_key": None,
             }
-            for entity in entities
-        }
+
+    return results
 
 
 async def update_golem_base_database(
@@ -192,9 +160,9 @@ async def update_golem_base_database(
 
     logger.info(f"Processing {len(entities)} entities...")
 
-    # Batch check all entities at once
-    logger.info("Checking entity existence in batch...")
-    entity_results = await check_entities_batch(golem_base_client, entities)
+    # Check all entities individually
+    logger.info("Checking entity existence individually...")
+    entity_results = await check_entities_individual(golem_base_client, entities)
 
     # Process each entity based on batch results
     for entity in entities:
@@ -206,9 +174,8 @@ async def update_golem_base_database(
         )
 
         # Get the action determined by batch check
-        result = entity_results.get(
-            entity, {"action": "skip", "reason": "not_found", "entity_key": None}
-        )
+        result = entity_results[entity._sys_entity_checksum]
+
         action = result["action"]
         entity_key = result["entity_key"]
         reason = result["reason"]
@@ -385,7 +352,6 @@ async def main():
     logger.info(f"Found {len(entities)} entities")
 
     # Create a client to interact with the GolemDB API
-    logger.info("Initializing Golem DB client...")
     golem_base_client = await create_golem_base_client(
         rpc_url=args.rpc_url, ws_url=args.ws_url, private_key=args.private_key
     )

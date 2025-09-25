@@ -499,11 +499,11 @@ class RealityMetaGolemBaseEntity:
 
         # Process string annotations
         for annotation in golem_base_entity.string_annotations:
-            all_annotations[annotation.name] = annotation.value
+            all_annotations[annotation.key] = annotation.value
 
-        # Process number annotations
-        for annotation in golem_base_entity.number_annotations:
-            all_annotations[annotation.name] = annotation.value
+        # Process numeric annotations
+        for annotation in golem_base_entity.numeric_annotations:
+            all_annotations[annotation.key] = annotation.value
 
         # Separate metadata fields from additional fields
         metadata_fields = {}
