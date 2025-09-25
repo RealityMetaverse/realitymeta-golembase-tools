@@ -79,35 +79,35 @@ def write_base64_to_file(encoded_str: str, output_path: Path) -> None:
         raise IOError(f"Could not write base64 to file {output_path.name}: {e}") from e
 
 
-def recreate_file_from_entry(entry: Any, output_dir: Path) -> Path:
+def recreate_file_from_entity(entity: Any, output_dir: Path) -> Path:
     """
-    Recreate a file from a RealityMetaGolemBaseEntry instance.
+    Recreate a file from a RealityMetaGolemBaseEntity instance.
 
     Args:
-        entry: A RealityMetaGolemBaseEntry instance containing file data and metadata
+        entity: A RealityMetaGolemBaseEntity instance containing file data and metadata
         output_dir: Directory where the recreated file should be saved
 
     Returns:
         Path to the recreated file
 
     Raises:
-        ValueError: If entry is invalid or missing required data
+        ValueError: If entity is invalid or missing required data
         IOError: If file creation fails
     """
-    # Validate entry has required attributes
+    # Validate entity has required attributes
     required_attrs = ["_sys_data", "_sys_file_name", "_sys_file_extension"]
     for attr in required_attrs:
-        if not hasattr(entry, attr):
-            raise ValueError(f"Entry missing required attribute: {attr}")
+        if not hasattr(entity, attr):
+            raise ValueError(f"Entity missing required attribute: {attr}")
 
     # Get file data and metadata
-    file_data = getattr(entry, "_sys_data")
-    file_name = getattr(entry, "_sys_file_name")
-    file_extension = getattr(entry, "_sys_file_extension")
+    file_data = getattr(entity, "_sys_data")
+    file_name = getattr(entity, "_sys_file_name")
+    file_extension = getattr(entity, "_sys_file_extension")
 
     # Check if data is valid
     if file_data is None or file_data == "null" or file_data.strip() == "":
-        raise ValueError("Entry contains no file data to recreate")
+        raise ValueError("Entity contains no file data to recreate")
 
     # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)

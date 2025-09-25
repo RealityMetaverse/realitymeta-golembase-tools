@@ -20,7 +20,7 @@ def extract_audio_metadata(file_path: Path) -> Dict[str, Any]:
         aud_metadata["codec"] = type(info).__name__
 
         if hasattr(info, "length"):
-            aud_metadata["duration"] = info.length
+            aud_metadata["duration"] = int(round(float(info.length), 2))
 
         if hasattr(info, "bitrate"):
             aud_metadata["bitrate"] = info.bitrate
@@ -39,8 +39,5 @@ def extract_audio_metadata(file_path: Path) -> Dict[str, Any]:
 
         if hasattr(info, "layer"):
             aud_metadata["layer"] = info.layer
-
-    if hasattr(audio_file, "tags"):
-        aud_metadata["tags"] = audio_file.tags
 
     return {MetadataType.AUDIO: aud_metadata}

@@ -20,6 +20,13 @@ def _get_logger():
     return logger
 
 
+def _get_media_stats():
+    """Lazy load media_stats to avoid circular dependency."""
+    from ...common.globals import media_stats
+
+    return media_stats
+
+
 def analyze_file(file_path: Union[str, Path]) -> FileMetadataDict:
     """
     Analyze a single file.
@@ -56,6 +63,8 @@ def analyze_file(file_path: Union[str, Path]) -> FileMetadataDict:
         # Skip file if text content is empty
         if text_metadata.get(MetadataType.TEXT, {}).get("is_empty", False):
             raise ValueError(f"Skipping file with empty text content: {file_path.name}")
+        else:
+            del text_metadata[MetadataType.TEXT]["is_empty"]
         metadata.update(text_metadata)
 
     return metadata
@@ -96,6 +105,8 @@ def analyze_directory(directory_path: Union[str, Path]) -> List[FileMetadataDict
     _get_logger().info(
         f"Analysis complete: {len(results)} files processed, {skipped_count} files skipped"
     )
+    _get_media_stats().print_statistics_report()
+
     return results
 
 

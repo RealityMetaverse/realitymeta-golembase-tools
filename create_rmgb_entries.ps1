@@ -1,0 +1,7 @@
+# This script sets up the PYTHONPATH and runs the Python module
+
+# Set PYTHONPATH to current directory
+$env:PYTHONPATH = $PWD
+
+# Run the Python module with all passed arguments
+python -i -m python.scripts.create_rmgb_entities $args

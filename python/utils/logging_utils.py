@@ -79,6 +79,7 @@ class Logger:
         self.warn_count = 0
         self.error_count = 0
         self.header_printed = False
+        self.print_in_new_line = False
 
     def _print_header_if_needed(self) -> None:
         """Print log header if it hasn't been printed yet."""
@@ -87,21 +88,30 @@ class Logger:
             print("-" * 15)
             self.header_printed = True
 
+    def _print_new_line_if_needed(self) -> None:
+        """Print a new line if print_in_new_line is True and then set it to False."""
+        if self.print_in_new_line:
+            print()
+            self.print_in_new_line = False
+
     def info(self, message: str) -> None:
         """Print INFO message in blue and increment counter."""
         self._print_header_if_needed()
+        self._print_new_line_if_needed()
         self.info_count += 1
         print(f"{color_text('[INFO]', 'blue')} {message}")
 
     def warn(self, message: str) -> None:
         """Print WARN message in yellow and increment counter."""
         self._print_header_if_needed()
+        self._print_new_line_if_needed()
         self.warn_count += 1
         print(f"{color_text('[WARN]', 'yellow')} {message}")
 
     def error(self, message: str) -> None:
         """Print ERROR message in red and increment counter."""
         self._print_header_if_needed()
+        self._print_new_line_if_needed()
         self.error_count += 1
         print(f"{color_text('[ERROR]', 'red')} {message}")
 
@@ -122,3 +132,4 @@ class Logger:
         self.warn_count = 0
         self.error_count = 0
         self.header_printed = False
+        self.print_in_new_line = False

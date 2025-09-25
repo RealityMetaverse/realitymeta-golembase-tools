@@ -6,6 +6,14 @@ from typing import List
 from pathlib import Path
 
 
+# TODO: fix circular dependency
+def _get_logger():
+    """Lazy load logger to avoid circular dependency."""
+    from ..common.globals import logger
+
+    return logger
+
+
 def extract_file_basename_stem_from_url(url: str) -> str:
     """Extract the basename stem from a URL."""
     return Path(url).stem
@@ -15,8 +23,8 @@ class RealityNFTMediaStatistics:
     """Class to track media statistics for Reality NFT metadata."""
 
     def __init__(self):
-        # Total files processed counter
-        self.total_files = 0
+        # Set to track unique files processed
+        self.processed_files = set()
 
         # Media statistics counters
         self.default_image_count = 0
@@ -30,7 +38,7 @@ class RealityNFTMediaStatistics:
 
     def reset(self):
         """Reset all counters and lists."""
-        self.total_files = 0
+        self.processed_files.clear()
         self.default_image_count = 0
         self.default_animation_url_count = 0
         self.default_external_url_count = 0
@@ -44,15 +52,10 @@ class RealityNFTMediaStatistics:
         """
         Check if the base filename extracted from URL matches the base filename of the file.
         If it doesn't match, record the NFT as using a default/generic media file.
-        Increments total_files counter each time this method is called.
-
-        Args:
-            url: The media URL to check
-            file_basename_stem: The NFT metadata filename base stem
-            field_name: The field name (image, animation_url, external_url)
+        Also adds the file to processed_files set to track unique files.
         """
-        # Increment total files counter each time this method is called
-        self.total_files += 1
+        # Add this file to the set of processed files
+        self.processed_files.add(file_basename_stem)
 
         expected_name = file_basename_stem
         actual_filename = extract_file_basename_stem_from_url(url)
@@ -70,35 +73,64 @@ class RealityNFTMediaStatistics:
 
     def print_statistics_report(self) -> None:
         """
-        Print a comprehensive media statistics report using the internal total_files counter.
+        Print a comprehensive media statistics report using the internal processed_files set.
         """
+        total_files = len(self.processed_files)
         total_default_count = (
             self.default_image_count
             + self.default_animation_url_count
             + self.default_external_url_count
         )
 
-        if total_default_count > 0:
-            print(f"\nMEDIA STATISTICS (out of {self.total_files} files):")
-            print("-" * 50)
+        if total_files > 0:
+            if total_default_count > 0:
+                print(f"\nREALITY NFT MEDIA STATISTICS (out of {total_files} files):")
+                print("-" * 50)
 
-            if self.default_image_count > 0:
-                print(f"NFTs using default image ({self.default_image_count}):")
-                for nft_name in sorted(self.default_image_nfts):
-                    print(f"  - {nft_name}")
+                if self.default_image_count > 0:
+                    print(
+                        f"Reality NFTs using default image ({self.default_image_count}):"
+                    )
+                    self._print_nft_names_in_columns(self.default_image_nfts)
 
-            if self.default_animation_url_count > 0:
-                print(
-                    f"\nNFTs using default animation ({self.default_animation_url_count}):"
-                )
-                for nft_name in sorted(self.default_animation_url_nfts):
-                    print(f"  - {nft_name}")
+                if self.default_animation_url_count > 0:
+                    print(
+                        f"\nReality NFTs using default animation ({self.default_animation_url_count}):"
+                    )
+                    self._print_nft_names_in_columns(self.default_animation_url_nfts)
 
-            if self.default_external_url_count > 0:
-                print(
-                    f"\nNFTs using default external_url ({self.default_external_url_count}):"
-                )
-                for nft_name in sorted(self.default_external_url_nfts):
-                    print(f"  - {nft_name}")
-        else:
-            print("All NFTs are using asset-specific media files!")
+                if self.default_external_url_count > 0:
+                    print(
+                        f"\nReality NFTs using default external_url ({self.default_external_url_count}):"
+                    )
+                    self._print_nft_names_in_columns(self.default_external_url_nfts)
+            else:
+                print("All Reality NFTs are using asset-specific media files!")
+
+            _get_logger().print_in_new_line = True
+
+    def _print_nft_names_in_columns(
+        self, nft_names: List[str], columns: int = 10
+    ) -> None:
+        """
+        Print NFT names in a columnar format for better readability.
+        """
+        if not nft_names:
+            return
+
+        sorted_names = sorted(nft_names)
+
+        # Calculate the maximum width needed for each column
+        max_name_length = max(len(name) for name in sorted_names) if sorted_names else 0
+        column_width = max_name_length + 2  # Add some padding
+
+        # Print names in columns
+        for i in range(0, len(sorted_names), columns):
+            row_names = sorted_names[i : i + columns]
+            # Pad the row to have exactly 'columns' elements for consistent formatting
+            while len(row_names) < columns:
+                row_names.append("")
+
+            # Format each name with proper spacing
+            formatted_row = "  ".join(f"{name:<{column_width}}" for name in row_names)
+            print(f"  {formatted_row}")
