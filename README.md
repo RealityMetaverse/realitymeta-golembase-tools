@@ -68,17 +68,36 @@ File tracking and management system for Golem Base. Upload any file type, track 
 ```bash
 ./create_rmgb_entries --in-dir ./database
 ```
+
+**Arguments:**
+- `--in-dir`, `-in` (required): Input directory containing files to convert to Reality Meta Golem Base entries
+
 *Converts files to Reality Meta Golem Base entries for testing purposes*
 
 ### Update Database
 ```bash
-./update-database --in-dir ./database --batch-size 15 --ttl 86400
+./update-database --in-dir ./database --batch-size 15 --ttl 86400 --private-key YOUR_PRIVATE_KEY
 ```
+
+**Arguments:**
+- `--in-dir`, `--in`: Input directory with RealityMeta entities (default: `./database`)
+- `--batch-size`, `-bs`: Number of entities to update in each batch (default: 15)
+- `--ttl`: Time-to-live for entities in seconds (default: 86400)
+- `--rpc-url`, `-rpc`: Golem Base RPC URL (uses default from config if not provided)
+- `--ws-url`, `-ws`: Golem Base WebSocket URL (uses default from config if not provided)
+- `--private-key`, `-pk`: Private key for Golem Base authentication (uses PRIVATE_KEY environment variable if not provided)
 
 ### Recreate Files
 ```bash
-./recreate_files_from_database --output-dir ./recreated --version 1
+./recreate_files_from_database --output-dir ./recreated --version 1 --private-key YOUR_PRIVATE_KEY
 ```
+
+**Arguments:**
+- `--output-dir`, `--out`: Output directory for recreated files (default: `./recreated_files`)
+- `--version`, `-v`: Sys version to query for (default: 1)
+- `--rpc-url`, `-rpc`: Golem Base RPC URL (uses default from config if not provided)
+- `--ws-url`, `-ws`: Golem Base WebSocket URL (uses default from config if not provided)
+- `--private-key`, `-pk`: Private key for Golem Base authentication (uses PRIVATE_KEY environment variable if not provided)
 
 ## Configuration
 
@@ -92,6 +111,7 @@ File tracking and management system for Golem Base. Upload any file type, track 
 
 - Prevent multiple file handles for same file during entity creation
 - Enhanced logging with type-based log filtering
+- Choose verbosity level for better control over output detail
 
 
 ## UP TO DISCUSSION
