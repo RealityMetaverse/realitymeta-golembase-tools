@@ -10,3 +10,12 @@ __pycache__/
 node_modules/
 database/*
 !database/.gitkeep
+
+# TypeScript
+*.tsbuildinfo
+dist/
+build/
+lib/
+*.js.map
+*.d.ts.map
+tsconfig.tsbuildinfo
