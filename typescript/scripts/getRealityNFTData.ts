@@ -1,5 +1,6 @@
 import { createClient, AccountData, Tagged } from "golem-base-sdk";
 
+// This is trash private key, can be exposed
 const key: AccountData = new Tagged(
   "privatekey",
   new Uint8Array(
@@ -14,12 +15,22 @@ const rpcUrl = "https://reality-games.holesky.golemdb.io/rpc";
 const wsUrl = "wss://reality-games.holesky.golemdb.io/rpc/ws";
 
 // Target owner address for filtering
-const TARGET_OWNER = "0x744A2Bb994246810450375a23251F5298764122e";
+const TARGET_OWNER = "0x77AE0e97d8073AD7b529D5B67f389a2Ed6Cdf14f";
 
 export class RealityNFTService {
   private client: any = null;
   private cache: Map<string, any> = new Map();
   private isInitialized = false;
+
+  /**
+   * Generate a composite cache key from category and tokenId
+   * @param category - The system category
+   * @param tokenId - The token ID
+   * @returns string - The composite cache key
+   */
+  private getCacheKey(category: string, tokenId: string): string {
+    return `${category}:${tokenId}`;
+  }
 
   /**
    * Initialize the GolemDB client
@@ -46,9 +57,10 @@ export class RealityNFTService {
     tokenId: string,
     sysCategory: string = "REALITY_NFT_METADATA"
   ): Promise<any | null> {
-    // Check cache first
-    if (this.cache.has(tokenId)) {
-      return this.cache.get(tokenId);
+    // Check cache first using composite key
+    const cacheKey = this.getCacheKey(sysCategory, tokenId);
+    if (this.cache.has(cacheKey)) {
+      return this.cache.get(cacheKey);
     }
 
     await this.initialize();
@@ -63,7 +75,7 @@ export class RealityNFTService {
 
       // Process entities to find one that belongs to the target owner
       for (const entity of entities) {
-        const result = await this.processEntity(entity, tokenId);
+        const result = await this.processEntity(entity, tokenId, sysCategory);
         if (result) {
           return result;
         }
@@ -91,10 +103,11 @@ export class RealityNFTService {
     const results: Record<string, any> = {};
     const uncachedTokenIds: string[] = [];
 
-    // Check cache first
+    // Check cache first using composite keys
     for (const tokenId of tokenIds) {
-      if (this.cache.has(tokenId)) {
-        const cachedData = this.cache.get(tokenId);
+      const cacheKey = this.getCacheKey(sysCategory, tokenId);
+      if (this.cache.has(cacheKey)) {
+        const cachedData = this.cache.get(cacheKey);
         // For cached data, we can't check owner without re-fetching entity metadata
         // So we'll include it and let the user verify ownership separately
         results[tokenId] = cachedData;
@@ -114,7 +127,7 @@ export class RealityNFTService {
 
       // Process each entity
       for (const entity of entities) {
-        const result = await this.processEntityForMultiple(entity);
+        const result = await this.processEntityForMultiple(entity, sysCategory);
         if (result) {
           results[result.tokenId] = result.data;
         }
@@ -148,11 +161,13 @@ export class RealityNFTService {
    * Process a single entity for getData method
    * @param entity - The entity to process
    * @param expectedTokenId - The expected tokenId to match
+   * @param sysCategory - The system category for cache key
    * @returns Promise<any | null> - The processed data or null
    */
   private async processEntity(
     entity: any,
-    expectedTokenId: string
+    expectedTokenId: string,
+    sysCategory: string
   ): Promise<any | null> {
     try {
       const entityMetadata = await this.client.getEntityMetaData(
@@ -183,8 +198,9 @@ export class RealityNFTService {
           return null;
         }
 
-        // Cache the result
-        this.cache.set(expectedTokenId, data);
+        // Cache the result using composite key
+        const cacheKey = this.getCacheKey(sysCategory, expectedTokenId);
+        this.cache.set(cacheKey, data);
         return data;
       }
     } catch (entityError) {
@@ -196,10 +212,12 @@ export class RealityNFTService {
   /**
    * Process a single entity for getMultipleData method
    * @param entity - The entity to process
+   * @param sysCategory - The system category for cache key
    * @returns Promise<{tokenId: string, data: any} | null> - The processed data with tokenId or null
    */
   private async processEntityForMultiple(
-    entity: any
+    entity: any,
+    sysCategory: string
   ): Promise<{ tokenId: string; data: any } | null> {
     try {
       const entityMetadata = await this.client.getEntityMetaData(
@@ -233,8 +251,9 @@ export class RealityNFTService {
           return null;
         }
 
-        // Cache and return result
-        this.cache.set(tokenId, data);
+        // Cache and return result using composite key
+        const cacheKey = this.getCacheKey(sysCategory, tokenId);
+        this.cache.set(cacheKey, data);
         return { tokenId, data };
       }
     } catch (entityError) {
@@ -252,21 +271,74 @@ export class RealityNFTService {
   }
 
   /**
+   * Clear cache for a specific category
+   * @param sysCategory - The system category to clear
+   */
+  clearCacheForCategory(sysCategory: string): number {
+    const keysToDelete: string[] = [];
+
+    // Find all keys that belong to the specified category
+    for (const key of this.cache.keys()) {
+      if (key.startsWith(`${sysCategory}:`)) {
+        keysToDelete.push(key);
+      }
+    }
+
+    // Delete the keys
+    for (const key of keysToDelete) {
+      this.cache.delete(key);
+    }
+
+    console.log(
+      `🗑️ Cleared ${keysToDelete.length} entries for category: ${sysCategory}`
+    );
+    return keysToDelete.length;
+  }
+
+  /**
    * Get cache statistics
    */
-  getCacheStats(): { size: number; keys: string[] } {
+  getCacheStats(): {
+    size: number;
+    keys: string[];
+    categories: Record<string, number>;
+    categoryBreakdown: Record<string, string[]>;
+  } {
+    const keys = Array.from(this.cache.keys());
+    const categories: Record<string, number> = {};
+    const categoryBreakdown: Record<string, string[]> = {};
+
+    // Analyze cache keys to extract category information
+    for (const key of keys) {
+      const [category, tokenId] = key.split(":");
+      if (category) {
+        categories[category] = (categories[category] || 0) + 1;
+        if (!categoryBreakdown[category]) {
+          categoryBreakdown[category] = [];
+        }
+        categoryBreakdown[category].push(tokenId);
+      }
+    }
+
     return {
       size: this.cache.size,
-      keys: Array.from(this.cache.keys()),
+      keys,
+      categories,
+      categoryBreakdown,
     };
   }
 
   /**
-   * Remove specific tokenId from cache
+   * Remove specific tokenId from cache for a specific category
    * @param tokenId - The tokenId to remove from cache
+   * @param sysCategory - The system category (defaults to "REALITY_NFT_METADATA")
    */
-  removeFromCache(tokenId: string): boolean {
-    return this.cache.delete(tokenId);
+  removeFromCache(
+    tokenId: string,
+    sysCategory: string = "REALITY_NFT_METADATA"
+  ): boolean {
+    const cacheKey = this.getCacheKey(sysCategory, tokenId);
+    return this.cache.delete(cacheKey);
   }
 
   /**
@@ -294,4 +366,13 @@ export class RealityNFTService {
 // Export a singleton instance for easy use in React
 export const realityNFTService = new RealityNFTService();
 
+console.log("REALITY NFT METADATA");
 console.log(await realityNFTService.getMultipleData(["613", "277"]));
+
+console.log("\nREALITY NFT SPECIEL VENUES");
+console.log(
+  await realityNFTService.getMultipleData(
+    ["613", "277"],
+    "REALITY_NFT_SPECIAL_VENUES"
+  )
+);
