@@ -142,10 +142,14 @@ export class RealityNFTService {
   /**
    * Get all data for a specific category without filtering by tokenIds
    * @param sysCategory - The system category to fetch data for
+   * @param skip - Number of elements to skip from the beginning (default: 0)
+   * @param limit - Maximum number of elements to return after skip (default: null for no limit)
    * @returns Promise<Record<string, any>> - Dictionary mapping tokenId to data
    */
   async getAllData(
-    sysCategory: string = "REALITY_NFT_METADATA"
+    sysCategory: string = "REALITY_NFT_METADATA",
+    skip: number = 0,
+    limit: number | null = null
   ): Promise<Record<string, any>> {
     await this.initialize();
 
@@ -155,8 +159,21 @@ export class RealityNFTService {
       const query = this.buildAllDataQuery(sysCategory);
       const entities = await this.client.queryEntities(query);
 
+      // Apply skip and limit to entities array
+      let processedEntities = entities;
+
+      // Apply skip: remove first x elements
+      if (skip > 0) {
+        processedEntities = entities.slice(skip);
+      }
+
+      // Apply limit: keep first x elements after skip
+      if (limit !== null && limit > 0) {
+        processedEntities = processedEntities.slice(0, limit);
+      }
+
       // Process each entity
-      for (const entity of entities) {
+      for (const entity of processedEntities) {
         const result = await this.processEntityForMultiple(entity, sysCategory);
         if (result) {
           results[result.tokenId] = result.data;
@@ -418,4 +435,6 @@ console.log(
 );
 
 console.log("\nALL REALITY NFT DATA (no tokenId filtering)");
-console.log(await realityNFTService.getAllData("REALITY_NFT_SPECIAL_VENUES"));
+console.log(
+  await realityNFTService.getAllData("REALITY_NFT_SPECIAL_VENUES", 0, 30)
+);
