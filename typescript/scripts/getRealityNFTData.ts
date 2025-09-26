@@ -140,6 +140,37 @@ export class RealityNFTService {
   }
 
   /**
+   * Get all data for a specific category without filtering by tokenIds
+   * @param sysCategory - The system category to fetch data for
+   * @returns Promise<Record<string, any>> - Dictionary mapping tokenId to data
+   */
+  async getAllData(
+    sysCategory: string = "REALITY_NFT_METADATA"
+  ): Promise<Record<string, any>> {
+    await this.initialize();
+
+    const results: Record<string, any> = {};
+
+    try {
+      const query = this.buildAllDataQuery(sysCategory);
+      const entities = await this.client.queryEntities(query);
+
+      // Process each entity
+      for (const entity of entities) {
+        const result = await this.processEntityForMultiple(entity, sysCategory);
+        if (result) {
+          results[result.tokenId] = result.data;
+        }
+      }
+
+      return results;
+    } catch (error) {
+      console.error("Error fetching all data:", error);
+      return {};
+    }
+  }
+
+  /**
    * Build query string for tokenIds
    * @param tokenIds - Array of tokenIds to query for
    * @param sysCategory - System category to filter by
@@ -155,6 +186,15 @@ export class RealityNFTService {
       .join(" || ");
 
     return `(${tokenIdConditions}) && _sys_category = "${sysCategory}" && _sys_version = 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"`;
+  }
+
+  /**
+   * Build query string for getAllData (no tokenId filtering)
+   * @param sysCategory - System category to filter by
+   * @returns string - The constructed query
+   */
+  private buildAllDataQuery(sysCategory: string): string {
+    return `_sys_category = "${sysCategory}" && _sys_version = 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"`;
   }
 
   /**
@@ -369,10 +409,13 @@ export const realityNFTService = new RealityNFTService();
 console.log("REALITY NFT METADATA");
 console.log(await realityNFTService.getMultipleData(["613", "277"]));
 
-console.log("\nREALITY NFT SPECIEL VENUES");
+console.log("\nREALITY NFT SPECIAL VENUES");
 console.log(
   await realityNFTService.getMultipleData(
     ["613", "277"],
     "REALITY_NFT_SPECIAL_VENUES"
   )
 );
+
+console.log("\nALL REALITY NFT DATA (no tokenId filtering)");
+console.log(await realityNFTService.getAllData("REALITY_NFT_SPECIAL_VENUES"));
