@@ -1,10 +1,11 @@
 import { createClient, AccountData, Tagged } from "golem-base-sdk";
 import arg from "arg";
 
+// This is trash private key, can be exposed
 const key: AccountData = new Tagged(
   "privatekey",
   Buffer.from(
-    "a6a832651d60dd60e0706329387d74cf243d7d18f15d5e25ff9f5d00dfa006ff",
+    "d119c5449177dd9755d5d5ad2c91218aec0e7e26a8183b502d87f1ca582a74b9",
     "hex"
   )
 );
