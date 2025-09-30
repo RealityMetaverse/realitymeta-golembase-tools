@@ -1,26 +1,39 @@
 import { createClient, AccountData, Tagged } from "golem-base-sdk";
 
-// This is trash private key, can be exposed
-const key: AccountData = new Tagged(
-  "privatekey",
-  new Uint8Array(
-    "d119c5449177dd9755d5d5ad2c91218aec0e7e26a8183b502d87f1ca582a74b9"
-      .match(/.{1,2}/g)!
-      .map((byte) => parseInt(byte, 16))
-  )
-);
+// Configuration - these would typically come from environment variables
+const config = {
+  CHAIN_ID: "60138453032",
+  RPC_URL: "https://reality-games.hoodi.arkiv.network/rpc",
+  WS_URL: "wss://reality-games.hoodi.arkiv.network/rpc/ws",
+  TARGET_OWNER: "0x744A2Bb994246810450375a23251F5298764122e",
+  // This is trash private key, can be exposed
+  PRIVATE_KEY:
+    "d4fa9b8ee991d792547ba95f779ee34780d1a705455200887c8721662f55e7ed",
+};
 
-const chainId = 60138453032;
-const rpcUrl = "https://reality-games.holesky.golemdb.io/rpc";
-const wsUrl = "wss://reality-games.holesky.golemdb.io/rpc/ws";
-
-// Target owner address for filtering
-const TARGET_OWNER = "0x77AE0e97d8073AD7b529D5B67f389a2Ed6Cdf14f";
+/**
+ * Create account data from configuration
+ * @returns AccountData or null if configuration is invalid
+ */
+function createAccountDataFromConfig(): AccountData | null {
+  try {
+    return new Tagged(
+      "privatekey",
+      new Uint8Array(
+        config.PRIVATE_KEY.match(/.{1,2}/g)!.map((byte) => parseInt(byte, 16))
+      )
+    );
+  } catch (error) {
+    console.error("Failed to create account data:", error);
+    return null;
+  }
+}
 
 export class RealityNFTService {
   private client: any = null;
   private cache: Map<string, any> = new Map();
   private isInitialized = false;
+  private isServiceAvailable = false;
 
   /**
    * Generate a composite cache key from category and tokenId
@@ -39,13 +52,56 @@ export class RealityNFTService {
     if (this.isInitialized) return;
 
     try {
-      this.client = await createClient(chainId, key, rpcUrl, wsUrl);
+      // Check if all required config is available
+      if (
+        !config.CHAIN_ID ||
+        !config.RPC_URL ||
+        !config.WS_URL ||
+        !config.TARGET_OWNER
+      ) {
+        throw new Error("Missing required Golem configuration");
+      }
+
+      const accountData = createAccountDataFromConfig();
+      if (!accountData) {
+        throw new Error("Failed to create account data from configuration");
+      }
+
+      const chainId = parseInt((config as any).CHAIN_ID);
+      this.client = await createClient(
+        chainId,
+        accountData,
+        (config as any).RPC_URL,
+        (config as any).WS_URL
+      );
       this.isInitialized = true;
-      console.log("✅ RealityNFTService initialized");
+      this.isServiceAvailable = true;
+      console.log("✅ RealityNFTService initialized with environment config");
+      console.log(`   Chain ID: ${config.CHAIN_ID}`);
+      console.log(`   RPC URL: ${config.RPC_URL}`);
+      console.log(`   Target Owner: ${(config as any).TARGET_OWNER}`);
     } catch (error) {
       console.error("❌ Failed to initialize RealityNFTService:", error);
+      this.isServiceAvailable = false;
+      this.isInitialized = true; // Mark as initialized even if failed to prevent retries
       throw new Error(`Service initialization failed: ${error}`);
     }
+  }
+
+  /**
+   * Check if the service is available and configured properly
+   * @returns Promise<boolean> - True if service is ready to use
+   */
+  async isAvailable(): Promise<boolean> {
+    if (!this.isInitialized) {
+      try {
+        await this.initialize();
+        return this.isServiceAvailable;
+      } catch {
+        return false;
+      }
+    }
+    return this.isServiceAvailable;
   }
 
   /**
@@ -66,7 +122,10 @@ export class RealityNFTService {
     await this.initialize();
 
     try {
-      const query = this.buildQuery([tokenId], sysCategory);
+      const query = this.buildQuery({
+        tokenIds: [tokenId],
+        sysCategory,
+      });
       const entities = await this.client.queryEntities(query);
 
       if (entities.length === 0) {
@@ -122,7 +181,10 @@ export class RealityNFTService {
     }
 
     try {
-      const query = this.buildQuery(uncachedTokenIds, sysCategory);
+      const query = this.buildQuery({
+        tokenIds: uncachedTokenIds,
+        sysCategory,
+      });
       const entities = await this.client.queryEntities(query);
 
       // Process each entity
@@ -144,19 +206,38 @@ export class RealityNFTService {
    * @param sysCategory - The system category to fetch data for
    * @param skip - Number of elements to skip from the beginning (default: 0)
    * @param limit - Maximum number of elements to return after skip (default: null for no limit)
-   * @returns Promise<Record<string, any>> - Dictionary mapping tokenId to data
+   * @returns Promise<{ data: Record<string, any>; totalCount: number }> - Dictionary mapping tokenId to data
    */
-  async getAllData(
-    sysCategory: string = "REALITY_NFT_METADATA",
-    skip: number = 0,
-    limit: number | null = null
-  ): Promise<Record<string, any>> {
+  async getAllData({
+    sysCategory = "REALITY_NFT_METADATA",
+    tokenCategory,
+    tokenCountry,
+    tokenKeyword,
+    skip = 0,
+    limit = null,
+  }: {
+    sysCategory: string;
+    tokenCategory?: string;
+    tokenCountry?: string;
+    tokenKeyword?: string;
+    skip: number;
+    limit: number | null;
+  }): Promise<{ data: Record<string, any>; totalCount: number }> {
     await this.initialize();
-
     const results: Record<string, any> = {};
 
+    // CATEGORY
+    // KEYWORD
+    // COUNTRY
+
     try {
-      const query = this.buildAllDataQuery(sysCategory);
+      const query = this.buildQuery({
+        sysCategory,
+        tokenCategory,
+        tokenCountry,
+        tokenKeyword,
+      });
+
       const entities = await this.client.queryEntities(query);
 
       // Apply skip and limit to entities array
@@ -180,10 +261,16 @@ export class RealityNFTService {
         }
       }
 
-      return results;
+      return {
+        data: results,
+        totalCount: entities.length,
+      };
     } catch (error) {
       console.error("Error fetching all data:", error);
-      return {};
+      return {
+        data: {},
+        totalCount: 0,
+      };
     }
   }
 
@@ -193,25 +280,60 @@ export class RealityNFTService {
    * @param sysCategory - System category to filter by
    * @returns string - The constructed query
    */
-  private buildQuery(tokenIds: string[], sysCategory: string): string {
-    if (tokenIds.length === 1) {
-      return `_sys_file_stem = "${tokenIds[0]}" && _sys_category = "${sysCategory}" && _sys_version = 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"`;
+  private buildQuery({
+    tokenIds,
+    sysCategory,
+    tokenCategory,
+    tokenCountry,
+    tokenKeyword,
+  }: {
+    tokenIds?: string[];
+    sysCategory: string;
+    tokenCategory?: string;
+    tokenCountry?: string;
+    tokenKeyword?: string;
+  }): string {
+    let baseQuery = `_sys_version = 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"`;
+
+    if (sysCategory) {
+      baseQuery += ` && _sys_category = "${sysCategory}"`;
     }
 
-    const tokenIdConditions = tokenIds
-      .map((tokenId) => `_sys_file_stem = "${tokenId}"`)
-      .join(" || ");
+    if (tokenIds) {
+      if (tokenIds.length === 1) {
+        baseQuery += ` && _sys_file_stem = "${tokenIds[0]}"`;
+      } else {
+        baseQuery += ` && (${tokenIds
+          .map((tokenId) => `_sys_file_stem = "${tokenId}"`)
+          .join(" || ")})`;
+      }
+    }
 
-    return `(${tokenIdConditions}) && _sys_category = "${sysCategory}" && _sys_version = 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"`;
-  }
+    // category filter
+    if (tokenCategory) {
+      baseQuery += ` && attr_category = "${tokenCategory}"`;
+    }
 
-  /**
-   * Build query string for getAllData (no tokenId filtering)
-   * @param sysCategory - System category to filter by
-   * @returns string - The constructed query
-   */
-  private buildAllDataQuery(sysCategory: string): string {
-    return `_sys_category = "${sysCategory}" && _sys_version = 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"`;
+    // country filter
+    if (tokenCountry) {
+      baseQuery += ` && attr_country_code = "${tokenCountry}"`;
+    }
+
+    // keyword filter
+    if (tokenKeyword) {
+      // Convert keyword to pattern: "*[<Ch1Capital><Ch1lower>][<Ch2Capital><Ch2lower>][<Ch3Capital><Ch3lower>]...*"
+      const keywordPattern = tokenKeyword
+        .split('')
+        .map(char => {
+          const upper = char.toUpperCase();
+          const lower = char.toLowerCase();
+          return `[${upper}${lower}]`;
+        })
+        .join('');
+      baseQuery += ` && name ~ "*${keywordPattern}*"`;
+    }
+
+    return baseQuery;
   }
 
   /**
@@ -232,7 +354,12 @@ export class RealityNFTService {
       );
 
       // Check if this entity belongs to the target owner
-      if (this.hasOwnerInEntityMetadata(entityMetadata, TARGET_OWNER)) {
+      if (
+        this.hasOwnerInEntityMetadata(
+          entityMetadata,
+          config.TARGET_OWNER as string
+        )
+      ) {
         // Get _sys_data from string annotations
         let base64Data = "";
         for (const annotation of entityMetadata.stringAnnotations) {
@@ -282,7 +409,12 @@ export class RealityNFTService {
       );
 
       // Check if this entity belongs to the target owner
-      if (this.hasOwnerInEntityMetadata(entityMetadata, TARGET_OWNER)) {
+      if (
+        this.hasOwnerInEntityMetadata(
+          entityMetadata,
+          config.TARGET_OWNER as string
+        )
+      ) {
         // Extract tokenId and _sys_data from annotations
         let tokenId = "";
         let base64Data = "";
@@ -423,18 +555,11 @@ export class RealityNFTService {
 // Export a singleton instance for easy use in React
 export const realityNFTService = new RealityNFTService();
 
-console.log("REALITY NFT METADATA");
-console.log(await realityNFTService.getMultipleData(["613", "277"]));
-
-console.log("\nREALITY NFT SPECIAL VENUES");
 console.log(
-  await realityNFTService.getMultipleData(
-    ["613", "277"],
-    "REALITY_NFT_SPECIAL_VENUES"
-  )
-);
-
-console.log("\nALL REALITY NFT DATA (no tokenId filtering)");
-console.log(
-  await realityNFTService.getAllData("REALITY_NFT_SPECIAL_VENUES", 0, 30)
+  await realityNFTService.getAllData({
+    sysCategory: "REALITY_NFT_METADATA",
+    tokenKeyword: "main",
+    skip: 0,
+    limit: 30,
+  })
 );
