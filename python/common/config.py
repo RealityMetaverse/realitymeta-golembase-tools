@@ -5,8 +5,8 @@ import dotenv
 
 dotenv.load_dotenv()
 
-GOLEM_DB_RPC = "https://reality-games.holesky.golemdb.io/rpc"
-GOLEM_DB_WSS = "wss://reality-games.holesky.golemdb.io/rpc/ws"
+GOLEM_DB_RPC = "https://reality-games.hoodi.arkiv.network/rpc"
+GOLEM_DB_WSS = "wss://reality-games.hoodi.arkiv.network/rpc/ws"
 PRIVATE_KEY = os.getenv("PRIVATE_KEY")
 
 BASE64_EXPANSION_FACTOR = 1.34
