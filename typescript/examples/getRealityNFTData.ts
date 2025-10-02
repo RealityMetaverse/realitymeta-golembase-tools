@@ -1,4 +1,4 @@
-import { createClient, AccountData, Tagged } from "golem-base-sdk";
+import { createClient, AccountData, Tagged, Hex } from "golem-base-sdk";
 
 // Configuration - these would typically come from environment variables
 const config = {
@@ -206,36 +206,245 @@ export class RealityNFTService {
    * @param sysCategory - The system category to fetch data for
    * @param skip - Number of elements to skip from the beginning (default: 0)
    * @param limit - Maximum number of elements to return after skip (default: null for no limit)
+   * @param tokenKeywords - Array of keywords to search for in the name field
+   * @param tokenSettlement - Optional settlement filter
+   * @param advancedSearch - Enable advanced search with recursive calls (default: false)
    * @returns Promise<{ data: Record<string, any>; totalCount: number }> - Dictionary mapping tokenId to data
    */
   async getAllData({
     sysCategory = "REALITY_NFT_METADATA",
     tokenCategory,
     tokenCountry,
-    tokenKeyword,
+    tokenKeywords,
+    tokenSettlement,
+    advancedSearch = false,
     skip = 0,
     limit = null,
   }: {
     sysCategory: string;
     tokenCategory?: string;
     tokenCountry?: string;
-    tokenKeyword?: string;
+    tokenKeywords?: string[];
+    tokenSettlement?: string;
+    advancedSearch?: boolean;
     skip: number;
     limit: number | null;
   }): Promise<{ data: Record<string, any>; totalCount: number }> {
     await this.initialize();
     const results: Record<string, any> = {};
 
-    // CATEGORY
-    // KEYWORD
-    // COUNTRY
-
     try {
+      // If advanced search is enabled, get the first element and determine search strategy
+      if (advancedSearch) {
+        const initialQuery = this.buildQuery({
+          sysCategory,
+          tokenCategory,
+          tokenCountry,
+          tokenKeywords,
+          tokenSettlement,
+        });
+
+        const initialEntities = await this.client.queryEntities(initialQuery);
+
+        if (initialEntities.length === 0) {
+          return {
+            data: {},
+            totalCount: 0,
+          };
+        }
+
+        // Get metadata for the first entity to determine attr_type
+        const firstEntity = initialEntities[0];
+        const firstEntityMetadata = await this.client.getEntityMetaData(
+          firstEntity.entityKey
+        );
+
+        // Determine attribute prefix based on category
+        const useAttrPrefix = sysCategory !== "REALITY_NFT_SPECIAL_VENUES";
+        const typeKey = useAttrPrefix ? "attr_type" : "type";
+        const settlementKey = useAttrPrefix ? "attr_settlement" : "settlement";
+        const countryNameKey = useAttrPrefix
+          ? "attr_country_name"
+          : "country_name";
+
+        // Extract token ID from first entity for exclusion
+        let firstEntityTokenId: string | null = null;
+        let attrType: string | null = null;
+        let attrSettlement: string | undefined = undefined;
+        let attrCountryName: string | undefined = undefined;
+
+        for (const annotation of firstEntityMetadata.stringAnnotations) {
+          if (annotation.key === "_sys_file_stem") {
+            firstEntityTokenId = annotation.value;
+          } else if (annotation.key === typeKey) {
+            attrType = annotation.value;
+          } else if (annotation.key === settlementKey) {
+            attrSettlement = annotation.value;
+          } else if (annotation.key === countryNameKey) {
+            attrCountryName = annotation.value;
+          }
+        }
+
+        // Create a single query to get all relevant data based on attrType
+        let advancedQuery: string | null = null;
+
+        if (attrType === "building") {
+          // For building: use attrSettlement and attrCountryName as tokenKeywords
+          const buildingKeywords = [attrSettlement, attrCountryName].filter(
+            Boolean
+          ) as string[];
+          advancedQuery = this.advancedQueryBuilder({
+            sysCategory,
+            tokenKeywords: buildingKeywords,
+            excludeTokenIds: firstEntityTokenId ? [firstEntityTokenId] : [],
+          });
+        } else if (attrType === "country") {
+          // For country: use attrCountryName as is
+          advancedQuery = this.advancedQueryBuilder({
+            sysCategory,
+            tokenKeywords,
+            tokenCountry: attrCountryName,
+            excludeTokenIds: firstEntityTokenId ? [firstEntityTokenId] : [],
+          });
+        } else if (attrType === "city") {
+          // For city: use attrSettlement as OR condition, attrCountryName as tokenKeywords
+          const cityKeywords = attrCountryName ? [attrCountryName] : [];
+          advancedQuery = this.advancedQueryBuilder({
+            sysCategory,
+            tokenKeywords: cityKeywords,
+            tokenSettlement: attrSettlement,
+            excludeTokenIds: firstEntityTokenId ? [firstEntityTokenId] : [],
+          });
+        }
+
+        let allEntities: {
+          entityKey: Hex;
+          storageValue: Uint8Array;
+        }[] = [];
+
+        if (advancedQuery) {
+          allEntities = await this.client.queryEntities(advancedQuery);
+        }
+
+        // Process all entities and categorize them by attr_type
+        const categorizedResults: { [key: string]: any } = {};
+        const buildingResults: { [key: string]: any } = {};
+        const cityResults: { [key: string]: any } = {};
+        const countryResults: { [key: string]: any } = {};
+
+        for (const entity of allEntities) {
+          const result = await this.processEntityForMultiple(
+            entity,
+            sysCategory
+          );
+          if (result) {
+            categorizedResults[result.tokenId] = result.data;
+
+            // Get attr_type from the processed data to categorize
+            let entityAttrType: string | undefined = undefined;
+            if (sysCategory === "REALITY_NFT_SPECIAL_VENUES") {
+              entityAttrType = result.data.type;
+            } else {
+              entityAttrType = result.data.attributes.find(
+                (attribute: { trait_type: string; value: string }) =>
+                  attribute.trait_type === "type"
+              )?.value;
+            }
+
+            if (entityAttrType === "building") {
+              buildingResults[result.tokenId] = result.data;
+            } else if (entityAttrType === "city") {
+              cityResults[result.tokenId] = result.data;
+            } else if (entityAttrType === "country") {
+              countryResults[result.tokenId] = result.data;
+            }
+          }
+        }
+
+        // Order results based on attr_type
+        let orderedResults: { [key: string]: any } = {};
+
+        const firstEntityData = await this.processEntityForMultiple(
+          firstEntity,
+          sysCategory
+        );
+        if (attrType === "building") {
+          if (firstEntityTokenId && firstEntityData) {
+            orderedResults[firstEntityTokenId] = firstEntityData.data;
+          }
+
+          // building -> city -> country order
+          orderedResults = {
+            ...orderedResults,
+            ...buildingResults,
+            ...cityResults,
+            ...countryResults,
+          };
+        } else if (attrType === "country") {
+          if (firstEntityTokenId && firstEntityData) {
+            orderedResults[firstEntityTokenId] = firstEntityData.data;
+          }
+
+          // country -> city -> building order
+          orderedResults = {
+            ...orderedResults,
+            ...countryResults,
+            ...cityResults,
+            ...buildingResults,
+          };
+        } else if (attrType === "city") {
+          if (firstEntityTokenId && firstEntityData) {
+            orderedResults[firstEntityTokenId] = firstEntityData.data;
+          }
+
+          // city -> building -> country order
+          orderedResults = {
+            ...orderedResults,
+            ...cityResults,
+            ...buildingResults,
+            ...countryResults,
+          };
+        } else {
+          // If attrType doesn't match any expected values, return empty results
+          console.warn(
+            `Unknown attr_type: "${attrType}". Returning empty results.`
+          );
+          return {
+            data: {},
+            totalCount: 0,
+          };
+        }
+
+        // Apply skip and limit to the ordered results
+        const resultKeys = Object.keys(orderedResults);
+        let processedKeys = resultKeys;
+
+        if (skip > 0) {
+          processedKeys = resultKeys.slice(skip);
+        }
+
+        if (limit !== null && limit > 0) {
+          processedKeys = processedKeys.slice(0, limit);
+        }
+
+        const finalResults: Record<string, any> = {};
+        for (const key of processedKeys) {
+          finalResults[key] = orderedResults[key];
+        }
+
+        return {
+          data: finalResults,
+          totalCount: resultKeys.length,
+        };
+      }
+
+      // Regular search (non-advanced)
       const query = this.buildQuery({
         sysCategory,
         tokenCategory,
         tokenCountry,
-        tokenKeyword,
+        tokenKeywords,
+        tokenSettlement,
       });
 
       const entities = await this.client.queryEntities(query);
@@ -278,6 +487,7 @@ export class RealityNFTService {
    * Build query string for tokenIds
    * @param tokenIds - Array of tokenIds to query for
    * @param sysCategory - System category to filter by
+   * @param tokenSettlement - Settlement filter
    * @returns string - The constructed query
    */
   private buildQuery({
@@ -285,13 +495,15 @@ export class RealityNFTService {
     sysCategory,
     tokenCategory,
     tokenCountry,
-    tokenKeyword,
+    tokenKeywords,
+    tokenSettlement,
   }: {
     tokenIds?: string[];
     sysCategory: string;
     tokenCategory?: string;
     tokenCountry?: string;
-    tokenKeyword?: string;
+    tokenKeywords?: string[];
+    tokenSettlement?: string;
   }): string {
     let baseQuery = `_sys_version = 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"`;
 
@@ -311,29 +523,117 @@ export class RealityNFTService {
 
     // category filter
     if (tokenCategory) {
-      baseQuery += ` && attr_category = "${tokenCategory}"`;
+      const categoryKey =
+        sysCategory === "REALITY_NFT_SPECIAL_VENUES"
+          ? "category"
+          : "attr_category";
+      baseQuery += ` && ${categoryKey} = "${tokenCategory}"`;
     }
 
     // country filter
     if (tokenCountry) {
-      baseQuery += ` && attr_country_code = "${tokenCountry}"`;
+      const countryKey =
+        sysCategory === "REALITY_NFT_SPECIAL_VENUES"
+          ? "country_code"
+          : "attr_country_code";
+      baseQuery += ` && ${countryKey} = "${tokenCountry}"`;
     }
 
     // keyword filter
-    if (tokenKeyword) {
-      // Convert keyword to pattern: "*[<Ch1Capital><Ch1lower>][<Ch2Capital><Ch2lower>][<Ch3Capital><Ch3lower>]...*"
-      const keywordPattern = tokenKeyword
-        .split('')
-        .map(char => {
-          const upper = char.toUpperCase();
-          const lower = char.toLowerCase();
-          return `[${upper}${lower}]`;
-        })
-        .join('');
-      baseQuery += ` && name ~ "*${keywordPattern}*"`;
+    if (tokenKeywords && tokenKeywords.length > 0) {
+      const keywordPatterns = tokenKeywords.map((keyword) =>
+        this.createKeywordPattern(keyword)
+      );
+      if (keywordPatterns.length === 1) {
+        baseQuery += ` && name ~ "*${keywordPatterns[0]}*"`;
+      } else {
+        const orConditions = keywordPatterns.map(
+          (pattern) => `name ~ "*${pattern}*"`
+        );
+        baseQuery += ` && (${orConditions.join(" || ")})`;
+      }
+    }
+
+    // settlement filter
+    if (tokenSettlement) {
+      const settlementKey =
+        sysCategory === "REALITY_NFT_SPECIAL_VENUES"
+          ? "settlement"
+          : "attr_settlement";
+      baseQuery += ` && ${settlementKey} = "${tokenSettlement}"`;
     }
 
     return baseQuery;
+  }
+
+  /**
+   * Build advanced query string for advanced search scenarios
+   * @param sysCategory - System category to filter by
+   * @param tokenKeywords - Array of keywords to search for
+   * @param tokenCountry - Country filter
+   * @param tokenSettlement - Settlement filter (will be added as OR condition)
+   * @param excludeTokenIds - Array of token IDs to exclude from results
+   * @returns string - The constructed advanced query
+   */
+  private advancedQueryBuilder({
+    sysCategory,
+    tokenKeywords,
+    tokenCountry,
+    tokenSettlement,
+    excludeTokenIds,
+  }: {
+    sysCategory: string;
+    tokenKeywords?: string[];
+    tokenCountry?: string;
+    tokenSettlement?: string;
+    excludeTokenIds?: string[];
+  }): string {
+    // Build base query with sysCategory, tokenKeywords, and tokenCountry
+    let baseQuery = this.buildQuery({
+      sysCategory,
+      tokenKeywords,
+      tokenCountry,
+    });
+
+    // Add settlement as OR condition if provided
+    if (tokenSettlement) {
+      const settlementKey =
+        sysCategory === "REALITY_NFT_SPECIAL_VENUES"
+          ? "settlement"
+          : "attr_settlement";
+      baseQuery += ` || ${settlementKey} = "${tokenSettlement}"`;
+    }
+
+    // Add exclusion conditions for token IDs if provided
+    if (excludeTokenIds && excludeTokenIds.length > 0) {
+      const exclusionConditions = excludeTokenIds.map(
+        (tokenId) => `_sys_file_stem != "${tokenId}"`
+      );
+      if (exclusionConditions.length === 1) {
+        baseQuery += ` && ${exclusionConditions[0]}`;
+      } else {
+        baseQuery += ` && (${exclusionConditions.join(" && ")})`;
+      }
+    }
+
+    return baseQuery;
+  }
+
+  /**
+   * Convert keyword to pattern for case-insensitive matching
+   * @param keyword - The keyword to convert
+   * @returns string - The pattern for case-insensitive matching
+   */
+  private createKeywordPattern(keyword: string): string {
+    // Convert keyword to pattern: "*[<Ch1Capital><Ch1lower>][<Ch2Capital><Ch2lower>][<Ch3Capital><Ch3lower>]...*"
+    return keyword
+      .split("")
+      .map((char) => {
+        const upper = char.toUpperCase();
+        const lower = char.toLowerCase();
+        return `[${upper}${lower}]`;
+      })
+      .join("");
   }
 
   /**
@@ -558,8 +858,19 @@ export const realityNFTService = new RealityNFTService();
 console.log(
   await realityNFTService.getAllData({
     sysCategory: "REALITY_NFT_METADATA",
-    tokenKeyword: "main",
+    tokenKeywords: ["main"],
     skip: 0,
     limit: 30,
   })
 );
+
+// Advanced search usage - automatically determines search strategy based on first result's attr_type
+realityNFTService
+  .getAllData({
+    sysCategory: "REALITY_NFT_SPECIAL_VENUES",
+    tokenKeywords: ["eif"],
+    advancedSearch: true,
+    skip: 0,
+    limit: 30,
+  })
+  .then((result) => console.log(result));
