@@ -1,5 +1,5 @@
 """
-Examples module for Golem Base Python.
+Examples module for Arkiv Python.
 Contains example implementations and usage patterns.
 """
 

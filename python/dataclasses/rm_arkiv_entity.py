@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import json
-from dataclasses import dataclass, fields, field
+from dataclasses import dataclass, fields
 from pathlib import Path
 from typing import Optional, List, ClassVar, Any
-from ..common.enums import MetadataType, SysStatus
+from ..common.enums import MetadataType, SysStatus, Encoding
 from ..common.types import FileMetadataDict
 from ..common.config import BASE64_EXPANSION_FACTOR
 from ..utils.data_utils import (
@@ -11,11 +11,26 @@ from ..utils.data_utils import (
     is_field_none_or_empty_string,
     write_base64_to_file,
 )
-from ..utils.golem_base_utils import create_golem_base_entity_annotations
+from ..utils.arkiv_utils import create_arkiv_entity_annotations
+
+
+class OversizedData:
+    """Base class for data that was too large for Arkiv storage."""
+    pass
+
+
+class OversizedList(OversizedData):
+    """Represents a list that was too large for Arkiv storage."""
+    pass
+
+
+class OversizedDict(OversizedData):
+    """Represents a dictionary that was too large for Arkiv storage."""
+    pass
 
 
 @dataclass
-class RealityMetaGolemBaseEntity:
+class RmArkivEntity:
     """
     Dataclass for system fields only.
     Fields become read-only after initialization.
@@ -24,23 +39,27 @@ class RealityMetaGolemBaseEntity:
     # CONFIGURATION
     # -------------------------------------------
     VERSION: ClassVar[int] = 1
-    # DEV: Golem Base max entity size is 140KB
+    # DEV: Arkiv max entity size is 140KB
     # DEV: 10KB is reserved for metadata
     # TODO: 10KB might be too much or too little, the precise amount needs to be determined
-    GOLEM_BASE_MAX_ENTRY_SIZE: ClassVar[int] = 140 * 1024  # in bytes
+    ARKIV_MAX_ENTRY_SIZE: ClassVar[int] = 140 * 1024  # in bytes
     RESERVED_SPACE_FOR_METADATA: ClassVar[int] = 10 * 1024  # in bytes
     MAX_FILE_SIZE: ClassVar[int] = (
-        GOLEM_BASE_MAX_ENTRY_SIZE - RESERVED_SPACE_FOR_METADATA
+        ARKIV_MAX_ENTRY_SIZE - RESERVED_SPACE_FOR_METADATA
     )
+    
+    # DEV: Much smaller limit for individual dict/list string conversions
+    # This ensures they don't consume too much of the available space
+    MAX_DICT_LIST_STRING_SIZE: ClassVar[int] = 1 * 1024  # 1KB limit for individual dict/list strings
 
-    GOLEM_BASE_NULL_VALUE: ClassVar[str] = "null"
-    GOLEM_BASE_TRUE_VALUE: ClassVar[str] = "true"
-    GOLEM_BASE_FALSE_VALUE: ClassVar[str] = "false"
+    ARKIV_NULL_VALUE: ClassVar[str] = "null"
+    ARKIV_TRUE_VALUE: ClassVar[str] = "true"
+    ARKIV_FALSE_VALUE: ClassVar[str] = "false"
 
-    GOLEM_BASE_VALUES: ClassVar[dict[Any, str]] = {
-        None: GOLEM_BASE_NULL_VALUE,
-        True: GOLEM_BASE_TRUE_VALUE,
-        False: GOLEM_BASE_FALSE_VALUE,
+    ARKIV_VALUES: ClassVar[dict[Any, str]] = {
+        None: ARKIV_NULL_VALUE,
+        True: ARKIV_TRUE_VALUE,
+        False: ARKIV_FALSE_VALUE,
     }
 
     SYSTEM_FIELDS_PREFIX: ClassVar[str] = "_sys_"
@@ -62,6 +81,10 @@ class RealityMetaGolemBaseEntity:
     # Conversion prefixes for identifying converted data types
     CONVERTED_LIST_PREFIX: ClassVar[str] = "__list__:"
     CONVERTED_DICT_PREFIX: ClassVar[str] = "__dict__:"
+    
+    # Reserved strings for oversized data structures
+    TOO_LARGE_LIST_VALUE: ClassVar[str] = "__too_large_list__"
+    TOO_LARGE_DICT_VALUE: ClassVar[str] = "__too_large_dict__"
 
     # DEV: checksum is being calculated according to metadata fields + additional_fields excluding fields in this list
     ENTRY_CHECKSUM_IGNORED_FIELDS: ClassVar[List[str]] = [
@@ -101,7 +124,7 @@ class RealityMetaGolemBaseEntity:
     _sys_status: Optional[str] = SysStatus.BOTH.value  # TODO: add validation
 
     # Data
-    _sys_data: Optional[str] = GOLEM_BASE_NULL_VALUE  # Base64 encoded string
+    _sys_data: Optional[str] = ARKIV_NULL_VALUE  # Base64 encoded string
 
     # Chunking
     # TODO: will be implemented later with chunking
@@ -111,22 +134,22 @@ class RealityMetaGolemBaseEntity:
 
     # Classification & integrity
     # TODO: to be implemented later with parent-child relationships
-    _sys_parent_file_name: Optional[str] = GOLEM_BASE_NULL_VALUE
-    _sys_tags: Optional[list[str] | str] = GOLEM_BASE_NULL_VALUE
+    _sys_parent_file_name: Optional[str] = ARKIV_NULL_VALUE
+    _sys_tags: Optional[list[str] | str] = ARKIV_NULL_VALUE
     # DEV: following fields are created in __post_init__
     # NOTE: requires CONVERTED_LIST_PREFIX
-    _sys_field_names: Optional[str] = GOLEM_BASE_NULL_VALUE
+    _sys_field_names: Optional[str] = ARKIV_NULL_VALUE
     # DEV: for checking if the entity is already stored in the database
-    _sys_entity_checksum: Optional[str] = GOLEM_BASE_NULL_VALUE
+    _sys_entity_checksum: Optional[str] = ARKIV_NULL_VALUE
     # DEV: for checking if the file is already stored with different metadata
     # TODO: however similar thing can be archived by using _sys_data, decide if this is needed
-    _sys_file_checksum: Optional[str] = GOLEM_BASE_NULL_VALUE
+    _sys_file_checksum: Optional[str] = ARKIV_NULL_VALUE
 
     # FILE CONTENT
     # -------------------------------------------
     # DEV: right now it can override system fields
     # TODO: prevent overriding system fields
-    additional_fields: Optional[dict[str, str | int] | str] = GOLEM_BASE_NULL_VALUE
+    additional_fields: Optional[dict[str, str | int] | str] = ARKIV_NULL_VALUE
 
     def get_metadata_field_names(self) -> List[str]:
         """Get the names of all metadata fields."""
@@ -220,9 +243,10 @@ class RealityMetaGolemBaseEntity:
                 f"Required fields validation failed: {', '.join(invalid_fields)}"
             )
 
-    def convert_to_golem_base_value(self, value: Any) -> str | int:
+
+    def convert_to_arkiv_value(self, value: Any) -> str | int:
         """
-        Converts values to golem base values.
+        Converts values to arkiv base values.
         """
         # to prevent convertion 1 -> 'true' and 0 -> 'false'
         if isinstance(value, int):
@@ -231,8 +255,8 @@ class RealityMetaGolemBaseEntity:
         # bool -> string
         # None -> string
         try:
-            if value in self.GOLEM_BASE_VALUES:
-                return self.GOLEM_BASE_VALUES[value]
+            if value in self.ARKIV_VALUES:
+                return self.ARKIV_VALUES[value]
         except TypeError:
             pass
 
@@ -243,24 +267,36 @@ class RealityMetaGolemBaseEntity:
         # list -> string
         if isinstance(value, list):
             if len(value) == 0:
-                return self.GOLEM_BASE_NULL_VALUE
+                return self.ARKIV_NULL_VALUE
             else:
-                return self.CONVERTED_LIST_PREFIX + json.dumps(
-                    value, ensure_ascii=False
-                )
+                json_string = json.dumps(value, ensure_ascii=False)
+                converted_string = self.CONVERTED_LIST_PREFIX + json_string
+                
+                # Check if the converted string is too large
+                if len(converted_string.encode(Encoding.UTF8.value)) > self.MAX_DICT_LIST_STRING_SIZE:
+                    # Use reserved string for oversized lists
+                    return self.TOO_LARGE_LIST_VALUE
+                
+                return converted_string
 
         # dict -> string
         if isinstance(value, dict):
             if len(value) == 0:
-                return self.GOLEM_BASE_NULL_VALUE
+                return self.ARKIV_NULL_VALUE
             else:
-                return self.CONVERTED_DICT_PREFIX + json.dumps(
-                    value, ensure_ascii=False
-                )
+                json_string = json.dumps(value, ensure_ascii=False)
+                converted_string = self.CONVERTED_DICT_PREFIX + json_string
+                
+                # Check if the converted string is too large
+                if len(converted_string.encode(Encoding.UTF8.value)) > self.MAX_DICT_LIST_STRING_SIZE:
+                    # Use reserved string for oversized dicts
+                    return self.TOO_LARGE_DICT_VALUE
+                
+                return converted_string
 
-        # empty string -> golem base null value
+        # empty string -> arkiv base null value
         if isinstance(value, str) and value.strip() == "":
-            return self.GOLEM_BASE_NULL_VALUE
+            return self.ARKIV_NULL_VALUE
 
         return value
 
@@ -271,14 +307,14 @@ class RealityMetaGolemBaseEntity:
         # Allow setting during initialization
         if not hasattr(self, "_initialized") or name == "_initialized":
             if name != "additional_fields":
-                value = self.convert_to_golem_base_value(value)
+                value = self.convert_to_arkiv_value(value)
             else:
                 if isinstance(value, dict):
                     value = {
-                        k: self.convert_to_golem_base_value(v) for k, v in value.items()
+                        k: self.convert_to_arkiv_value(v) for k, v in value.items()
                     }
                 else:
-                    value = self.GOLEM_BASE_NULL_VALUE
+                    value = self.ARKIV_NULL_VALUE
 
             super().__setattr__(name, value)
             return
@@ -314,7 +350,7 @@ class RealityMetaGolemBaseEntity:
 
     def __getattribute__(self, name: str):
         """
-        Convert golem base values back to original types.
+        Convert arkiv base values back to original types.
         """
         # Get the actual value first using the parent's __getattribute__
         value = super().__getattribute__(name)
@@ -334,9 +370,9 @@ class RealityMetaGolemBaseEntity:
         if isinstance(value, int):
             return value
 
-        # Convert golem base values back to original types
-        golem_base_values = object.__getattribute__(self, "GOLEM_BASE_VALUES")
-        reversed_dict = {v: k for k, v in golem_base_values.items()}
+        # Convert arkiv base values back to original types
+        arkiv_values = object.__getattribute__(self, "ARKIV_VALUES")
+        reversed_dict = {v: k for k, v in arkiv_values.items()}
         try:
             if value in reversed_dict:
                 return reversed_dict[value]
@@ -351,6 +387,16 @@ class RealityMetaGolemBaseEntity:
             except ValueError:
                 pass
 
+        # check for oversized list
+        too_large_list_value = object.__getattribute__(self, "TOO_LARGE_LIST_VALUE")
+        if value == too_large_list_value:
+            return OversizedList()
+        
+        # check for oversized dict
+        too_large_dict_value = object.__getattribute__(self, "TOO_LARGE_DICT_VALUE")
+        if value == too_large_dict_value:
+            return OversizedDict()
+
         # stringified list -> list
         converted_list_prefix = object.__getattribute__(self, "CONVERTED_LIST_PREFIX")
         if isinstance(value, str) and value.startswith(converted_list_prefix):
@@ -362,14 +408,14 @@ class RealityMetaGolemBaseEntity:
             return json.loads(value[len(converted_dict_prefix) :])
 
         # For null values, return None instead of the string representation
-        golem_base_null_value = object.__getattribute__(self, "GOLEM_BASE_NULL_VALUE")
-        if value == golem_base_null_value:
+        arkiv_null_value = object.__getattribute__(self, "ARKIV_NULL_VALUE")
+        if value == arkiv_null_value:
             return None
 
         return value
 
     def to_dict(self) -> dict:
-        """Convert the dataclass to a dictionary with golem base values converted back to original types."""
+        """Convert the dataclass to a dictionary with arkiv base values converted back to original types."""
 
         result = {}
         for field in fields(self):
@@ -382,7 +428,7 @@ class RealityMetaGolemBaseEntity:
     def create_from_dict(
         cls,
         file_metadata: FileMetadataDict,
-    ) -> "RealityMetaGolemBaseEntity":
+    ) -> "RmArkivEntity":
         """
         Create an instance from a FileMetadataDict.
 
@@ -444,7 +490,7 @@ class RealityMetaGolemBaseEntity:
 
         return cls(**filtered_metadata)
 
-    def to_golem_base_entity(
+    def to_arkiv_entity(
         self,
     ) -> tuple[str, List[Any], List[Any]]:
         """
@@ -463,7 +509,7 @@ class RealityMetaGolemBaseEntity:
 
         # Convert metadata fields to annotations
         metadata_string_annotations, metadata_number_annotations = (
-            create_golem_base_entity_annotations(metadata_fields)
+            create_arkiv_entity_annotations(metadata_fields)
         )
 
         # Convert additional fields to annotations if they exist
@@ -472,7 +518,7 @@ class RealityMetaGolemBaseEntity:
 
         if isinstance(self.additional_fields, dict) and len(self.additional_fields) > 0:
             additional_string_annotations, additional_number_annotations = (
-                create_golem_base_entity_annotations(self.additional_fields)
+                create_arkiv_entity_annotations(self.additional_fields)
             )
 
         # Merge all annotations
@@ -486,23 +532,23 @@ class RealityMetaGolemBaseEntity:
         return entity_data, all_string_annotations, all_number_annotations
 
     @classmethod
-    def from_golem_base_entity(
+    def from_arkiv_entity(
         cls,
-        golem_base_entity,
-    ) -> "RealityMetaGolemBaseEntity":
+        arkiv_entity,
+    ) -> "RmArkivEntity":
         """
-        Create a RealityMetaGolemBaseEntity instance from a Golem Base entity.
+        Create a RmArkivEntity instance from a Arkiv entity.
         Raises: ValueError: If required fields are missing or invalid
         """
         # Combine all annotations into a single dictionary
         all_annotations = {}
 
         # Process string annotations
-        for annotation in golem_base_entity.string_annotations:
+        for annotation in arkiv_entity.string_annotations:
             all_annotations[annotation.key] = annotation.value
 
         # Process numeric annotations
-        for annotation in golem_base_entity.numeric_annotations:
+        for annotation in arkiv_entity.numeric_annotations:
             all_annotations[annotation.key] = annotation.value
 
         # Separate metadata fields from additional fields
@@ -530,7 +576,7 @@ class RealityMetaGolemBaseEntity:
         self, output_dir: Path | str, organize_by_category: bool = False
     ) -> Path:
         """
-        Recreate a file from this RealityMetaGolemBaseEntity instance.
+        Recreate a file from this RmArkivEntity instance.
         """
         # Convert to Path object if it's a string
         output_dir = Path(output_dir)

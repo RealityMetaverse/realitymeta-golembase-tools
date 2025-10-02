@@ -46,7 +46,7 @@ export class RealityNFTService {
   }
 
   /**
-   * Initialize the GolemDB client
+   * Initialize the Arkiv client
    */
   private async initialize(): Promise<void> {
     if (this.isInitialized) return;
@@ -59,7 +59,7 @@ export class RealityNFTService {
         !config.WS_URL ||
         !config.TARGET_OWNER
       ) {
-        throw new Error("Missing required Golem configuration");
+        throw new Error("Missing required Arkiv configuration");
       }
 
       const accountData = createAccountDataFromConfig();

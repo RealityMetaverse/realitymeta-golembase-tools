@@ -10,8 +10,8 @@ from .data_utils import (
 )
 from .reality_nft_utils import RealityNFTMediaStatistics
 from .logging_utils import Logger
-from .golem_base_utils import (
-    create_golem_base_entity_annotations,
+from .arkiv_utils import (
+    create_arkiv_entity_annotations,
     create_annotations_from_dict,
 )
 
@@ -24,8 +24,8 @@ __all__ = [
     # Data utility functions
     "generate_content_hash",
     "is_nft_metadata_attribute_field",
-    # Golem Base utility functions
-    "create_golem_base_entity_annotations",
+    # Arkiv utility functions
+    "create_arkiv_entity_annotations",
     "create_annotations_from_dict",
     # Classes
     "RealityNFTMediaStatistics",

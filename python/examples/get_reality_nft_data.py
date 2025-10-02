@@ -25,7 +25,7 @@ config = Config()
 
 
 class RealityNFTService:
-    """Service for querying Reality NFT data from GolemDB."""
+    """Service for querying Reality NFT data from Arkiv."""
 
     def __init__(self):
         self.client: Optional[GolemBaseClient] = None
@@ -47,7 +47,7 @@ class RealityNFTService:
         return f"{category}:{token_id}"
 
     async def _initialize(self) -> None:
-        """Initialize the GolemDB client."""
+        """Initialize the Arkiv client."""
         if self.is_initialized:
             return
 
@@ -61,7 +61,7 @@ class RealityNFTService:
                     config.TARGET_OWNER,
                 ]
             ):
-                raise ValueError("Missing required Golem configuration")
+                raise ValueError("Missing required Arkiv configuration")
 
             if not config.PRIVATE_KEY:
                 raise ValueError("Failed to create account data from configuration")
@@ -509,7 +509,7 @@ class RealityNFTService:
         return False
 
     async def disconnect(self) -> None:
-        """Disconnect the GolemDB client."""
+        """Disconnect the Arkiv client."""
         if self.client:
             await self.client.disconnect()
             print("🔌 Client disconnected")

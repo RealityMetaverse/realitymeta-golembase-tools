@@ -1,15 +1,15 @@
-from .reality_meta_golem_base_entity import RealityMetaGolemBaseEntity
-from .reality_meta_golem_base_entity_image import RealityMetaGolemBaseEntityImage
-from .reality_meta_golem_base_entity_video import RealityMetaGolemBaseEntityVideo
-from .reality_meta_golem_base_entity_audio import RealityMetaGolemBaseEntityAudio
-from .reality_meta_golem_base_entity_text import RealityMetaGolemBaseEntityText
-from .reality_meta_golem_base_entity_json import RealityMetaGolemBaseEntityJson
+from .rm_arkiv_entity import RmArkivEntity
+from .rm_arkiv_entity_image import RmArkivEntityImage
+from .rm_arkiv_entity_video import RmArkivEntityVideo
+from .rm_arkiv_entity_audio import RmArkivEntityAudio
+from .rm_arkiv_entity_text import RmArkivEntityText
+from .rm_arkiv_entity_json import RmArkivEntityJson
 
 __all__ = [
-    "RealityMetaGolemBaseEntity",
-    "RealityMetaGolemBaseEntityImage",
-    "RealityMetaGolemBaseEntityVideo",
-    "RealityMetaGolemBaseEntityAudio",
-    "RealityMetaGolemBaseEntityText",
-    "RealityMetaGolemBaseEntityJson",
+    "RmArkivEntity",
+    "RmArkivEntityImage",
+    "RmArkivEntityVideo",
+    "RmArkivEntityAudio",
+    "RmArkivEntityText",
+    "RmArkivEntityJson",
 ]

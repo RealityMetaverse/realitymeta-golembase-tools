@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 from dataclasses import dataclass
 from typing import Optional, ClassVar
-from .reality_meta_golem_base_entity import RealityMetaGolemBaseEntity
+from .rm_arkiv_entity import RmArkivEntity
 
 
 @dataclass
-class RealityMetaGolemBaseEntityImage(RealityMetaGolemBaseEntity):
+class RmArkivEntityImage(RmArkivEntity):
     """
-    Specialized RealityMetaGolemBaseEntity for image files.
+    Specialized RmArkivEntity for image files.
     Contains additional image-specific metadata.
     """
 
-    GOLEM_BASE_NULL_VALUE: ClassVar[str] = (
-        RealityMetaGolemBaseEntity.GOLEM_BASE_NULL_VALUE
+    ARKIV_NULL_VALUE: ClassVar[str] = (
+        RmArkivEntity.ARKIV_NULL_VALUE
     )
-    GOLEM_BASE_FALSE_VALUE: ClassVar[str] = (
-        RealityMetaGolemBaseEntity.GOLEM_BASE_FALSE_VALUE
+    ARKIV_FALSE_VALUE: ClassVar[str] = (
+        RmArkivEntity.ARKIV_FALSE_VALUE
     )
 
     # REQUIRED FIELDS FOR IMAGE
@@ -37,8 +37,8 @@ class RealityMetaGolemBaseEntityImage(RealityMetaGolemBaseEntity):
     # OPTIONAL FIELDS
     # --------------------------------------------
     # e.g. "RGB", "RGBA", "L"
-    _img_mode: Optional[str] = GOLEM_BASE_NULL_VALUE
-    _img_palette: Optional[str] = GOLEM_BASE_NULL_VALUE
+    _img_mode: Optional[str] = ARKIV_NULL_VALUE
+    _img_palette: Optional[str] = ARKIV_NULL_VALUE
     # Number of frames (for animated images like GIFs)
     _img_n_frames: Optional[int] = 1
 

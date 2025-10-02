@@ -12,26 +12,26 @@ from golem_base_sdk import (
     GenericBytes,
 )
 from ..common.globals import logger, reset_globals
-from ..factories.reality_meta_golem_base_entity_factory import (
-    create_reality_meta_golem_base_entities_from_directory,
+from ..factories.rm_arkiv_entity_factory import (
+    create_rm_arkiv_entities_from_directory,
 )
-from ..dataclasses.reality_meta_golem_base_entity import RealityMetaGolemBaseEntity
-from ..dataclasses.reality_meta_golem_base_entity_audio import (
-    RealityMetaGolemBaseEntityAudio,
+from ..dataclasses.rm_arkiv_entity import RmArkivEntity
+from ..dataclasses.rm_arkiv_entity_audio import (
+    RmArkivEntityAudio,
 )
-from ..dataclasses.reality_meta_golem_base_entity_image import (
-    RealityMetaGolemBaseEntityImage,
+from ..dataclasses.rm_arkiv_entity_image import (
+    RmArkivEntityImage,
 )
-from ..dataclasses.reality_meta_golem_base_entity_json import (
-    RealityMetaGolemBaseEntityJson,
+from ..dataclasses.rm_arkiv_entity_json import (
+    RmArkivEntityJson,
 )
-from ..dataclasses.reality_meta_golem_base_entity_text import (
-    RealityMetaGolemBaseEntityText,
+from ..dataclasses.rm_arkiv_entity_text import (
+    RmArkivEntityText,
 )
-from ..dataclasses.reality_meta_golem_base_entity_video import (
-    RealityMetaGolemBaseEntityVideo,
+from ..dataclasses.rm_arkiv_entity_video import (
+    RmArkivEntityVideo,
 )
-from ..utils.golem_base_utils import create_golem_base_client
+from ..utils.arkiv_utils import create_arkiv_client
 
 
 # Default input directory
@@ -39,14 +39,14 @@ DEFAULT_IN_DIR = "./database"
 
 
 async def check_entities_individual(
-    golem_base_client: GolemBaseClient,
+    arkiv_client: GolemBaseClient,
     entities: List[
-        RealityMetaGolemBaseEntity
-        | RealityMetaGolemBaseEntityAudio
-        | RealityMetaGolemBaseEntityImage
-        | RealityMetaGolemBaseEntityJson
-        | RealityMetaGolemBaseEntityText
-        | RealityMetaGolemBaseEntityVideo
+        RmArkivEntity
+        | RmArkivEntityAudio
+        | RmArkivEntityImage
+        | RmArkivEntityJson
+        | RmArkivEntityText
+        | RmArkivEntityVideo
     ],
 ) -> dict:
     """
@@ -65,7 +65,7 @@ async def check_entities_individual(
 
             # First, try to find by entity checksum (exact match - skip)
             entity_checksum_query = f'_sys_entity_checksum = "{entity_checksum}"'
-            queried_entities = await golem_base_client.query_entities(
+            queried_entities = await arkiv_client.query_entities(
                 entity_checksum_query
             )
 
@@ -85,7 +85,7 @@ async def check_entities_individual(
             file_category_query = (
                 f'_sys_file_name = "{file_name}" && _sys_category = "{category}"'
             )
-            queried_entities = await golem_base_client.query_entities(
+            queried_entities = await arkiv_client.query_entities(
                 file_category_query
             )
 
@@ -123,22 +123,22 @@ async def check_entities_individual(
     return results
 
 
-async def update_golem_base_database(
-    golem_base_client: GolemBaseClient,
+async def update_arkiv_database(
+    arkiv_client: GolemBaseClient,
     entities: List[
-        RealityMetaGolemBaseEntity
-        | RealityMetaGolemBaseEntityAudio
-        | RealityMetaGolemBaseEntityImage
-        | RealityMetaGolemBaseEntityJson
-        | RealityMetaGolemBaseEntityText
-        | RealityMetaGolemBaseEntityVideo
+        RmArkivEntity
+        | RmArkivEntityAudio
+        | RmArkivEntityImage
+        | RmArkivEntityJson
+        | RmArkivEntityText
+        | RmArkivEntityVideo
     ],
     batch_size: int = 15,
     ttl: int = 3600,
 ):
-    """Write all metadata to Golem Base using the provided client with create/update logic."""
+    """Write all metadata to Arkiv using the provided client with create/update logic."""
     # Set up log watching
-    await golem_base_client.watch_logs(
+    await arkiv_client.watch_logs(
         label="nft_metadata",
         create_callback=lambda create: (
             logger.info(f"WATCH-> Create: {create}") if logger else None
@@ -162,7 +162,7 @@ async def update_golem_base_database(
 
     # Check all entities individually
     logger.info("Checking entity existence individually...")
-    entity_results = await check_entities_individual(golem_base_client, entities)
+    entity_results = await check_entities_individual(arkiv_client, entities)
 
     # Process each entity based on batch results
     for entity in entities:
@@ -170,7 +170,7 @@ async def update_golem_base_database(
 
         # Create entity data and annotations from the entity
         entity_data, string_annotations, number_annotations = (
-            entity.to_golem_base_entity()
+            entity.to_arkiv_entity()
         )
 
         # Get the action determined by batch check
@@ -221,7 +221,7 @@ async def update_golem_base_database(
         for i in range(0, len(creates), batch_size):
             batch = creates[i : i + batch_size]
             try:
-                receipts = await golem_base_client.create_entities(batch)
+                receipts = await arkiv_client.create_entities(batch)
                 if logger:
                     logger.info(
                         f"Successfully created batch {i//batch_size + 1}: {len(receipts)} entities"
@@ -244,7 +244,7 @@ async def update_golem_base_database(
         for i in range(0, len(updates), batch_size):
             batch = updates[i : i + batch_size]
             try:
-                receipts = await golem_base_client.update_entities(batch)
+                receipts = await arkiv_client.update_entities(batch)
                 if logger:
                     logger.info(
                         f"Successfully updated batch {i//batch_size + 1}: {len(receipts)} entities"
@@ -272,14 +272,14 @@ async def main():
     reset_globals()
 
     ap = argparse.ArgumentParser(
-        description="Update Golem Base database with RealityMeta entities"
+        description="Update Arkiv database with RM entities"
     )
     ap.add_argument(
         "--in-dir",
         "--in",
         dest="in_dir",
         default=DEFAULT_IN_DIR,
-        help=f"Input directory with RealityMeta entities (default: {DEFAULT_IN_DIR})",
+        help=f"Input directory with RM entities (default: {DEFAULT_IN_DIR})",
     )
     ap.add_argument(
         "--batch-size",
@@ -299,19 +299,19 @@ async def main():
         "--rpc-url",
         "-rpc",
         dest="rpc_url",
-        help="Golem Base RPC URL (uses default from config if not provided)",
+        help="Arkiv RPC URL (uses default from config if not provided)",
     )
     ap.add_argument(
         "--ws-url",
         "-ws",
         dest="ws_url",
-        help="Golem Base WebSocket URL (uses default from config if not provided)",
+        help="Arkiv WebSocket URL (uses default from config if not provided)",
     )
     ap.add_argument(
         "--private-key",
         "-pk",
         dest="private_key",
-        help="Private key for Golem Base authentication (uses PRIVATE_KEY environment variable if not provided)",
+        help="Private key for Arkiv authentication (uses PRIVATE_KEY environment variable if not provided)",
     )
     args = ap.parse_args()
 
@@ -339,7 +339,7 @@ async def main():
 
     # Load metadata files using the new factory function
     try:
-        entities = create_reality_meta_golem_base_entities_from_directory(args.in_dir)
+        entities = create_rm_arkiv_entities_from_directory(args.in_dir)
     except Exception as e:
         logger.error(f"Error loading entities from directory: {e}")
         sys.exit(1)
@@ -351,15 +351,15 @@ async def main():
 
     logger.info(f"Found {len(entities)} entities")
 
-    # Create a client to interact with the GolemDB API
-    golem_base_client = await create_golem_base_client(
+    # Create a client to interact with the Arkiv API
+    arkiv_client = await create_arkiv_client(
         rpc_url=args.rpc_url, ws_url=args.ws_url, private_key=args.private_key
     )
 
     try:
-        # Write to Golem Base
-        await update_golem_base_database(
-            golem_base_client,
+        # Write to Arkiv
+        await update_arkiv_database(
+            arkiv_client,
             entities,
             batch_size=args.batch_size,
             ttl=args.ttl,
@@ -368,8 +368,8 @@ async def main():
         logger.info("Import completed!")
     finally:
         # Always disconnect the client when done
-        logger.info("Disconnecting Golem DB client...")
-        await golem_base_client.disconnect()
+        logger.info("Disconnecting Arkiv client...")
+        await arkiv_client.disconnect()
 
         # Print log summary if any logs were generated
         logger.print_summary()

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 from dataclasses import dataclass
 from typing import ClassVar
-from .reality_meta_golem_base_entity import RealityMetaGolemBaseEntity
+from .rm_arkiv_entity import RmArkivEntity
 
 
 @dataclass
-class RealityMetaGolemBaseEntityJson(RealityMetaGolemBaseEntity):
+class RmArkivEntityJson(RmArkivEntity):
     """
-    Specialized RealityMetaGolemBaseEntity for JSON files.
+    Specialized RmArkivEntity for JSON files.
     Contains additional JSON-specific metadata.
     """
 

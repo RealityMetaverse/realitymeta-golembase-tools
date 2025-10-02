@@ -8,33 +8,33 @@ from typing import List
 
 from golem_base_sdk import GolemBaseClient, GenericBytes
 from ..common.globals import logger, reset_globals
-from ..dataclasses.reality_meta_golem_base_entity import (
-    RealityMetaGolemBaseEntity,
+from ..dataclasses.rm_arkiv_entity import (
+    RmArkivEntity,
 )
-from ..dataclasses.reality_meta_golem_base_entity_audio import (
-    RealityMetaGolemBaseEntityAudio,
+from ..dataclasses.rm_arkiv_entity_audio import (
+    RmArkivEntityAudio,
 )
-from ..dataclasses.reality_meta_golem_base_entity_image import (
-    RealityMetaGolemBaseEntityImage,
+from ..dataclasses.rm_arkiv_entity_image import (
+    RmArkivEntityImage,
 )
-from ..dataclasses.reality_meta_golem_base_entity_audio import (
-    RealityMetaGolemBaseEntityAudio,
+from ..dataclasses.rm_arkiv_entity_audio import (
+    RmArkivEntityAudio,
 )
-from ..dataclasses.reality_meta_golem_base_entity_image import (
-    RealityMetaGolemBaseEntityImage,
+from ..dataclasses.rm_arkiv_entity_image import (
+    RmArkivEntityImage,
 )
-from ..dataclasses.reality_meta_golem_base_entity_video import (
-    RealityMetaGolemBaseEntityVideo,
+from ..dataclasses.rm_arkiv_entity_video import (
+    RmArkivEntityVideo,
 )
-from ..dataclasses.reality_meta_golem_base_entity_text import (
-    RealityMetaGolemBaseEntityText,
+from ..dataclasses.rm_arkiv_entity_text import (
+    RmArkivEntityText,
 )
-from ..dataclasses.reality_meta_golem_base_entity_json import (
-    RealityMetaGolemBaseEntityJson,
+from ..dataclasses.rm_arkiv_entity_json import (
+    RmArkivEntityJson,
 )
 
 
-from ..utils.golem_base_utils import create_golem_base_client
+from ..utils.arkiv_utils import create_arkiv_client
 
 
 # Default output directory
@@ -42,18 +42,18 @@ DEFAULT_OUT_DIR = "./recreated_files"
 
 
 async def query_entities_by_version(
-    golem_base_client: GolemBaseClient, version: int = 1
+    arkiv_client: GolemBaseClient, version: int = 1
 ) -> List[any]:
     """
-    Query all entities with a specific sys version from Golem Base.
-    Returns a list of Golem Base entities.
+    Query all entities with a specific sys version from Arkiv.
+    Returns a list of Arkiv entities.
     """
     try:
         # Query for entities with the specified version
         query = f"_sys_version = {version}"
         logger.info(f"Querying entities with version {version}...")
 
-        entities = await golem_base_client.query_entities(query)
+        entities = await arkiv_client.query_entities(query)
         logger.info(f"Found {len(entities)} entities with version {version}")
 
         return entities
@@ -63,7 +63,7 @@ async def query_entities_by_version(
 
 
 async def recreate_files_from_entities(
-    golem_base_client: GolemBaseClient,
+    arkiv_client: GolemBaseClient,
     output_dir: Path,
     version: int = 1,
 ) -> None:
@@ -71,7 +71,7 @@ async def recreate_files_from_entities(
     Query entities with specified version and recreate files.
     """
     # Query entities with the specified version
-    entities = await query_entities_by_version(golem_base_client, version)
+    entities = await query_entities_by_version(arkiv_client, version)
 
     if not entities:
         logger.warn(f"No entities found with version {version}")
@@ -86,7 +86,7 @@ async def recreate_files_from_entities(
         try:
             # Get entity metadata - convert entity key to proper format
             entity_key_bytes = GenericBytes.from_hex_string(entity.entity_key)
-            entity_metadata = await golem_base_client.get_entity_metadata(
+            entity_metadata = await arkiv_client.get_entity_metadata(
                 entity_key_bytes
             )
 
@@ -99,28 +99,28 @@ async def recreate_files_from_entities(
 
             # Import the appropriate entity class
             if file_type == "image":
-                rmgb_entity = RealityMetaGolemBaseEntityImage.from_golem_base_entity(
+                rmgb_entity = RmArkivEntityImage.from_arkiv_entity(
                     entity_metadata
                 )
             elif file_type == "audio":
-                rmgb_entity = RealityMetaGolemBaseEntityAudio.from_golem_base_entity(
+                rmgb_entity = RmArkivEntityAudio.from_arkiv_entity(
                     entity_metadata
                 )
             elif file_type == "video":
-                rmgb_entity = RealityMetaGolemBaseEntityVideo.from_golem_base_entity(
+                rmgb_entity = RmArkivEntityVideo.from_arkiv_entity(
                     entity_metadata
                 )
             elif file_type == "text":
-                rmgb_entity = RealityMetaGolemBaseEntityText.from_golem_base_entity(
+                rmgb_entity = RmArkivEntityText.from_arkiv_entity(
                     entity_metadata
                 )
             elif file_type == "json":
-                rmgb_entity = RealityMetaGolemBaseEntityJson.from_golem_base_entity(
+                rmgb_entity = RmArkivEntityJson.from_arkiv_entity(
                     entity_metadata
                 )
             else:
                 # Fallback to base entity
-                rmgb_entity = RealityMetaGolemBaseEntity.from_golem_base_entity(
+                rmgb_entity = RmArkivEntity.from_arkiv_entity(
                     entity_metadata
                 )
 
@@ -149,7 +149,7 @@ async def main():
     reset_globals()
 
     ap = argparse.ArgumentParser(
-        description="Recreate files from Golem Base entities with specific version"
+        description="Recreate files from Arkiv entities with specific version"
     )
     ap.add_argument(
         "--output-dir",
@@ -170,19 +170,19 @@ async def main():
         "--rpc-url",
         "-rpc",
         dest="rpc_url",
-        help="Golem Base RPC URL (uses default from config if not provided)",
+        help="Arkiv RPC URL (uses default from config if not provided)",
     )
     ap.add_argument(
         "--ws-url",
         "-ws",
         dest="ws_url",
-        help="Golem Base WebSocket URL (uses default from config if not provided)",
+        help="Arkiv WebSocket URL (uses default from config if not provided)",
     )
     ap.add_argument(
         "--private-key",
         "-pk",
         dest="private_key",
-        help="Private key for Golem Base authentication (uses PRIVATE_KEY environment variable if not provided)",
+        help="Private key for Arkiv authentication (uses PRIVATE_KEY environment variable if not provided)",
     )
     args = ap.parse_args()
 
@@ -206,16 +206,16 @@ async def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     logger.info(f"Output directory: {output_dir.absolute()}")
 
-    # Create a client to interact with the GolemDB API
-    logger.info("Initializing Golem DB client...")
-    golem_base_client = await create_golem_base_client(
+    # Create a client to interact with the Arkiv API
+    logger.info("Initializing Arkiv client...")
+    arkiv_client = await create_arkiv_client(
         rpc_url=args.rpc_url, ws_url=args.ws_url, private_key=args.private_key
     )
 
     try:
         # Recreate files from database
         await recreate_files_from_entities(
-            golem_base_client,
+            arkiv_client,
             output_dir,
             version=args.version,
         )
@@ -223,8 +223,8 @@ async def main():
         logger.info("File recreation completed!")
     finally:
         # Always disconnect the client when done
-        logger.info("Disconnecting Golem DB client...")
-        await golem_base_client.disconnect()
+        logger.info("Disconnecting Arkiv client...")
+        await arkiv_client.disconnect()
 
         # Print log summary if any logs were generated
         logger.print_summary()

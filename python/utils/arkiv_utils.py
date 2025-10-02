@@ -1,6 +1,6 @@
 from typing import List
 from golem_base_sdk import Annotation, GolemBaseClient
-from ..common.config import GOLEM_DB_RPC, GOLEM_DB_WSS, PRIVATE_KEY
+from ..common.config import ARKIV_RPC, ARKIV_WSS, PRIVATE_KEY
 
 
 # TODO: fix circular dependency
@@ -11,31 +11,31 @@ def _get_logger():
     return logger
 
 
-async def create_golem_base_client(
+async def create_arkiv_client(
     rpc_url: str = None,
     ws_url: str = None,
     private_key: str = None,
 ):
     """Create and configure a GolemBaseClient instance."""
     if not rpc_url:
-        rpc_url = GOLEM_DB_RPC
+        rpc_url = ARKIV_RPC
     if not ws_url:
-        ws_url = GOLEM_DB_WSS
+        ws_url = ARKIV_WSS
     if not private_key:
         private_key = PRIVATE_KEY
 
-    # Create a client to interact with the GolemDB API
-    golem_base_client = await GolemBaseClient.create(
+    # Create a client to interact with the Arkiv API
+    arkiv_client = await GolemBaseClient.create(
         rpc_url=rpc_url,
         ws_url=ws_url,
         private_key=private_key,
     )
-    _get_logger().info("Golem DB client initialized")
+    _get_logger().info("Arkiv client initialized")
 
-    return golem_base_client
+    return arkiv_client
 
 
-def create_golem_base_entity_annotations(
+def create_arkiv_entity_annotations(
     dictionary: dict[str, int | str],
 ) -> tuple[List[Annotation], List[Annotation]]:
     """
@@ -57,4 +57,4 @@ def create_golem_base_entity_annotations(
 
 
 # ALIAS
-create_annotations_from_dict = create_golem_base_entity_annotations
+create_annotations_from_dict = create_arkiv_entity_annotations

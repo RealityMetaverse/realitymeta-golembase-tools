@@ -41,7 +41,7 @@ class BaseStringEnum(Enum):
 
 class SysStatus(BaseStringEnum):
     """
-    Enum for RealityMetaGolemBaseEntity sys_status field.
+    Enum for RmArkivEntity sys_status field.
     Representing different environment availability states.
     """
 

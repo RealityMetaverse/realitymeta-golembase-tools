@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 from dataclasses import dataclass
 from typing import Optional, ClassVar
-from .reality_meta_golem_base_entity import RealityMetaGolemBaseEntity
+from .rm_arkiv_entity import RmArkivEntity
 
 
 @dataclass
-class RealityMetaGolemBaseEntityVideo(RealityMetaGolemBaseEntity):
+class RmArkivEntityVideo(RmArkivEntity):
     """
-    Specialized RealityMetaGolemBaseEntity for video files.
+    Specialized RmArkivEntity for video files.
     Contains additional video-specific metadata.
     """
 
-    GOLEM_BASE_NULL_VALUE: ClassVar[str] = (
-        RealityMetaGolemBaseEntity.GOLEM_BASE_NULL_VALUE
+    ARKIV_NULL_VALUE: ClassVar[str] = (
+        RmArkivEntity.ARKIV_NULL_VALUE
     )
 
     # REQUIRED FIELDS FOR VIDEO
@@ -41,15 +41,15 @@ class RealityMetaGolemBaseEntityVideo(RealityMetaGolemBaseEntity):
     # OPTIONAL FIELDS
     # -------------------------------------------
     # e.g. "yuv420p"
-    _vid_pixel_format: Optional[str] = GOLEM_BASE_NULL_VALUE
+    _vid_pixel_format: Optional[str] = ARKIV_NULL_VALUE
     # e.g. "aac", "mp3"
-    _vid_audio_codec: Optional[str] = GOLEM_BASE_NULL_VALUE
+    _vid_audio_codec: Optional[str] = ARKIV_NULL_VALUE
     # e.g. 44100
-    _vid_audio_sample_rate: Optional[int] = GOLEM_BASE_NULL_VALUE
+    _vid_audio_sample_rate: Optional[int] = ARKIV_NULL_VALUE
     # Number of audio channels
-    _vid_audio_channels: Optional[int] = GOLEM_BASE_NULL_VALUE
+    _vid_audio_channels: Optional[int] = ARKIV_NULL_VALUE
     # Overall bitrate in bits per second
-    _vid_bitrate: Optional[int] = GOLEM_BASE_NULL_VALUE
+    _vid_bitrate: Optional[int] = ARKIV_NULL_VALUE
 
     def get_video_dimensions(self) -> tuple[int, int]:
         """Get video dimensions as (width, height) tuple."""

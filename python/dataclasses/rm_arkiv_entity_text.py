@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 from dataclasses import dataclass
 from typing import Optional, ClassVar
-from .reality_meta_golem_base_entity import RealityMetaGolemBaseEntity
+from .rm_arkiv_entity import RmArkivEntity
 
 
 @dataclass
-class RealityMetaGolemBaseEntityText(RealityMetaGolemBaseEntity):
+class RmArkivEntityText(RmArkivEntity):
     """
-    Specialized RealityMetaGolemBaseEntity for text files.
+    Specialized RmArkivEntity for text files.
     Contains additional text-specific metadata.
     """
 
-    GOLEM_BASE_NULL_VALUE: ClassVar[str] = (
-        RealityMetaGolemBaseEntity.GOLEM_BASE_NULL_VALUE
+    ARKIV_NULL_VALUE: ClassVar[str] = (
+        RmArkivEntity.ARKIV_NULL_VALUE
     )
 
     # REQUIRED FIELDS FOR TEXT
@@ -35,7 +35,7 @@ class RealityMetaGolemBaseEntityText(RealityMetaGolemBaseEntity):
     # OPTIONAL FIELDS
     # -------------------------------------------------------------------------
     # e.g. "UTF-8", "latin-1", "cp1252", "iso-8859-1"
-    _txt_encoding_used: Optional[str] = GOLEM_BASE_NULL_VALUE
+    _txt_encoding_used: Optional[str] = ARKIV_NULL_VALUE
 
     def get_average_line_length(self) -> float:
         """Calculate average characters per line."""

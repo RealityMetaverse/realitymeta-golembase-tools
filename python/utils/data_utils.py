@@ -81,10 +81,10 @@ def write_base64_to_file(encoded_str: str, output_path: Path) -> None:
 
 def recreate_file_from_entity(entity: Any, output_dir: Path) -> Path:
     """
-    Recreate a file from a RealityMetaGolemBaseEntity instance.
+    Recreate a file from a RmArkivEntity instance.
 
     Args:
-        entity: A RealityMetaGolemBaseEntity instance containing file data and metadata
+        entity: A RmArkivEntity instance containing file data and metadata
         output_dir: Directory where the recreated file should be saved
 
     Returns:
