@@ -152,8 +152,8 @@ async def main():
         description="Recreate files from Arkiv entities with specific version"
     )
     ap.add_argument(
-        "--output-dir",
-        "--out",
+        "--out-dir",
+        "-o",
         dest="output_dir",
         default=DEFAULT_OUT_DIR,
         help=f"Output directory for recreated files (default: {DEFAULT_OUT_DIR})",
@@ -168,19 +168,19 @@ async def main():
     )
     ap.add_argument(
         "--rpc-url",
-        "-rpc",
+        "-r",
         dest="rpc_url",
         help="Arkiv RPC URL (uses default from config if not provided)",
     )
     ap.add_argument(
         "--ws-url",
-        "-ws",
+        "-w",
         dest="ws_url",
         help="Arkiv WebSocket URL (uses default from config if not provided)",
     )
     ap.add_argument(
         "--private-key",
-        "-pk",
+        "-k",
         dest="private_key",
         help="Private key for Arkiv authentication (uses PRIVATE_KEY environment variable if not provided)",
     )
