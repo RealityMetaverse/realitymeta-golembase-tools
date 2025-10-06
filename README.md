@@ -1,9 +1,22 @@
 # Reality Metaverse Arkiv Tools
 
-![Version](https://img.shields.io/badge/version-v0.1.0-blue)
+![Version](https://img.shields.io/badge/version-v0.2.0-blue)
 ![Status](https://img.shields.io/badge/status-under%20development-orange)
 
 File tracking and management system for Arkiv. Upload any file type, track changes, and recreate files locally with comprehensive metadata extraction.
+
+## What's New?
+
+### Version 0.2.0 - 2025/10/06
+
+#### ADDED: Smart Compression System
+
+- **GZIP Compression**: Automatic compression for oversized files (JSON, text, other files)
+- **JSON Minification**: Built-in JSON minification before compression for optimal size reduction
+- **Compression Detection**: Client-side decompression support in both Python and TypeScript examples
+- **Size Optimization**: Files are compressed only when beneficial (reduces final size)
+
+---
 
 ## Features
 

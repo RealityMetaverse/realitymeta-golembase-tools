@@ -3,29 +3,33 @@ import json
 from dataclasses import dataclass, fields
 from pathlib import Path
 from typing import Optional, List, ClassVar, Any
-from ..common.enums import MetadataType, SysStatus, Encoding
+from ..common.enums import MetadataType, SysStatus, Encoding, CompressionMethod
 from ..common.types import FileMetadataDict
-from ..common.config import BASE64_EXPANSION_FACTOR
 from ..utils.data_utils import (
     generate_content_hash,
     is_field_none_or_empty_string,
+    minify_json_data,
     write_base64_to_file,
+    write_compressed_data_to_file,
 )
 from ..utils.arkiv_utils import create_arkiv_entity_annotations
 
 
 class OversizedData:
     """Base class for data that was too large for Arkiv storage."""
+
     pass
 
 
 class OversizedList(OversizedData):
     """Represents a list that was too large for Arkiv storage."""
+
     pass
 
 
 class OversizedDict(OversizedData):
     """Represents a dictionary that was too large for Arkiv storage."""
+
     pass
 
 
@@ -38,19 +42,19 @@ class RmArkivEntity:
 
     # CONFIGURATION
     # -------------------------------------------
-    VERSION: ClassVar[int] = 1
+    VERSION: ClassVar[int] = 2
     # DEV: Arkiv max entity size is 140KB
     # DEV: 10KB is reserved for metadata
     # TODO: 10KB might be too much or too little, the precise amount needs to be determined
     ARKIV_MAX_ENTRY_SIZE: ClassVar[int] = 140 * 1024  # in bytes
     RESERVED_SPACE_FOR_METADATA: ClassVar[int] = 10 * 1024  # in bytes
-    MAX_FILE_SIZE: ClassVar[int] = (
-        ARKIV_MAX_ENTRY_SIZE - RESERVED_SPACE_FOR_METADATA
-    )
-    
+    MAX_FILE_SIZE: ClassVar[int] = ARKIV_MAX_ENTRY_SIZE - RESERVED_SPACE_FOR_METADATA
+
     # DEV: Much smaller limit for individual dict/list string conversions
     # This ensures they don't consume too much of the available space
-    MAX_DICT_LIST_STRING_SIZE: ClassVar[int] = 1 * 1024  # 1KB limit for individual dict/list strings
+    MAX_DICT_LIST_STRING_SIZE: ClassVar[int] = (
+        1 * 1024
+    )  # 1KB limit for individual dict/list strings
 
     ARKIV_NULL_VALUE: ClassVar[str] = "null"
     ARKIV_TRUE_VALUE: ClassVar[str] = "true"
@@ -81,7 +85,7 @@ class RmArkivEntity:
     # Conversion prefixes for identifying converted data types
     CONVERTED_LIST_PREFIX: ClassVar[str] = "__list__:"
     CONVERTED_DICT_PREFIX: ClassVar[str] = "__dict__:"
-    
+
     # Reserved strings for oversized data structures
     TOO_LARGE_LIST_VALUE: ClassVar[str] = "__too_large_list__"
     TOO_LARGE_DICT_VALUE: ClassVar[str] = "__too_large_dict__"
@@ -125,6 +129,10 @@ class RmArkivEntity:
 
     # Data
     _sys_data: Optional[str] = ARKIV_NULL_VALUE  # Base64 encoded string
+    _sys_compression_method: Optional[str] = ARKIV_NULL_VALUE  # Compression method used
+    _sys_compressed_data_size: Optional[int] = (
+        ARKIV_NULL_VALUE  # Size of compressed data
+    )
 
     # Chunking
     # TODO: will be implemented later with chunking
@@ -243,13 +251,12 @@ class RmArkivEntity:
                 f"Required fields validation failed: {', '.join(invalid_fields)}"
             )
 
-
     def convert_to_arkiv_value(self, value: Any) -> str | int:
         """
         Converts values to arkiv base values.
         """
         # to prevent convertion 1 -> 'true' and 0 -> 'false'
-        if isinstance(value, int):
+        if isinstance(value, int) and not isinstance(value, bool):
             return value
 
         # bool -> string
@@ -269,14 +276,17 @@ class RmArkivEntity:
             if len(value) == 0:
                 return self.ARKIV_NULL_VALUE
             else:
-                json_string = json.dumps(value, ensure_ascii=False)
+                json_string = minify_json_data(value)
                 converted_string = self.CONVERTED_LIST_PREFIX + json_string
-                
+
                 # Check if the converted string is too large
-                if len(converted_string.encode(Encoding.UTF8.value)) > self.MAX_DICT_LIST_STRING_SIZE:
+                if (
+                    len(converted_string.encode(Encoding.UTF8.value))
+                    > self.MAX_DICT_LIST_STRING_SIZE
+                ):
                     # Use reserved string for oversized lists
                     return self.TOO_LARGE_LIST_VALUE
-                
+
                 return converted_string
 
         # dict -> string
@@ -284,14 +294,17 @@ class RmArkivEntity:
             if len(value) == 0:
                 return self.ARKIV_NULL_VALUE
             else:
-                json_string = json.dumps(value, ensure_ascii=False)
+                json_string = minify_json_data(value)
                 converted_string = self.CONVERTED_DICT_PREFIX + json_string
-                
+
                 # Check if the converted string is too large
-                if len(converted_string.encode(Encoding.UTF8.value)) > self.MAX_DICT_LIST_STRING_SIZE:
+                if (
+                    len(converted_string.encode(Encoding.UTF8.value))
+                    > self.MAX_DICT_LIST_STRING_SIZE
+                ):
                     # Use reserved string for oversized dicts
                     return self.TOO_LARGE_DICT_VALUE
-                
+
                 return converted_string
 
         # empty string -> arkiv base null value
@@ -330,16 +343,13 @@ class RmArkivEntity:
         # Validate that all fields are not None or empty after initialization
         self.validate_system_fields()
 
-        if self._sys_file_size > self.MAX_FILE_SIZE:
-            raise ValueError(
-                f"File size is too large: {self._sys_file_size} bytes, max is {self.MAX_FILE_SIZE} bytes"
-            )
-
-        file_size_with_expansion_factor = self._sys_file_size * BASE64_EXPANSION_FACTOR
-        if file_size_with_expansion_factor > self.MAX_FILE_SIZE:
-            raise ValueError(
-                f"File size is too large with expansion factor: {file_size_with_expansion_factor} bytes, max is {self.MAX_FILE_SIZE} bytes"
-            )
+        # Check sys_data size
+        if self._sys_data:
+            sys_data_size = len(self._sys_data.encode(Encoding.UTF8.value))
+            if sys_data_size > self.MAX_FILE_SIZE:
+                raise ValueError(
+                    f"_sys_data size is too large: {sys_data_size} bytes, max is {self.MAX_FILE_SIZE} bytes"
+                )
 
         # Mark initialization as complete - fields are now read-only
         object.__setattr__(self, "_initialized", True)
@@ -367,7 +377,7 @@ class RmArkivEntity:
 
         # int -> int
         # to prevent convertion 'true' -> 1 and 'false' -> 0
-        if isinstance(value, int):
+        if isinstance(value, int) and not isinstance(value, bool):
             return value
 
         # Convert arkiv base values back to original types
@@ -391,7 +401,7 @@ class RmArkivEntity:
         too_large_list_value = object.__getattribute__(self, "TOO_LARGE_LIST_VALUE")
         if value == too_large_list_value:
             return OversizedList()
-        
+
         # check for oversized dict
         too_large_dict_value = object.__getattribute__(self, "TOO_LARGE_DICT_VALUE")
         if value == too_large_dict_value:
@@ -425,7 +435,7 @@ class RmArkivEntity:
         return result
 
     @classmethod
-    def create_from_dict(
+    def from_dict(
         cls,
         file_metadata: FileMetadataDict,
     ) -> "RmArkivEntity":
@@ -572,11 +582,12 @@ class RmArkivEntity:
         # Create the instance
         return cls(**metadata_fields)
 
-    def recreate_file(
+    def to_file(
         self, output_dir: Path | str, organize_by_category: bool = False
     ) -> Path:
         """
         Recreate a file from this RmArkivEntity instance.
+        Handles both compressed and uncompressed data automatically.
         """
         # Convert to Path object if it's a string
         output_dir = Path(output_dir)
@@ -592,7 +603,17 @@ class RmArkivEntity:
         else:
             output_file_path = output_dir / self._sys_file_name
 
-        # Recreate the file
-        write_base64_to_file(self._sys_data, output_file_path)
+        # Recreate the file with appropriate decompression
+        if (
+            self._sys_compression_method is None
+            or self._sys_compression_method == CompressionMethod.NONE.value
+        ):
+            # No compression, use original method
+            write_base64_to_file(self._sys_data, output_file_path)
+        else:
+            # File is compressed, decompress it
+            write_compressed_data_to_file(
+                self._sys_data, output_file_path, self._sys_compression_method
+            )
 
         return output_file_path

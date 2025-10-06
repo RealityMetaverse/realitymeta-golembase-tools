@@ -3,8 +3,7 @@ from pathlib import Path
 from typing import Dict, Any
 import mimetypes
 from ....common.enums import FileType, MetadataType
-from ....common.enums import Encoding
-from ...data_utils import read_file_as_base64
+from ...data_utils import read_file_as_base64_with_compression
 
 
 def detect_mime_type(file_path: Path) -> str:
@@ -34,12 +33,16 @@ def determine_file_type(mime_type: str, extension: str = None) -> str:
 
 
 def extract_basic_metadata(file_path: Path) -> Dict[str, Any]:
-    """Extract basic file system metadata. Raises exceptions if MIME type detection or file reading fails."""
+    """Extract basic file system metadata with smart compression. Raises exceptions if MIME type detection or file reading fails."""
     stat = file_path.stat()
 
     mime_type = detect_mime_type(file_path)
     file_type = determine_file_type(mime_type, file_path.suffix.lower())
-    sys_data = read_file_as_base64(file_path)
+
+    # Use smart compression based on file type, with fallback for oversized files
+    sys_data, compression_method, compressed_data_size = (
+        read_file_as_base64_with_compression(file_path, file_type, stat.st_size)
+    )
 
     return {
         MetadataType.SYSTEM: {
@@ -52,5 +55,7 @@ def extract_basic_metadata(file_path: Path) -> Dict[str, Any]:
             "file_modified_at": int(stat.st_mtime),
             "category": file_path.parent.name,
             "data": sys_data,
+            "compression_method": compression_method,
+            "compressed_data_size": compressed_data_size,
         }
     }

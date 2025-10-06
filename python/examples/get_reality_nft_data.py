@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import asyncio
 import base64
+import gzip
 import json
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
@@ -278,7 +279,7 @@ class RealityNFTService:
         Returns:
             The constructed query string
         """
-        base_query = '_sys_version = 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"'
+        base_query = '_sys_version >= 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"'
 
         if sys_category:
             base_query += f' && _sys_category = "{sys_category}"'
@@ -333,21 +334,26 @@ class RealityNFTService:
 
             # Check if this entity belongs to the target owner
             if self._has_owner_in_entity_metadata(entity_metadata, config.TARGET_OWNER):
-                # Get _sys_data from string annotations
+                # Get _sys_data and optional _sys_compression_method from string annotations
                 base64_data = ""
+                compression_method: str | None = None
                 for annotation in entity_metadata.string_annotations:
                     if annotation.key == "_sys_data":
                         base64_data = annotation.value
-                        break
+                    elif annotation.key == "_sys_compression_method":
+                        compression_method = annotation.value
 
                 if not base64_data:
                     return None
 
-                # Decode base64 and parse JSON
+                # Decode base64, optionally gunzip, then parse JSON
                 try:
-                    decoded_data = base64.b64decode(base64_data).decode("utf-8")
+                    raw_bytes = base64.b64decode(base64_data)
+                    if compression_method and compression_method.lower() == "gzip":
+                        raw_bytes = gzip.decompress(raw_bytes)
+                    decoded_data = raw_bytes.decode("utf-8")
                     data = json.loads(decoded_data)
-                except (ValueError, json.JSONDecodeError):
+                except (ValueError, json.JSONDecodeError, OSError):
                     return None
 
                 # Cache the result using composite key
@@ -380,24 +386,30 @@ class RealityNFTService:
 
             # Check if this entity belongs to the target owner
             if self._has_owner_in_entity_metadata(entity_metadata, config.TARGET_OWNER):
-                # Extract tokenId and _sys_data from annotations
+                # Extract tokenId, _sys_data and optional _sys_compression_method from annotations
                 token_id = ""
                 base64_data = ""
+                compression_method: str | None = None
 
                 for annotation in entity_metadata.string_annotations:
                     if annotation.key == "_sys_file_stem":
                         token_id = annotation.value
                     elif annotation.key == "_sys_data":
                         base64_data = annotation.value
+                    elif annotation.key == "_sys_compression_method":
+                        compression_method = annotation.value
 
                 if not token_id or not base64_data:
                     return None
 
-                # Decode base64 and parse JSON
+                # Decode base64, optionally gunzip, then parse JSON
                 try:
-                    decoded_data = base64.b64decode(base64_data).decode("utf-8")
+                    raw_bytes = base64.b64decode(base64_data)
+                    if compression_method and compression_method.lower() == "gzip":
+                        raw_bytes = gzip.decompress(raw_bytes)
+                    decoded_data = raw_bytes.decode("utf-8")
                     data = json.loads(decoded_data)
-                except (ValueError, json.JSONDecodeError):
+                except (ValueError, json.JSONDecodeError, OSError):
                     return None
 
                 # Cache and return result using composite key
@@ -543,6 +555,13 @@ async def main():
             token_keyword="main",
             skip=0,
             limit=30,
+        )
+        print(json.dumps(result, indent=2))
+
+        print("Get compressed data")
+        result = await reality_nft_service.get_data(
+            token_id="1120",
+            sys_category="REALITY_NFT_SPECIAL_VENUES",
         )
         print(json.dumps(result, indent=2))
     finally:

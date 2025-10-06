@@ -1,4 +1,5 @@
 import { createClient, AccountData, Tagged, Hex } from "golem-base-sdk";
+import { gunzipSync } from "zlib";
 
 // Configuration - these would typically come from environment variables
 const config = {
@@ -505,7 +506,7 @@ export class RealityNFTService {
     tokenKeywords?: string[];
     tokenSettlement?: string;
   }): string {
-    let baseQuery = `_sys_version = 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"`;
+    let baseQuery = `_sys_version >= 1 && (_sys_status = "both" || _sys_status = "prod") && _sys_file_type = "json"`;
 
     if (sysCategory) {
       baseQuery += ` && _sys_category = "${sysCategory}"`;
@@ -660,12 +661,16 @@ export class RealityNFTService {
           config.TARGET_OWNER as string
         )
       ) {
-        // Get _sys_data from string annotations
+        // Get _sys_data and _sys_compression_method from string annotations
         let base64Data = "";
+        let compressionMethod: string | null = null;
         for (const annotation of entityMetadata.stringAnnotations) {
           if (annotation.key === "_sys_data") {
             base64Data = annotation.value;
             break;
+          }
+          if (annotation.key === "_sys_compression_method") {
+            compressionMethod = annotation.value;
           }
         }
 
@@ -673,11 +678,19 @@ export class RealityNFTService {
           return null;
         }
 
-        // Decode base64 and parse JSON
+        // Decode base64, optionally gunzip, then parse JSON
         let data: any;
         try {
-          const decodedData = atob(base64Data);
-          data = JSON.parse(decodedData);
+          const compressedBytes = Uint8Array.from(atob(base64Data), (c) =>
+            c.charCodeAt(0)
+          );
+          let bytes = compressedBytes;
+          if (compressionMethod && compressionMethod.toLowerCase() === "gzip") {
+            const gunzipped = gunzipSync(Buffer.from(compressedBytes));
+            bytes = new Uint8Array(gunzipped);
+          }
+          const decodedString = new TextDecoder("utf-8").decode(bytes);
+          data = JSON.parse(decodedString);
         } catch (parseError) {
           return null;
         }
@@ -715,15 +728,18 @@ export class RealityNFTService {
           config.TARGET_OWNER as string
         )
       ) {
-        // Extract tokenId and _sys_data from annotations
+        // Extract tokenId, _sys_data and _sys_compression_method from annotations
         let tokenId = "";
         let base64Data = "";
+        let compressionMethod: string | null = null;
 
         for (const annotation of entityMetadata.stringAnnotations) {
           if (annotation.key === "_sys_file_stem") {
             tokenId = annotation.value;
           } else if (annotation.key === "_sys_data") {
             base64Data = annotation.value;
+          } else if (annotation.key === "_sys_compression_method") {
+            compressionMethod = annotation.value;
           }
         }
 
@@ -731,11 +747,19 @@ export class RealityNFTService {
           return null;
         }
 
-        // Decode base64 and parse JSON
+        // Decode base64, optionally gunzip, then parse JSON
         let data: any;
         try {
-          const decodedData = atob(base64Data);
-          data = JSON.parse(decodedData);
+          const compressedBytes = Uint8Array.from(atob(base64Data), (c) =>
+            c.charCodeAt(0)
+          );
+          let bytes = compressedBytes;
+          if (compressionMethod && compressionMethod.toLowerCase() === "gzip") {
+            const gunzipped = gunzipSync(Buffer.from(compressedBytes));
+            bytes = new Uint8Array(gunzipped);
+          }
+          const decodedString = new TextDecoder("utf-8").decode(bytes);
+          data = JSON.parse(decodedString);
         } catch (parseError) {
           return null;
         }
@@ -863,6 +887,9 @@ console.log(
     limit: 30,
   })
 );
+
+// Get compressed data
+console.log(await realityNFTService.getData("1120", "REALITY_NFT_METADATA"));
 
 // Advanced search usage - automatically determines search strategy based on first result's attr_type
 realityNFTService

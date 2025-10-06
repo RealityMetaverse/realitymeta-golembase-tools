@@ -78,3 +78,13 @@ class FileType(BaseStringEnum):
     JSON = "json"
     TEXT = "text"
     OTHER = "other"
+
+
+class CompressionMethod(BaseStringEnum):
+    """
+    Enum for compression methods.
+    Representing different compression methods for files.
+    """
+
+    NONE = "none"
+    GZIP = "gzip"

@@ -55,7 +55,7 @@ def create_rm_arkiv_entity(
     entity_class = file_type_to_class_mapping[file_type]
 
     try:
-        return entity_class.create_from_dict(data)
+        return entity_class.from_dict(data)
     except Exception as e:
         raise ValueError(f"Failed to create {entity_class.__name__} instance: {str(e)}")
 

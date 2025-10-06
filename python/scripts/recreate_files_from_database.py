@@ -125,7 +125,7 @@ async def recreate_files_from_entities(
                 )
 
             # Recreate the file
-            output_file_path = rmgb_entity.recreate_file(
+            output_file_path = rmgb_entity.to_file(
                 output_dir, organize_by_category=True
             )
 
