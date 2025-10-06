@@ -16,6 +16,10 @@ File tracking and management system for Arkiv. Upload any file type, track chang
 - **Compression Detection**: Client-side decompression support in both Python and TypeScript examples
 - **Size Optimization**: Files are compressed only when beneficial (reduces final size)
 
+#### FIXED: Boolean Serialization Bug
+
+- Previously, boolean values were serialized as `1`/`0` when written to Arkiv. This has been fixed so booleans are consistently preserved as `"true"`/`"false"` during entity creation and reconstruction.
+
 ---
 
 ## Features
