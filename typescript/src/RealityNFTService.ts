@@ -410,12 +410,7 @@ export class RealityNFTService {
       return { data: {}, totalCount: 0 };
     }
 
-    const processedKeys = this.applySkipAndLimit(
-      orderedKeys,
-      skip,
-      limit,
-      firstEntityInfo.tokenId ?? undefined
-    );
+    const processedKeys = this.applySkipAndLimit(orderedKeys, skip, limit);
 
     const finalResults: Record<string, unknown> = {};
     for (const key of processedKeys) {
