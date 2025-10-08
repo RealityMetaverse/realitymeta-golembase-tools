@@ -224,6 +224,7 @@ export class RealityNFTService {
   async getAllData(options: {
     sysCategory?: string;
     tokenTypes?: string[];
+    tokenCategories?: string[];
     tokenCountry?: string;
     tokenKeywords?: string[];
     tokenSettlement?: string;
@@ -234,6 +235,7 @@ export class RealityNFTService {
     const {
       sysCategory = SystemCategory.REALITY_NFT_METADATA,
       tokenTypes,
+      tokenCategories,
       tokenCountry,
       tokenKeywords,
       tokenSettlement,
@@ -248,6 +250,7 @@ export class RealityNFTService {
         return await this.performAdvancedSearch({
           sysCategory,
           tokenTypes,
+          tokenCategories,
           tokenCountry,
           tokenKeywords,
           tokenSettlement,
@@ -259,6 +262,7 @@ export class RealityNFTService {
       return await this.performStandardSearch({
         sysCategory,
         tokenTypes,
+        tokenCategories,
         tokenCountry,
         tokenKeywords,
         tokenSettlement,
@@ -281,6 +285,7 @@ export class RealityNFTService {
   private async performStandardSearch(params: {
     sysCategory: string;
     tokenTypes?: string[];
+    tokenCategories?: string[];
     tokenCountry?: string;
     tokenKeywords?: string[];
     tokenSettlement?: string;
@@ -290,6 +295,7 @@ export class RealityNFTService {
     const {
       sysCategory,
       tokenTypes,
+      tokenCategories,
       tokenCountry,
       tokenKeywords,
       tokenSettlement,
@@ -300,6 +306,7 @@ export class RealityNFTService {
     const query = this.queryBuilder.buildQuery({
       sysCategory,
       tokenTypes,
+      tokenCategories,
       tokenCountry,
       tokenKeywords,
       tokenSettlement,
@@ -333,6 +340,7 @@ export class RealityNFTService {
   private async performAdvancedSearch(params: {
     sysCategory: string;
     tokenTypes?: string[];
+    tokenCategories?: string[];
     tokenCountry?: string;
     tokenKeywords?: string[];
     tokenSettlement?: string;
@@ -342,6 +350,7 @@ export class RealityNFTService {
     const {
       sysCategory,
       tokenTypes,
+      tokenCategories,
       tokenCountry,
       tokenKeywords,
       tokenSettlement,
@@ -352,6 +361,7 @@ export class RealityNFTService {
     const initialQuery = this.queryBuilder.buildQuery({
       sysCategory,
       tokenTypes,
+      tokenCategories,
       tokenCountry,
       tokenKeywords,
       tokenSettlement,
