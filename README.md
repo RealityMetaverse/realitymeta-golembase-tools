@@ -91,12 +91,15 @@ File tracking and management system for Arkiv. Upload any file type, track chang
 ### Create Entities (Testing)
 
 ```bash
-./create_rmgb_entries --in-dir ./database
+./create_rmgb_entities --in-dir ./database
 ```
 
 **Arguments:**
 
-- `--in-dir`, `-in` (required): Input directory containing files to convert to Reality Metaverse Arkiv entries
+- `--in-dir`, `-i` (required): Input directory containing files to convert to Reality Metaverse Arkiv entries
+- `--rpc-url`, `-r`: Arkiv RPC URL (uses default from config if not provided)
+- `--ws-url`, `-w`: Arkiv WebSocket URL (uses default from config if not provided)
+- `--private-key`, `-k`: Private key for Arkiv authentication (uses PRIVATE_KEY environment variable if not provided)
 
 _Converts files to Reality Metaverse Arkiv entries for testing purposes_
 
@@ -108,26 +111,26 @@ _Converts files to Reality Metaverse Arkiv entries for testing purposes_
 
 **Arguments:**
 
-- `--in-dir`, `--in`: Input directory with RM entities (default: `./database`)
-- `--batch-size`, `-bs`: Number of entities to update in each batch (default: 15)
-- `--ttl`: Time-to-live for entities in seconds (default: 86400)
-- `--rpc-url`, `-rpc`: Arkiv RPC URL (uses default from config if not provided)
-- `--ws-url`, `-ws`: Arkiv WebSocket URL (uses default from config if not provided)
-- `--private-key`, `-pk`: Private key for Arkiv authentication (uses PRIVATE_KEY environment variable if not provided)
+- `--in-dir`, `-i`: Input directory with RM entities (default: `./database`)
+- `--batch-size`, `-b`: Number of entities to update in each batch (default: 15)
+- `--ttl`, `-t`: Time-to-live for entities in seconds (default: 86400)
+- `--rpc-url`, `-r`: Arkiv RPC URL (uses default from config if not provided)
+- `--ws-url`, `-w`: Arkiv WebSocket URL (uses default from config if not provided)
+- `--private-key`, `-k`: Private key for Arkiv authentication (uses PRIVATE_KEY environment variable if not provided)
 
 ### Recreate Files
 
 ```bash
-./recreate_files_from_database --output-dir ./recreated --version 1 --private-key YOUR_PRIVATE_KEY
+./recreate_files_from_database --out-dir ./recreated --version 1 --private-key YOUR_PRIVATE_KEY
 ```
 
 **Arguments:**
 
-- `--output-dir`, `--out`: Output directory for recreated files (default: `./recreated_files`)
+- `--out-dir`, `-o`: Output directory for recreated files (default: `./recreated_files`)
 - `--version`, `-v`: Sys version to query for (default: 1)
-- `--rpc-url`, `-rpc`: Arkiv RPC URL (uses default from config if not provided)
-- `--ws-url`, `-ws`: Arkiv WebSocket URL (uses default from config if not provided)
-- `--private-key`, `-pk`: Private key for Arkiv authentication (uses PRIVATE_KEY environment variable if not provided)
+- `--rpc-url`, `-r`: Arkiv RPC URL (uses default from config if not provided)
+- `--ws-url`, `-w`: Arkiv WebSocket URL (uses default from config if not provided)
+- `--private-key`, `-k`: Private key for Arkiv authentication (uses PRIVATE_KEY environment variable if not provided)
 
 ## Configuration
 

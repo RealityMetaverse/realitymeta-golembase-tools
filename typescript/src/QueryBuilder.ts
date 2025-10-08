@@ -55,6 +55,7 @@ export class QueryBuilder {
       tokenIds,
       sysCategory,
       tokenTypes,
+      tokenCategories,
       tokenCountry,
       tokenKeywords,
       tokenSettlement,
@@ -76,6 +77,14 @@ export class QueryBuilder {
     if (tokenTypes && tokenTypes.length > 0) {
       const typeKey = this.getAttributeKey(sysCategory, ATTRIBUTE_KEYS.TYPE);
       query += this.buildArrayCondition(typeKey, tokenTypes);
+    }
+
+    if (tokenCategories && tokenCategories.length > 0) {
+      const categoryKey = this.getAttributeKey(
+        sysCategory,
+        ATTRIBUTE_KEYS.CATEGORY
+      );
+      query += this.buildArrayCondition(categoryKey, tokenCategories);
     }
 
     if (tokenCountry) {
@@ -118,6 +127,7 @@ export class QueryBuilder {
     const {
       sysCategory,
       tokenTypes,
+      tokenCategories,
       tokenKeywords,
       tokenCountry,
       tokenSettlement,
@@ -129,6 +139,7 @@ export class QueryBuilder {
     let query = this.buildQuery({
       sysCategory,
       tokenTypes: hasCountryAndSettlement ? undefined : tokenTypes,
+      tokenCategories,
       tokenKeywords,
       tokenCountry: hasCountryAndSettlement ? undefined : tokenCountry,
       tokenSettlement: hasCountryAndSettlement ? undefined : tokenSettlement,

@@ -389,28 +389,32 @@ export class RealityNFTService {
       sysCategory
     );
 
-    const orderedResults = this.orderResultsByType(
+    const { keys: orderedKeys, data: allData } = this.orderResultsByType(
       firstEntityData,
       firstEntityInfo.tokenId,
       firstEntityInfo.attrType,
       categorizedResults
     );
 
-    if (Object.keys(orderedResults).length === 0) {
+    if (orderedKeys.length === 0) {
       return { data: {}, totalCount: 0 };
     }
 
-    const resultKeys = Object.keys(orderedResults);
-    const processedKeys = this.applySkipAndLimit(resultKeys, skip, limit);
+    const processedKeys = this.applySkipAndLimit(
+      orderedKeys,
+      skip,
+      limit,
+      firstEntityInfo.tokenId ?? undefined
+    );
 
     const finalResults: Record<string, unknown> = {};
     for (const key of processedKeys) {
-      finalResults[key] = orderedResults[key];
+      finalResults[key] = allData[key];
     }
 
     return {
       data: finalResults,
-      totalCount: resultKeys.length,
+      totalCount: orderedKeys.length,
       referenceId: firstEntityInfo.tokenId ?? undefined,
     };
   }
@@ -568,11 +572,13 @@ export class RealityNFTService {
     firstEntityTokenId: string | null,
     attrType: string | null,
     categorizedResults: Record<EntityType, Record<string, unknown>>
-  ): Record<string, unknown> {
-    const orderedResults: Record<string, unknown> = {};
+  ): { keys: string[]; data: Record<string, unknown> } {
+    const orderedKeys: string[] = [];
+    const allData: Record<string, unknown> = {};
 
     if (firstEntityTokenId && firstEntityData) {
-      orderedResults[firstEntityTokenId] = firstEntityData.data;
+      orderedKeys.push(firstEntityTokenId);
+      allData[firstEntityTokenId] = firstEntityData.data;
     }
 
     const orderMap: Record<string, EntityType[]> = {
@@ -597,7 +603,13 @@ export class RealityNFTService {
 
     if (order) {
       for (const type of order) {
-        Object.assign(orderedResults, categorizedResults[type]);
+        const typeData = categorizedResults[type];
+        for (const key of Object.keys(typeData)) {
+          if (!orderedKeys.includes(key)) {
+            orderedKeys.push(key);
+            allData[key] = typeData[key];
+          }
+        }
       }
     } else {
       console.warn(
@@ -605,21 +617,30 @@ export class RealityNFTService {
       );
     }
 
-    return orderedResults;
+    return { keys: orderedKeys, data: allData };
   }
 
   /**
    * Apply skip and limit to an array
+   * @param requiredItem Optional item that must be included in results
    */
   private applySkipAndLimit<T>(
     items: T[],
     skip: number,
-    limit: number | null
+    limit: number | null,
+    requiredItem?: T
   ): T[] {
     const startIndex = Math.max(0, skip);
     const endIndex =
       limit !== null && limit > 0 ? startIndex + limit : undefined;
-    return items.slice(startIndex, endIndex);
+    const result = items.slice(startIndex, endIndex);
+
+    if (requiredItem && !result.includes(requiredItem)) {
+      if (limit && result.length >= limit) result.pop();
+      result.push(requiredItem);
+    }
+
+    return result;
   }
 
   /**

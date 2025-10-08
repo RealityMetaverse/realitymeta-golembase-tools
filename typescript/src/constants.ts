@@ -14,6 +14,7 @@ export const ATTRIBUTE_KEYS = {
   TYPE: "type",
   SETTLEMENT: "settlement",
   COUNTRY_NAME: "country_name",
+  CATEGORY: "category",
 } as const;
 
 export const COMPRESSION_METHODS = {

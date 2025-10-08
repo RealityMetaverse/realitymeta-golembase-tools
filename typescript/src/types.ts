@@ -70,6 +70,7 @@ export interface QueryParams {
   tokenIds?: string[];
   sysCategory: string;
   tokenTypes?: string[];
+  tokenCategories?: string[];
   tokenCountry?: string;
   tokenKeywords?: string[];
   tokenSettlement?: string;

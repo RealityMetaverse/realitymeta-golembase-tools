@@ -76,6 +76,12 @@ const buildings = await service.getAllData({
   tokenCountry: "France",
 });
 
+// Query by categories
+const categoryData = await service.getAllData({
+  sysCategory: SystemCategory.REALITY_NFT_METADATA,
+  tokenCategories: ["parliament", "sea"],
+});
+
 // Get single entity data
 const tokenData = await service.getData("12345");
 
@@ -106,6 +112,7 @@ Main service class for interacting with Reality NFT data.
 {
   sysCategory?: string;           // Default: REALITY_NFT_METADATA
   tokenTypes?: string[];          // Filter by entity types (building, city, country)
+  tokenCategories?: string[];     // Filter by entity categories
   tokenCountry?: string;          // Filter by country name
   tokenKeywords?: string[];       // Filter by keywords
   tokenSettlement?: string;       // Filter by settlement name
