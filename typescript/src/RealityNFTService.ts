@@ -517,6 +517,7 @@ export class RealityNFTService {
           sysCategory,
           tokenTypes: [EntityType.BUILDING, EntityType.COUNTRY],
           tokenSettlement: attrSettlement,
+          tokenCountry: attrCountryName,
         });
         break;
     }

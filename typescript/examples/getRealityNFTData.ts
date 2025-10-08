@@ -7,7 +7,7 @@ import { RealityNFTService, SystemCategory } from "../src";
 (async () => {
   const result = await new RealityNFTService().getAllData({
     sysCategory: SystemCategory.REALITY_NFT_SPECIAL_VENUES,
-    tokenKeywords: ["eif"],
+    tokenKeywords: ["paris"],
     advancedSearch: true,
   });
 

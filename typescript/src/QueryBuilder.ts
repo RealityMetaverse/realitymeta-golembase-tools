@@ -1,4 +1,9 @@
-import { QueryParams, AdvancedQueryParams, SystemCategory } from "./types";
+import {
+  QueryParams,
+  AdvancedQueryParams,
+  SystemCategory,
+  EntityType,
+} from "./types";
 import {
   SYSTEM_ANNOTATION_KEYS,
   ATTRIBUTE_KEYS,
@@ -119,21 +124,32 @@ export class QueryBuilder {
       excludeTokenIds,
     } = params;
 
+    // Build base query, excluding country/settlement if both are provided (handled separately)
+    const hasCountryAndSettlement = tokenCountry && tokenSettlement;
     let query = this.buildQuery({
       sysCategory,
-      tokenTypes,
+      tokenTypes: hasCountryAndSettlement ? undefined : tokenTypes,
       tokenKeywords,
-      tokenCountry,
+      tokenCountry: hasCountryAndSettlement ? undefined : tokenCountry,
+      tokenSettlement: hasCountryAndSettlement ? undefined : tokenSettlement,
     });
 
-    if (tokenSettlement) {
+    // Handle country and settlement with OR logic when both are provided
+    if (hasCountryAndSettlement) {
+      const typeKey = this.getAttributeKey(sysCategory, ATTRIBUTE_KEYS.TYPE);
+
+      const countryKey = this.getAttributeKey(
+        sysCategory,
+        ATTRIBUTE_KEYS.COUNTRY_NAME
+      );
       const settlementKey = this.getAttributeKey(
         sysCategory,
         ATTRIBUTE_KEYS.SETTLEMENT
       );
-      query += ` || ${settlementKey} = "${tokenSettlement}"`;
+      query += ` && (( ${typeKey} = "${EntityType.COUNTRY}" && ${countryKey} = "${tokenCountry}") || (${typeKey} = "${EntityType.BUILDING}" && ${settlementKey} = "${tokenSettlement}"))`;
     }
 
+    // Add exclusion conditions
     if (excludeTokenIds && excludeTokenIds.length > 0) {
       const exclusionConditions = excludeTokenIds.map(
         (tokenId) => `${SYSTEM_ANNOTATION_KEYS.FILE_STEM} != "${tokenId}"`
