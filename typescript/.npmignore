@@ -1,0 +1,37 @@
+# Source files
+src/
+examples/
+*.ts
+!*.d.ts
+
+# Config files
+tsconfig.json
+.editorconfig
+.gitignore
+
+# Development files
+node_modules/
+.vscode/
+.idea/
+*.log
+*.lock
+
+# Build artifacts
+*.tsbuildinfo
+
+# Tests
+test/
+tests/
+__tests__/
+*.test.ts
+*.spec.ts
+
+# Package files
+package-lock.json
+bun.lock
+yarn.lock
+pnpm-lock.yaml
+
+# Misc
+.DS_Store
+Thumbs.db

@@ -411,6 +411,7 @@ export class RealityNFTService {
     return {
       data: finalResults,
       totalCount: resultKeys.length,
+      referenceId: firstEntityInfo.tokenId ?? undefined,
     };
   }
 

@@ -88,6 +88,7 @@ export interface AdvancedQueryParams extends Omit<QueryParams, "tokenIds"> {
 export interface GetAllDataResult {
   data: Record<string, unknown>;
   totalCount: number;
+  referenceId?: string; // The tokenId used as reference in advanced search
 }
 
 /**
