@@ -90,6 +90,7 @@ export interface GetAllDataResult {
   data: Record<string, unknown>;
   totalCount: number;
   referenceId?: string; // The tokenId used as reference in advanced search
+  referenceType?: EntityType; // The entity type of the reference
 }
 
 /**
