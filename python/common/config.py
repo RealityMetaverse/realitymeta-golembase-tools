@@ -35,8 +35,8 @@ REALITY_NFT_CONVERTED_METADATA_REQUIRED_FIELDS = {
     "external_url",
     "image",
     "license",
-    "markerUrl",
+    "marker_url",
     "name",
-    "nftValue",
+    "nft_value",
     "shares",
 }
